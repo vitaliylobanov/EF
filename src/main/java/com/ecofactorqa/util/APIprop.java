@@ -5,6 +5,7 @@ package com.ecofactorqa.util;
 public class APIprop {
 	public static final String THERMOSTAT_STATE_URL = "http://qa-plat-tc1.ecofactor.com:8084/services/ws/v1.0/thermostat/thermostat_id/state";
 	public static final String SET_THERMOSTAT_AWAY_URL = "http://qa-plat-tc1.ecofactor.com:8084/services/ws/v1.0/thermostat/thermostat_id/away";
+	public static final String THERMOSTAT_STATE_URL1 = "http://qa-plat-tc1.ecofactor.com:8084/services/ws/v1.0/thermostat/thermostat_id/";
 	
 	
 	public static final String json_away_start_valid_data = "{\"cool_setpoint\": 80.01,\"heat_setpoint\": 65.01,\"end_ts\": \"2015-07-03T06:35:00+00:00\"}";
