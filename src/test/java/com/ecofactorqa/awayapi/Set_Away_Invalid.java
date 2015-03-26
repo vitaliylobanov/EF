@@ -25,8 +25,9 @@ public class Set_Away_Invalid {
 	public void init() {
 
 		client = ClientBuilder.newClient();
+	
 	}
-
+	
 	@Test
 	public void test_start_Away_using_past_date() {
 		String jsonString = APIprop.json_away_start_invalid_date_past;
@@ -37,7 +38,12 @@ public class Set_Away_Invalid {
 		String content = response.readEntity(String.class);
 		Assert.assertTrue(content.contains("End time is in the past"),"End time is in the past");
 		System.out.println(response);
-	
+		//cancel away
+		Invocation.Builder invocationBuilder1 = client
+				.target(setThermostatAway).request(MediaType.APPLICATION_JSON);
+		Response response1 = invocationBuilder1.delete();
+		System.out.println(response1);
+
 	}
 	
 	@Test
@@ -50,6 +56,12 @@ public class Set_Away_Invalid {
 		String content = response.readEntity(String.class);
 		Assert.assertTrue(content.contains("Invalid format for end time"),"Invalid format for end time");
 		System.out.println(response);
+		//cancel away
+		Invocation.Builder invocationBuilder1 = client
+				.target(setThermostatAway).request(MediaType.APPLICATION_JSON);
+		Response response1 = invocationBuilder1.delete();
+		System.out.println(response1);
+		
 	
 	}
 	
@@ -63,6 +75,11 @@ public class Set_Away_Invalid {
 		String content = response.readEntity(String.class);
 		Assert.assertTrue(content.contains("Invalid format for end time"),"Invalid format for end time");
 		System.out.println(response);
+		//cancel away
+		Invocation.Builder invocationBuilder1 = client
+				.target(setThermostatAway).request(MediaType.APPLICATION_JSON);
+		Response response1 = invocationBuilder1.delete();
+		System.out.println(response1);
 	
 	}
 	
@@ -76,6 +93,11 @@ public class Set_Away_Invalid {
 		String content = response.readEntity(String.class);
 		Assert.assertTrue(content.contains("Invalid format for end time"),"Invalid format for end time");
 		System.out.println(response);
+		//cancel away
+		Invocation.Builder invocationBuilder1 = client
+				.target(setThermostatAway).request(MediaType.APPLICATION_JSON);
+		Response response1 = invocationBuilder1.delete();
+		System.out.println(response1);
 	
 	}
 	
@@ -89,6 +111,11 @@ public class Set_Away_Invalid {
 		String content = response.readEntity(String.class);
 		Assert.assertTrue(content.contains("Invalid format for end time"),"Invalid format for end time");
 		System.out.println(response);
+		//cancel away
+		Invocation.Builder invocationBuilder1 = client
+				.target(setThermostatAway).request(MediaType.APPLICATION_JSON);
+		Response response1 = invocationBuilder1.delete();
+		System.out.println(response1);
 	
 	}
 	
@@ -102,6 +129,11 @@ public class Set_Away_Invalid {
 		String content = response.readEntity(String.class);
 		Assert.assertTrue(content.contains("Invalid format for end time"),"Invalid format for end time");
 		System.out.println(response);
+		//cancel away
+		Invocation.Builder invocationBuilder1 = client
+				.target(setThermostatAway).request(MediaType.APPLICATION_JSON);
+		Response response1 = invocationBuilder1.delete();
+		System.out.println(response1);
 	
 	}
 	
@@ -115,6 +147,11 @@ public class Set_Away_Invalid {
 		String content = response.readEntity(String.class);
 		Assert.assertTrue(content.contains("Invalid format for end time"),"Invalid format for end time");
 		System.out.println(response);
+		//cancel away
+		Invocation.Builder invocationBuilder1 = client
+				.target(setThermostatAway).request(MediaType.APPLICATION_JSON);
+		Response response1 = invocationBuilder1.delete();
+		System.out.println(response1);
 	
 	}
 	
@@ -128,6 +165,11 @@ public class Set_Away_Invalid {
 		String content = response.readEntity(String.class);
 		Assert.assertTrue(content.contains("Invalid format for end time"),"Invalid format for end time");
 		System.out.println(response);
+		//cancel away
+		Invocation.Builder invocationBuilder1 = client
+				.target(setThermostatAway).request(MediaType.APPLICATION_JSON);
+		Response response1 = invocationBuilder1.delete();
+		System.out.println(response1);
 	
 	}
 	
@@ -141,6 +183,11 @@ public class Set_Away_Invalid {
 		String content = response.readEntity(String.class);
 		Assert.assertTrue(content.contains("Invalid format for end time"),"Invalid format for end time");
 		System.out.println(response);
+		//cancel away
+		Invocation.Builder invocationBuilder1 = client
+				.target(setThermostatAway).request(MediaType.APPLICATION_JSON);
+		Response response1 = invocationBuilder1.delete();
+		System.out.println(response1);
 	
 	}
 	
@@ -154,6 +201,11 @@ public class Set_Away_Invalid {
 		String content = response.readEntity(String.class);
 		Assert.assertTrue(content.contains("Invalid format for end time"),"Invalid format for end time");
 		System.out.println(response);
+		//cancel away
+		Invocation.Builder invocationBuilder1 = client
+				.target(setThermostatAway).request(MediaType.APPLICATION_JSON);
+		Response response1 = invocationBuilder1.delete();
+		System.out.println(response1);
 	
 	}
 	
@@ -167,6 +219,11 @@ public class Set_Away_Invalid {
 		String content = response.readEntity(String.class);
 		Assert.assertTrue(content.contains("Invalid format for end time"),"Invalid format for end time");
 		System.out.println(response);
+		//cancel away
+		Invocation.Builder invocationBuilder1 = client
+				.target(setThermostatAway).request(MediaType.APPLICATION_JSON);
+		Response response1 = invocationBuilder1.delete();
+		System.out.println(response1);
 	
 	}
 	
@@ -180,6 +237,11 @@ public class Set_Away_Invalid {
 		String content = response.readEntity(String.class);
 		Assert.assertTrue(content.contains("Invalid format for end time"),"Invalid format for end time");
 		System.out.println(response);
+		//cancel away
+		Invocation.Builder invocationBuilder1 = client
+				.target(setThermostatAway).request(MediaType.APPLICATION_JSON);
+		Response response1 = invocationBuilder1.delete();
+		System.out.println(response1);
 	
 	}
 	
@@ -193,6 +255,11 @@ public class Set_Away_Invalid {
 		String content = response.readEntity(String.class);
 		Assert.assertTrue(content.contains("Invalid format for end time"),"Invalid format for end time");
 		System.out.println(response);
+		//cancel away
+		Invocation.Builder invocationBuilder1 = client
+				.target(setThermostatAway).request(MediaType.APPLICATION_JSON);
+		Response response1 = invocationBuilder1.delete();
+		System.out.println(response1);
 	
 	}
 	
@@ -206,6 +273,11 @@ public class Set_Away_Invalid {
 		String content = response.readEntity(String.class);
 		Assert.assertTrue(content.contains("Invalid format for end time"),"Invalid format for end time");
 		System.out.println(response);
+		//cancel away
+		Invocation.Builder invocationBuilder1 = client
+				.target(setThermostatAway).request(MediaType.APPLICATION_JSON);
+		Response response1 = invocationBuilder1.delete();
+		System.out.println(response1);
 	
 	}
 	
@@ -219,6 +291,11 @@ public class Set_Away_Invalid {
 		String content = response.readEntity(String.class);
 		Assert.assertTrue(content.contains("Invalid format for end time"),"Invalid format for end time");
 		System.out.println(response);
+		//cancel away
+		Invocation.Builder invocationBuilder1 = client
+				.target(setThermostatAway).request(MediaType.APPLICATION_JSON);
+		Response response1 = invocationBuilder1.delete();
+		System.out.println(response1);
 	
 	}
 	
@@ -232,6 +309,11 @@ public class Set_Away_Invalid {
 		String content = response.readEntity(String.class);
 		Assert.assertTrue(content.contains("Invalid format for end time"),"Invalid format for end time");
 		System.out.println(response);
+		//cancel away
+		Invocation.Builder invocationBuilder1 = client
+				.target(setThermostatAway).request(MediaType.APPLICATION_JSON);
+		Response response1 = invocationBuilder1.delete();
+		System.out.println(response1);
 	
 	}
 	
@@ -245,6 +327,11 @@ public class Set_Away_Invalid {
 		String content = response.readEntity(String.class);
 		Assert.assertTrue(content.contains("Invalid format for end time"),"Invalid format for end time");
 		System.out.println(response);
+		//cancel away
+		Invocation.Builder invocationBuilder1 = client
+				.target(setThermostatAway).request(MediaType.APPLICATION_JSON);
+		Response response1 = invocationBuilder1.delete();
+		System.out.println(response1);
 	
 	}
 	
@@ -258,6 +345,11 @@ public class Set_Away_Invalid {
 		String content = response.readEntity(String.class);
 		Assert.assertTrue(content.contains("Invalid format for end time"),"Invalid format for end time");
 		System.out.println(response);
+		//cancel away
+		Invocation.Builder invocationBuilder1 = client
+				.target(setThermostatAway).request(MediaType.APPLICATION_JSON);
+		Response response1 = invocationBuilder1.delete();
+		System.out.println(response1);
 	
 	}
 	
@@ -271,6 +363,11 @@ public class Set_Away_Invalid {
 		String content = response.readEntity(String.class);
 		Assert.assertTrue(content.contains("Invalid format for end time"),"Invalid format for end time");
 		System.out.println(response);
+		//cancel away
+		Invocation.Builder invocationBuilder1 = client
+				.target(setThermostatAway).request(MediaType.APPLICATION_JSON);
+		Response response1 = invocationBuilder1.delete();
+		System.out.println(response1);
 	
 	}
 	
@@ -284,6 +381,11 @@ public class Set_Away_Invalid {
 		String content = response.readEntity(String.class);
 		Assert.assertTrue(content.contains("Invalid format for end time"),"Invalid format for end time");
 		System.out.println(response);
+		//cancel away
+		Invocation.Builder invocationBuilder1 = client
+				.target(setThermostatAway).request(MediaType.APPLICATION_JSON);
+		Response response1 = invocationBuilder1.delete();
+		System.out.println(response1);
 	
 	}
 	
@@ -297,6 +399,11 @@ public class Set_Away_Invalid {
 		String content = response.readEntity(String.class);
 		Assert.assertTrue(content.contains("Invalid format for end time"),"Invalid format for end time");
 		System.out.println(response);
+		//cancel away
+		Invocation.Builder invocationBuilder1 = client
+				.target(setThermostatAway).request(MediaType.APPLICATION_JSON);
+		Response response1 = invocationBuilder1.delete();
+		System.out.println(response1);
 	
 	}
 	
@@ -310,6 +417,11 @@ public class Set_Away_Invalid {
 		String content = response.readEntity(String.class);
 		Assert.assertTrue(content.contains("Invalid format for end time"),"Invalid format for end time");
 		System.out.println(response);
+		//cancel away
+		Invocation.Builder invocationBuilder1 = client
+				.target(setThermostatAway).request(MediaType.APPLICATION_JSON);
+		Response response1 = invocationBuilder1.delete();
+		System.out.println(response1);
 	
 	}
 	
@@ -323,6 +435,11 @@ public class Set_Away_Invalid {
 		String content = response.readEntity(String.class);
 		Assert.assertTrue(content.contains("Invalid format for end time"),"Invalid format for end time");
 		System.out.println(response);
+		//cancel away
+		Invocation.Builder invocationBuilder1 = client
+				.target(setThermostatAway).request(MediaType.APPLICATION_JSON);
+		Response response1 = invocationBuilder1.delete();
+		System.out.println(response1);
 	
 	}
 	
@@ -336,6 +453,11 @@ public class Set_Away_Invalid {
 		String content = response.readEntity(String.class);
 		Assert.assertTrue(content.contains("Invalid format for end time"),"Invalid format for end time");
 		System.out.println(response);
+		//cancel away
+		Invocation.Builder invocationBuilder1 = client
+				.target(setThermostatAway).request(MediaType.APPLICATION_JSON);
+		Response response1 = invocationBuilder1.delete();
+		System.out.println(response1);
 	
 	}
 	
@@ -349,6 +471,11 @@ public class Set_Away_Invalid {
 		String content = response.readEntity(String.class);
 		Assert.assertTrue(content.contains("Invalid format for end time"),"Invalid format for end time");
 		System.out.println(response);
+		//cancel away
+		Invocation.Builder invocationBuilder1 = client
+				.target(setThermostatAway).request(MediaType.APPLICATION_JSON);
+		Response response1 = invocationBuilder1.delete();
+		System.out.println(response1);
 	
 	}
 	
@@ -362,6 +489,11 @@ public class Set_Away_Invalid {
 		String content = response.readEntity(String.class);
 		Assert.assertTrue(content.contains("Invalid format for end time"),"Invalid format for end time");
 		System.out.println(response);
+		//cancel away
+		Invocation.Builder invocationBuilder1 = client
+				.target(setThermostatAway).request(MediaType.APPLICATION_JSON);
+		Response response1 = invocationBuilder1.delete();
+		System.out.println(response1);
 	
 	}
 	
@@ -373,6 +505,11 @@ public class Set_Away_Invalid {
 		Response response = invocationBuilder.put(Entity.json(jsonString));
 		Assert.assertTrue(response.getStatus() == 500,"Expected status 500. Actual status is :"+ response.getStatus());
 		System.out.println(response);
+		//cancel away
+		Invocation.Builder invocationBuilder1 = client
+				.target(setThermostatAway).request(MediaType.APPLICATION_JSON);
+		Response response1 = invocationBuilder1.delete();
+		System.out.println(response1);
 	
 	}
 	
@@ -387,6 +524,11 @@ public class Set_Away_Invalid {
 		String content = response.readEntity(String.class);
 		Assert.assertTrue(content.contains("Setpoint out of range. Valid [45-89]"),"Setpoint out of range. Valid [45-89]");
 		System.out.println(response);
+		//cancel away
+		Invocation.Builder invocationBuilder1 = client
+				.target(setThermostatAway).request(MediaType.APPLICATION_JSON);
+		Response response1 = invocationBuilder1.delete();
+		System.out.println(response1);
 	
 	}
 	
@@ -401,7 +543,11 @@ public class Set_Away_Invalid {
 		String content = response.readEntity(String.class);
 		Assert.assertTrue(content.contains("Missing required attribute"),"Missing required attribute");
 		System.out.println(response);
-		
+		//cancel away
+		Invocation.Builder invocationBuilder1 = client
+				.target(setThermostatAway).request(MediaType.APPLICATION_JSON);
+		Response response1 = invocationBuilder1.delete();
+		System.out.println(response1);
 	
 	}
 	
@@ -416,6 +562,11 @@ public class Set_Away_Invalid {
 		String content = response.readEntity(String.class);
 		Assert.assertTrue(content.contains("Setpoint out of range. Valid [45-89]"),"Setpoint out of range. Valid [45-89]");
 		System.out.println(response);
+		//cancel away
+		Invocation.Builder invocationBuilder1 = client
+				.target(setThermostatAway).request(MediaType.APPLICATION_JSON);
+		Response response1 = invocationBuilder1.delete();
+		System.out.println(response1);
 	
 	}
 	
@@ -430,6 +581,11 @@ public class Set_Away_Invalid {
 		String content = response.readEntity(String.class);
 		Assert.assertTrue(content.contains("Setpoint out of range. Valid [45-89]"),"Setpoint out of range. Valid [45-89]");
 		System.out.println(response);
+		//cancel away
+		Invocation.Builder invocationBuilder1 = client
+				.target(setThermostatAway).request(MediaType.APPLICATION_JSON);
+		Response response1 = invocationBuilder1.delete();
+		System.out.println(response1);
 	
 	}
 	
@@ -444,6 +600,11 @@ public class Set_Away_Invalid {
 		String content = response.readEntity(String.class);
 		Assert.assertTrue(content.contains("Setpoint out of range. Valid [45-89]"),"Setpoint out of range. Valid [45-89]");
 		System.out.println(response);
+		//cancel away
+		Invocation.Builder invocationBuilder1 = client
+				.target(setThermostatAway).request(MediaType.APPLICATION_JSON);
+		Response response1 = invocationBuilder1.delete();
+		System.out.println(response1);
 	
 	}
 	
@@ -455,6 +616,11 @@ public class Set_Away_Invalid {
 		Response response = invocationBuilder.put(Entity.json(jsonString));
 		Assert.assertTrue(response.getStatus() == 500,"Expected status 500. Actual status is :"+ response.getStatus());
 		System.out.println(response);
+		//cancel away
+		Invocation.Builder invocationBuilder1 = client
+				.target(setThermostatAway).request(MediaType.APPLICATION_JSON);
+		Response response1 = invocationBuilder1.delete();
+		System.out.println(response1);
 	
 	}
 	
@@ -466,6 +632,11 @@ public class Set_Away_Invalid {
 		Response response = invocationBuilder.put(Entity.json(jsonString));
 		Assert.assertTrue(response.getStatus() == 500,"Expected status 500. Actual status is :"+ response.getStatus());
 		System.out.println(response);
+		//cancel away
+		Invocation.Builder invocationBuilder1 = client
+				.target(setThermostatAway).request(MediaType.APPLICATION_JSON);
+		Response response1 = invocationBuilder1.delete();
+		System.out.println(response1);
 	
 	}
 	
@@ -480,6 +651,11 @@ public class Set_Away_Invalid {
 		String content = response.readEntity(String.class);
 		Assert.assertTrue(content.contains("Setpoint out of range. Valid [45-89]"),"Setpoint out of range. Valid [45-89]");
 		System.out.println(response);
+		//cancel away
+		Invocation.Builder invocationBuilder1 = client
+				.target(setThermostatAway).request(MediaType.APPLICATION_JSON);
+		Response response1 = invocationBuilder1.delete();
+		System.out.println(response1);
 	
 	
 	}
@@ -495,6 +671,11 @@ public class Set_Away_Invalid {
 		String content = response.readEntity(String.class);
 		Assert.assertTrue(content.contains("Setpoint out of range. Valid [45-89]"),"Setpoint out of range. Valid [45-89]");
 		System.out.println(response);
+		//cancel away
+		Invocation.Builder invocationBuilder1 = client
+				.target(setThermostatAway).request(MediaType.APPLICATION_JSON);
+		Response response1 = invocationBuilder1.delete();
+		System.out.println(response1);
 	
 	}
 	
@@ -506,6 +687,11 @@ public class Set_Away_Invalid {
 		Response response = invocationBuilder.put(Entity.json(jsonString));
 		Assert.assertTrue(response.getStatus() == 500,"Expected status 500. Actual status is :"+ response.getStatus());
 		System.out.println(response);
+		//cancel away
+		Invocation.Builder invocationBuilder1 = client
+				.target(setThermostatAway).request(MediaType.APPLICATION_JSON);
+		Response response1 = invocationBuilder1.delete();
+		System.out.println(response1);
 	
 	}
 	
@@ -517,6 +703,11 @@ public class Set_Away_Invalid {
 		Response response = invocationBuilder.put(Entity.json(jsonString));
 		Assert.assertTrue(response.getStatus() == 500,"Expected status 500. Actual status is :"+ response.getStatus());
 		System.out.println(response);
+		//cancel away
+		Invocation.Builder invocationBuilder1 = client
+				.target(setThermostatAway).request(MediaType.APPLICATION_JSON);
+		Response response1 = invocationBuilder1.delete();
+		System.out.println(response1);
 	
 	}
 	
@@ -531,6 +722,11 @@ public class Set_Away_Invalid {
 		String content = response.readEntity(String.class);
 		Assert.assertTrue(content.contains("Setpoint out of range. Valid [45-89]"),"Setpoint out of range. Valid [45-89]");
 		System.out.println(response);
+		//cancel away
+		Invocation.Builder invocationBuilder1 = client
+				.target(setThermostatAway).request(MediaType.APPLICATION_JSON);
+		Response response1 = invocationBuilder1.delete();
+		System.out.println(response1);
 	
 	}
 	
@@ -545,6 +741,11 @@ public class Set_Away_Invalid {
 		String content = response.readEntity(String.class);
 		Assert.assertTrue(content.contains("Missing required attribute"),"Missing required attribute");
 		System.out.println(response);
+		//cancel away
+		Invocation.Builder invocationBuilder1 = client
+				.target(setThermostatAway).request(MediaType.APPLICATION_JSON);
+		Response response1 = invocationBuilder1.delete();
+		System.out.println(response1);
 		
 	
 	}
@@ -560,6 +761,11 @@ public class Set_Away_Invalid {
 		String content = response.readEntity(String.class);
 		Assert.assertTrue(content.contains("Setpoint out of range. Valid [45-89]"),"Setpoint out of range. Valid [45-89]");
 		System.out.println(response);
+		//cancel away
+		Invocation.Builder invocationBuilder1 = client
+				.target(setThermostatAway).request(MediaType.APPLICATION_JSON);
+		Response response1 = invocationBuilder1.delete();
+		System.out.println(response1);
 	
 	}
 	
@@ -574,6 +780,11 @@ public class Set_Away_Invalid {
 		String content = response.readEntity(String.class);
 		Assert.assertTrue(content.contains("Setpoint out of range. Valid [45-89]"),"Setpoint out of range. Valid [45-89]");
 		System.out.println(response);
+		//cancel away
+		Invocation.Builder invocationBuilder1 = client
+				.target(setThermostatAway).request(MediaType.APPLICATION_JSON);
+		Response response1 = invocationBuilder1.delete();
+		System.out.println(response1);
 	
 	}
 	
@@ -588,6 +799,11 @@ public class Set_Away_Invalid {
 		String content = response.readEntity(String.class);
 		Assert.assertTrue(content.contains("Setpoint out of range. Valid [45-89]"),"Setpoint out of range. Valid [45-89]");
 		System.out.println(response);
+		//cancel away
+		Invocation.Builder invocationBuilder1 = client
+				.target(setThermostatAway).request(MediaType.APPLICATION_JSON);
+		Response response1 = invocationBuilder1.delete();
+		System.out.println(response1);
 	
 	}
 	
@@ -599,6 +815,11 @@ public class Set_Away_Invalid {
 		Response response = invocationBuilder.put(Entity.json(jsonString));
 		Assert.assertTrue(response.getStatus() == 500,"Expected status 500. Actual status is :"+ response.getStatus());
 		System.out.println(response);
+		//cancel away
+		Invocation.Builder invocationBuilder1 = client
+				.target(setThermostatAway).request(MediaType.APPLICATION_JSON);
+		Response response1 = invocationBuilder1.delete();
+		System.out.println(response1);
 	
 	}
 	
@@ -610,6 +831,11 @@ public class Set_Away_Invalid {
 		Response response = invocationBuilder.put(Entity.json(jsonString));
 		Assert.assertTrue(response.getStatus() == 500,"Expected status 500. Actual status is :"+ response.getStatus());
 		System.out.println(response);
+		//cancel away
+		Invocation.Builder invocationBuilder1 = client
+				.target(setThermostatAway).request(MediaType.APPLICATION_JSON);
+		Response response1 = invocationBuilder1.delete();
+		System.out.println(response1);
 	
 	}
 	
@@ -624,6 +850,11 @@ public class Set_Away_Invalid {
 		String content = response.readEntity(String.class);
 		Assert.assertTrue(content.contains("Setpoint out of range. Valid [45-89]"),"Setpoint out of range. Valid [45-89]");
 		System.out.println(response);
+		//cancel away
+		Invocation.Builder invocationBuilder1 = client
+				.target(setThermostatAway).request(MediaType.APPLICATION_JSON);
+		Response response1 = invocationBuilder1.delete();
+		System.out.println(response1);
 	
 	
 	}
@@ -639,6 +870,11 @@ public class Set_Away_Invalid {
 		String content = response.readEntity(String.class);
 		Assert.assertTrue(content.contains("Setpoint out of range. Valid [45-89]"),"Setpoint out of range. Valid [45-89]");
 		System.out.println(response);
+		//cancel away
+		Invocation.Builder invocationBuilder1 = client
+				.target(setThermostatAway).request(MediaType.APPLICATION_JSON);
+		Response response1 = invocationBuilder1.delete();
+		System.out.println(response1);
 	
 	}
 	
@@ -650,7 +886,14 @@ public class Set_Away_Invalid {
 		Response response = invocationBuilder.put(Entity.json(jsonString));
 		Assert.assertTrue(response.getStatus() == 500,"Expected status 500. Actual status is :"+ response.getStatus());
 		System.out.println(response);
+		//cancel away
+		Invocation.Builder invocationBuilder1 = client
+				.target(setThermostatAway).request(MediaType.APPLICATION_JSON);
+		Response response1 = invocationBuilder1.delete();
+		System.out.println(response1);
 	
 	}
+	
+	
 	
 }
