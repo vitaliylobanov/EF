@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Default suite]">
+  <test name="Default test(failed)">
+    <classes>
+      <class name="com.ecofactorqa.awayapi.Set_Away_Invalid">
+        <methods>
+          <include name="init"/>
+          <include name="test_start_Away_using_two_digit_year"/>
+          <include name="test_start_Away_using_one_digit_month"/>
+          <include name="test_start_Away_using_invalid_heat_setpoint_null"/>
+          <include name="test_start_Away_using_one_digit_day"/>
+          <include name="test_start_Away_using_neg_sec"/>
+          <include name="test_start_Away_using_one_digit_sec"/>
+          <include name="test_start_Away_using_one_digit_min"/>
+          <include name="test_start_Away_using_invalid_cool_setpoint_null"/>
+        </methods>
+      </class> <!-- com.ecofactorqa.awayapi.Set_Away_Invalid -->
+    </classes>
+  </test> <!-- Default test(failed) -->
+</suite> <!-- Failed suite [Default suite] -->
