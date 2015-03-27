@@ -3,6 +3,7 @@ package com.ecofactorqa.dao;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -22,13 +23,22 @@ public class ef11_plat_dbconnection {
 	public static void connect_to_ef11() {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			Connection connection = DriverManager.getConnection(db_url,db_user, db_pass);
+			Connection connection = DriverManager.getConnection(db_url,db_user,db_pass);
 		    Statement statment = connection.createStatement();
 
-	        String sql = "SELECT * FROM ef_user order by last_updated DESC limit 100";
+	        String sql = "SELECT * FROM .ef_user order by last_updated DESC limit 5";
 	        ResultSet result = statment.executeQuery(sql);
-	    
-	        System.out.println(result);
+	        
+	        ResultSetMetaData rsmd = result.getMetaData();
+	        int columnsNumber = rsmd.getColumnCount();
+	        while (result.next()) {
+	            for (int i = 1; i <= columnsNumber; i++) {
+	                if (i > 1) System.out.print(",  ");
+	                String columnValue = result.getString(i);
+	                System.out.print(columnValue + " " + rsmd.getColumnName(i));
+	            }
+	            System.out.println("");
+	        }
 	        
 	        
 		} catch (SQLException se) {
