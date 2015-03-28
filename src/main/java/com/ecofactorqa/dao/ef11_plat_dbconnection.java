@@ -31,6 +31,8 @@ public class ef11_plat_dbconnection {
 	        
 	        ResultSetMetaData rsmd = result.getMetaData();
 	        int columnsNumber = rsmd.getColumnCount();
+	      
+	        
 	        while (result.next()) {
 	            for (int i = 1; i <= columnsNumber; i++) {
 	                if (i > 1) System.out.print(",  ");

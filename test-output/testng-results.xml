@@ -1,17 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" total="1" passed="1">
+<testng-results skipped="0" failed="0" total="0" passed="0">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="422" started-at="2015-03-27T18:26:49Z" finished-at="2015-03-27T18:26:50Z">
+  <suite name="Default suite" duration-ms="20" started-at="2015-03-27T22:28:37Z" finished-at="2015-03-27T22:28:37Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="422" started-at="2015-03-27T18:26:49Z" finished-at="2015-03-27T18:26:50Z">
-      <class name="com.ecofactorqa.dao.ef11_plat_dbconnection">
-        <test-method status="PASS" signature="connect_to_ef11()[pri:0, instance:com.ecofactorqa.dao.ef11_plat_dbconnection@13de68e2]" name="connect_to_ef11" duration-ms="392" started-at="2015-03-27T11:26:49Z" finished-at="2015-03-27T11:26:50Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- connect_to_ef11 -->
-      </class> <!-- com.ecofactorqa.dao.ef11_plat_dbconnection -->
+    <test name="Default test" duration-ms="20" started-at="2015-03-27T22:28:37Z" finished-at="2015-03-27T22:28:37Z">
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
