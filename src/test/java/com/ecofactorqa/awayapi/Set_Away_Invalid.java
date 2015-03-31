@@ -12,7 +12,6 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import com.ecofactorqa.util.APIprop;
-
 import com.ecofactorqa.dao.*;
 
 public class Set_Away_Invalid {
@@ -20,10 +19,10 @@ public class Set_Away_Invalid {
 	ef11_plat_dbconnection db = new ef11_plat_dbconnection();
 	
 	private Client client;
-	int t_id=31437;
+	int t_id=32753;
 
 	private String setThermostatAway = APIprop.SET_THERMOSTAT_AWAY_URL
-			.replaceFirst("thermostat_id", "31437");
+			.replaceFirst("thermostat_id", "32753");
 
 	@BeforeClass
 	public void init() {
@@ -50,7 +49,7 @@ public class Set_Away_Invalid {
 		Response response1 = invocationBuilder1.delete();
 		System.out.println(response1);
 		
-		db.connect_to_ef11(t_id);
+
 		
 		
 

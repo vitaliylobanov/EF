@@ -6,9 +6,6 @@ import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
-
-import org.testng.annotations.Test;
-
 import com.ecofactorqa.util.DAOprop;
 
 public class ef11_plat_dbconnection {
@@ -17,6 +14,10 @@ public class ef11_plat_dbconnection {
 	public static final String db_url = DAOprop.ef11_plat_db;
 	public static final String db_user = DAOprop.ef11_plat_user;
 	public static final String db_pass = DAOprop.ef11_plat_pass;
+	public static int start_away_thermostat_id_algo_control=0;
+	public static int start_away_thermostat_id_program_log=0;
+	public static String start_away_thermostat_id_program;
+	
 
 	
 
@@ -54,27 +55,34 @@ public class ef11_plat_dbconnection {
 	}
 	
 
-	public static void connect_to_ef11(int t_id) {
+	public static void start_away_ef_11(int t_id) {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			Connection connection = DriverManager.getConnection(db_url,db_user,db_pass);
 		    Statement statment = connection.createStatement();
 
-	        String sql = "SELECT * FROM ef_thermostat where thermostat_id= '" + t_id + "' order by last_updated DESC limit 5";
-	        
+	        String sql = "SELECT * FROM ef_thermostat_algo_control where thermostat_id= '" + t_id + "' and algorithm_id=-20 and thermostat_algorithm_status='ACTIVE' order by last_updated DESC limit 2;";	        
 	        ResultSet result = statment.executeQuery(sql);
-	        ResultSetMetaData rsmd = result.getMetaData();
-	        int columnsNumber = rsmd.getColumnCount();
-	      
-	        
+  
 	        while (result.next()) {
-	            for (int i = 1; i <= columnsNumber; i++) {
-	                if (i > 1) System.out.print(",  ");
-	                String columnValue = result.getString(i);
-	                System.out.print(columnValue + " " + rsmd.getColumnName(i));
-	            }
-	            System.out.println("");
+	        	start_away_thermostat_id_algo_control = result.getInt("thermostat_id");
 	        }
+	        
+	        String sql1 = "SELECT * FROM ef_thermostat_program_log where thermostat_id= '" + t_id + "' and program_type='USER_AWAY' and program_status='ACTIVE' order by last_updated DESC limit 2;";
+	        ResultSet result1 = statment.executeQuery(sql1);
+
+	        while (result1.next()) {
+	        	start_away_thermostat_id_program_log = result1.getInt("thermostat_id");
+
+	        }
+	        
+            String sql2 = "SELECT * FROM ef_program where program_id in(SELECT program_id FROM ef_thermostat_program where thermostat_id= '" + t_id + "' and  thermostat_program_status='ACTIVE') and program_type='USER_AWAY';";
+	        ResultSet result2 = statment.executeQuery(sql2);
+	        
+	        while (result2.next()) {
+	        	start_away_thermostat_id_program = result2.getString("program_type");
+	        }  
+	        
 	      
 	        
 		} 
