@@ -48,7 +48,7 @@
               <ul>
                 <li>
                   <a href="#" class="navigator-link " panel-name="test-xml-Default_suite">
-                    <span>C:\Users\Vitaliy Lobanov\AppData\Local\Temp\testng-eclipse-917691887\testng-customsuite.xml</span>
+                    <span>C:\Users\Vitaliy Lobanov\AppData\Local\Temp\testng-eclipse-34649175\testng-customsuite.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -90,7 +90,21 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">0 methods,   </span>
+                    <span class="method-stats">1 method,   1 passed</span>
+                  </li>
+                  <li>
+                    <span class="method-list-title passed">Passed methods</span>
+                    <span class="show-or-hide-methods passed">
+                      <a href="#" panel-name="suite-Default_suite" class="hide-methods passed suite-Default_suite"> (hide)</a> <!-- hide-methods passed suite-Default_suite -->
+                      <a href="#" panel-name="suite-Default_suite" class="show-methods passed suite-Default_suite"> (show)</a> <!-- show-methods passed suite-Default_suite -->
+                    </span>
+                    <div class="method-list-content passed suite-Default_suite">
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="com.ecofactorqa.awayapi.Set_Away_Invalid" hash-for-method="test_start_Away_using_past_date">test_start_Away_using_past_date</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content passed suite-Default_suite -->
                   </li>
                 </ul>
               </div> <!-- suite-section-content -->
@@ -102,10 +116,25 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-Default_suite" class="panel Default_suite">
+          <div class="suite-Default_suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">com.ecofactorqa.awayapi.Set_Away_Invalid</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="test_start_Away_using_past_date">
+                  </a> <!-- test_start_Away_using_past_date -->
+                  <span class="method-name">test_start_Away_using_past_date</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Default_suite-class-passed -->
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\Vitaliy Lobanov\AppData\Local\Temp\testng-eclipse-917691887\testng-customsuite.xml</span>
+            <span class="header-content">C:\Users\Vitaliy Lobanov\AppData\Local\Temp\testng-eclipse-34649175\testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -114,11 +143,11 @@
 &lt;suite name=&quot;Default suite&quot;&gt;
   &lt;test verbose=&quot;2&quot; name=&quot;Default test&quot;&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;com.ecofactorqa.dao.ef11_plat_dbconnection&quot;&gt;
+      &lt;class name=&quot;com.ecofactorqa.awayapi.Set_Away_Invalid&quot;&gt;
         &lt;methods&gt;
-          &lt;include name=&quot;connect_to_ef11&quot;/&gt;
+          &lt;include name=&quot;test_start_Away_using_past_date&quot;/&gt;
         &lt;/methods&gt;
-      &lt;/class&gt; &lt;!-- com.ecofactorqa.dao.ef11_plat_dbconnection --&gt;
+      &lt;/class&gt; &lt;!-- com.ecofactorqa.awayapi.Set_Away_Invalid --&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Default test --&gt;
 &lt;/suite&gt; &lt;!-- Default suite --&gt;
@@ -158,11 +187,16 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(0);
+data.addRows(1);
+data.setCell(0, 0, 0)
+data.setCell(0, 1, 'test_start_Away_using_past_date')
+data.setCell(0, 2, 'com.ecofactorqa.awayapi.Set_Away_Invalid')
+data.setCell(0, 3, 1110);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
+              <span class="suite-total-time">Total running time: 1 seconds</span>
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
@@ -177,9 +211,108 @@ return data;
         </div> <!-- panel -->
         <div panel-name="ignored-methods-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">0 ignored methods</span>
+            <span class="header-content">47 ignored methods</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
+            <div class="ignored-class-div">
+              <span class="ignored-class-name">com.ecofactorqa.awayapi.Set_Away_Invalid</span>
+              <div class="ignored-methods-div">
+                <span class="ignored-method-name">test_start_Away_using_two_digit_year</span>
+                <br/>
+                <span class="ignored-method-name">test_start_Away_using_invalid_heat_setpoint_one</span>
+                <br/>
+                <span class="ignored-method-name">test_start_Away_using_invalid_cool_setpoint_boundary_max</span>
+                <br/>
+                <span class="ignored-method-name">test_start_Away_using_invalid_cool_setpoint_char</span>
+                <br/>
+                <span class="ignored-method-name">test_start_Away_using_invalid_cool_setpoint_empty</span>
+                <br/>
+                <span class="ignored-method-name">test_start_Away_using_zero_year</span>
+                <br/>
+                <span class="ignored-method-name">test_start_Away_using_incorrect_time_format_dash</span>
+                <br/>
+                <span class="ignored-method-name">test_start_Away_using_no_day</span>
+                <br/>
+                <span class="ignored-method-name">test_start_Away_using_no_minutes</span>
+                <br/>
+                <span class="ignored-method-name">test_start_Away_using_invalid_heat_setpoint_char</span>
+                <br/>
+                <span class="ignored-method-name">test_start_Away_using_no_month</span>
+                <br/>
+                <span class="ignored-method-name">test_start_Away_using_one_digit_min</span>
+                <br/>
+                <span class="ignored-method-name">test_start_Away_using_one_digit_sec</span>
+                <br/>
+                <span class="ignored-method-name">test_start_Away_using_invalid_cool_setpoint_one</span>
+                <br/>
+                <span class="ignored-method-name">test_start_Away_using_zero_day</span>
+                <br/>
+                <span class="ignored-method-name">test_start_Away_using_no_T</span>
+                <br/>
+                <span class="ignored-method-name">test_start_Away_using_no_year</span>
+                <br/>
+                <span class="ignored-method-name">test_start_Away_using_one_digit_month</span>
+                <br/>
+                <span class="ignored-method-name">test_start_Away_using_invalid_heat_setpoint_empty</span>
+                <br/>
+                <span class="ignored-method-name">test_start_Away_using_incorrect_time_format_dot</span>
+                <br/>
+                <span class="ignored-method-name">test_start_Away_using_invalid_heat_setpoint_boundary_min</span>
+                <br/>
+                <span class="ignored-method-name">test_start_Away_using_no_hours</span>
+                <br/>
+                <span class="ignored-method-name">test_start_Away_using_zero_month</span>
+                <br/>
+                <span class="ignored-method-name">test_start_Away_using_no_date</span>
+                <br/>
+                <span class="ignored-method-name">test_start_Away_using_invalid_cool_setpoint_boundary_min</span>
+                <br/>
+                <span class="ignored-method-name">test_start_Away_using_invalid_heat_setpoint_zero</span>
+                <br/>
+                <span class="ignored-method-name">test_start_Away_using_incorrect_time_format_semicolons</span>
+                <br/>
+                <span class="ignored-method-name">test_start_Away_using_no_sec</span>
+                <br/>
+                <span class="ignored-method-name">test_start_Away_using_invalid_heat_setpoint_coma</span>
+                <br/>
+                <span class="ignored-method-name">test_start_Away_using_no_end_time</span>
+                <br/>
+                <span class="ignored-method-name">test_start_Away_using_invalid_cool_setpoint_negative</span>
+                <br/>
+                <span class="ignored-method-name">test_start_Away_using_invalid_heat_setpoint_no_coma_end</span>
+                <br/>
+                <span class="ignored-method-name">test_start_Away_using_one_digit_day</span>
+                <br/>
+                <span class="ignored-method-name">test_start_Away_using_neg_sec</span>
+                <br/>
+                <span class="ignored-method-name">test_start_Away_using_noT_space</span>
+                <br/>
+                <span class="ignored-method-name">test_start_Away_using_invalid_cool_setpoint_zero</span>
+                <br/>
+                <span class="ignored-method-name">test_start_Away_using_neg_hours</span>
+                <br/>
+                <span class="ignored-method-name">test_start_Away_using_invalid_cool_setpoint_coma</span>
+                <br/>
+                <span class="ignored-method-name">test_start_Away_using_invalid_heat_setpoint_five_digit</span>
+                <br/>
+                <span class="ignored-method-name">test_start_Away_using_invalid_heat_setpoint_boundary_max</span>
+                <br/>
+                <span class="ignored-method-name">test_start_Away_using_invalid_heat_setpoint_negative</span>
+                <br/>
+                <span class="ignored-method-name">test_start_Away_using_neg_min</span>
+                <br/>
+                <span class="ignored-method-name">test_start_Away_using_invalid_cool_setpoint_five_digit</span>
+                <br/>
+                <span class="ignored-method-name">test_start_Away_using_noT_S</span>
+                <br/>
+                <span class="ignored-method-name">test_start_Away_using_invalid_heat_setpoint_null</span>
+                <br/>
+                <span class="ignored-method-name">test_start_Away_using_invalid_cool_setpoint_no_coma_end</span>
+                <br/>
+                <span class="ignored-method-name">test_start_Away_using_invalid_cool_setpoint_null</span>
+                <br/>
+              </div> <!-- ignored-methods-div -->
+            </div> <!-- ignored-class-div -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
         <div panel-name="chronological-Default_suite" class="panel">
@@ -187,6 +320,16 @@ return data;
             <span class="header-content">Methods in chronological order</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.ecofactorqa.awayapi.Set_Away_Invalid</div> <!-- chronological-class-name -->
+              <div class="configuration-class before">
+                <span class="method-name">init</span>
+                <span class="method-start">0 ms</span>
+              </div> <!-- configuration-class before -->
+              <div class="test-method">
+                <span class="method-name">test_start_Away_using_past_date</span>
+                <span class="method-start">100 ms</span>
+              </div> <!-- test-method -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
       </div> <!-- main-panel-root -->
