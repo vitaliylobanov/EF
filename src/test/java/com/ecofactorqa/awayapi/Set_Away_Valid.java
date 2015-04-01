@@ -18,9 +18,13 @@ import org.testng.annotations.Test;
 public class Set_Away_Valid {
 	private Client client;
 	ef11_plat_dbconnection db = new ef11_plat_dbconnection();
+	
+	//variables for assertions
 	int t_id=32753;
 	String user_away_status="USER_AWAY";
-
+	int u_id=31861;
+	
+    // changing t_id for api call
 	private String setThermostatAway = APIprop.SET_THERMOSTAT_AWAY_URL
 			.replaceFirst("thermostat_id", "32753");
 
@@ -43,11 +47,13 @@ public class Set_Away_Valid {
 		
 		db.start_away_ef_11(t_id);
 		Assert.assertEquals(db.start_away_thermostat_id_algo_control, t_id);
-		System.out.println(db.start_away_thermostat_id_algo_control);
+		System.out.println("The thermostat_id in ef_thermostat_algo_control is " + db.start_away_thermostat_id_algo_control + ", Expected thermostat id " + t_id);
 		Assert.assertEquals(db.start_away_thermostat_id_program_log, t_id);
-		System.out.println(db.start_away_thermostat_id_program_log);
+		System.out.println("The thermostat_id in ef_thermostat_program_log is " + db.start_away_thermostat_id_program_log + ", Expected thermostat id " + t_id);
 		Assert.assertEquals(db.start_away_thermostat_id_program, user_away_status);
-		System.out.println(db.start_away_thermostat_id_program);
+		System.out.println("The progarm status in ef_program is " + db.start_away_thermostat_id_program + ", Expected status is " + user_away_status);
+		Assert.assertEquals(db.start_away_user_id_program, u_id);
+		System.out.println("The user_id in ef_program is " + db.start_away_user_id_program + ", Expected user_id is " + u_id);
 		
 		WaitUtil.tinyWait();
 		
