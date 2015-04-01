@@ -43,7 +43,7 @@ public class Set_Away_Valid {
 		Assert.assertTrue(response.getStatus() == 200,"Expected status 200. Actual status is :"+ response.getStatus());
 		System.out.println(response);
 		
-		WaitUtil.mediumWait();
+		WaitUtil.tinyWait();
 		
 		db.start_away_ef_11(t_id);
 		Assert.assertEquals(db.start_away_thermostat_id_algo_control, t_id);
@@ -56,7 +56,16 @@ public class Set_Away_Valid {
 		System.out.println("The user_id in ef_program is " + db.start_away_user_id_program + ", Expected user_id is " + u_id);
 		
 		WaitUtil.tinyWait();
+		db.start_away_efts(t_id);
+		Assert.assertEquals(db.start_away_thermostat_id_thermostat_event_phase_50, t_id);
+		System.out.println("The thermostat_id in ef_thermostat_event with phase 50 is " + db.start_away_thermostat_id_thermostat_event_phase_50 + ", Expected thermostat id " + t_id);
+		Assert.assertEquals(db.start_away_thermostat_id_thermostat_event_phase_30, t_id);
+		System.out.println("The thermostat_id in ef_thermostat_event with phase 30 is " + db.start_away_thermostat_id_thermostat_event_phase_30 + ", Expected thermostat id " + t_id);
+		Assert.assertEquals(db.start_away_thermostat_id_thermostat_event_phase_0, t_id);
+		System.out.println("The thermostat_id in ef_thermostat_event with phase 0 is " + db.start_away_thermostat_id_thermostat_event_phase_0 + ", Expected thermostat id " + t_id);
 		
+		
+		WaitUtil.tinyWait();
 		//cancel away
 		Invocation.Builder invocationBuilder1 = client
 				.target(setThermostatAway).request(MediaType.APPLICATION_JSON);
