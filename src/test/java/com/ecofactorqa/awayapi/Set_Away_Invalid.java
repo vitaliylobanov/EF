@@ -16,7 +16,7 @@ import com.ecofactorqa.dao.*;
 
 public class Set_Away_Invalid {
 
-	ef11_plat_dbconnection db = new ef11_plat_dbconnection();
+	Away_DAO_Impl db = new Away_DAO_Impl();
 	
 	private Client client;
 	int t_id=32753;

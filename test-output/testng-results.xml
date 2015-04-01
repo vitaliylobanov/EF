@@ -2,16 +2,16 @@
 <testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="47769" started-at="2015-04-01T19:15:56Z" finished-at="2015-04-01T19:16:43Z">
+  <suite name="Default suite" duration-ms="53024" started-at="2015-04-01T20:15:40Z" finished-at="2015-04-01T20:16:33Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="47769" started-at="2015-04-01T19:15:56Z" finished-at="2015-04-01T19:16:43Z">
+    <test name="Default test" duration-ms="53024" started-at="2015-04-01T20:15:40Z" finished-at="2015-04-01T20:16:33Z">
       <class name="com.ecofactorqa.awayapi.Set_Away_Valid">
-        <test-method status="PASS" signature="init()[pri:0, instance:com.ecofactorqa.awayapi.Set_Away_Valid@eca425c]" name="init" is-config="true" duration-ms="120" started-at="2015-04-01T12:15:56Z" finished-at="2015-04-01T12:15:56Z">
+        <test-method status="PASS" signature="init()[pri:0, instance:com.ecofactorqa.awayapi.Set_Away_Valid@707e4019]" name="init" is-config="true" duration-ms="100" started-at="2015-04-01T13:15:40Z" finished-at="2015-04-01T13:15:41Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- init -->
-        <test-method status="PASS" signature="test_start_Away_using_valid_thermostatID()[pri:0, instance:com.ecofactorqa.awayapi.Set_Away_Valid@eca425c]" name="test_start_Away_using_valid_thermostatID" duration-ms="47629" started-at="2015-04-01T12:15:56Z" finished-at="2015-04-01T12:16:43Z">
+        <test-method status="PASS" signature="test_start_Away_using_valid_thermostatID()[pri:0, instance:com.ecofactorqa.awayapi.Set_Away_Valid@707e4019]" name="test_start_Away_using_valid_thermostatID" duration-ms="52904" started-at="2015-04-01T13:15:41Z" finished-at="2015-04-01T13:16:33Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- test_start_Away_using_valid_thermostatID -->

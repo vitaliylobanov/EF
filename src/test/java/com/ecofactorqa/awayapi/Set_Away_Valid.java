@@ -17,7 +17,7 @@ import org.testng.annotations.Test;
 
 public class Set_Away_Valid {
 	private Client client;
-	ef11_plat_dbconnection db = new ef11_plat_dbconnection();
+	Away_DAO_Impl db = new Away_DAO_Impl();
 	
 	//variables for assertions
 	int t_id=32753;
@@ -37,6 +37,15 @@ public class Set_Away_Valid {
 	@Test
 	public void test_start_Away_using_valid_thermostatID() {
 		String jsonString = APIprop.json_away_start_valid_data;
+		//cancel away that we dont have any active aways
+		Invocation.Builder invocationBuilder1 = client
+				.target(setThermostatAway).request(MediaType.APPLICATION_JSON);
+		Response response1 = invocationBuilder1.delete();
+		System.out.println(response1); 
+		
+		WaitUtil.tinyWait();
+		
+		//start away
 		Invocation.Builder invocationBuilder = client
 				.target(setThermostatAway).request(MediaType.APPLICATION_JSON);
 		Response response = invocationBuilder.put(Entity.json(jsonString));
@@ -67,10 +76,10 @@ public class Set_Away_Valid {
 		
 		WaitUtil.tinyWait();
 		//cancel away
-		Invocation.Builder invocationBuilder1 = client
+		Invocation.Builder invocationBuilder2 = client
 				.target(setThermostatAway).request(MediaType.APPLICATION_JSON);
-		Response response1 = invocationBuilder1.delete();
-		System.out.println(response1);
+		Response response2 = invocationBuilder2.delete();
+		System.out.println(response2);
 	
 	
 	}
