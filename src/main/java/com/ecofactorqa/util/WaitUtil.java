@@ -92,6 +92,11 @@ public class WaitUtil {
 
         waitUntil(THIRTY_SECS);
     }
+    
+    public static void oneMinuteWait() {
+
+        waitUntil(ONE_MIN);
+    }
 
     /**
      * Three minutes wait.

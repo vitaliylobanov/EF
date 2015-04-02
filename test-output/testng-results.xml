@@ -1,20 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" total="1" passed="1">
+<testng-results skipped="0" failed="0" total="2" passed="2">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="53024" started-at="2015-04-01T20:15:40Z" finished-at="2015-04-01T20:16:33Z">
+  <suite name="Default suite" duration-ms="113980" started-at="2015-04-02T00:28:02Z" finished-at="2015-04-02T00:29:56Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="53024" started-at="2015-04-01T20:15:40Z" finished-at="2015-04-01T20:16:33Z">
+    <test name="Default test" duration-ms="113980" started-at="2015-04-02T00:28:02Z" finished-at="2015-04-02T00:29:56Z">
       <class name="com.ecofactorqa.awayapi.Set_Away_Valid">
-        <test-method status="PASS" signature="init()[pri:0, instance:com.ecofactorqa.awayapi.Set_Away_Valid@707e4019]" name="init" is-config="true" duration-ms="100" started-at="2015-04-01T13:15:40Z" finished-at="2015-04-01T13:15:41Z">
+        <test-method status="PASS" signature="init()[pri:0, instance:com.ecofactorqa.awayapi.Set_Away_Valid@275f1c40]" name="init" is-config="true" duration-ms="130" started-at="2015-04-01T17:28:02Z" finished-at="2015-04-01T17:28:02Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- init -->
-        <test-method status="PASS" signature="test_start_Away_using_valid_thermostatID()[pri:0, instance:com.ecofactorqa.awayapi.Set_Away_Valid@707e4019]" name="test_start_Away_using_valid_thermostatID" duration-ms="52904" started-at="2015-04-01T13:15:41Z" finished-at="2015-04-01T13:16:33Z">
+        <test-method status="PASS" signature="test_start_Away_using_valid_thermostatID_cancel()[pri:0, instance:com.ecofactorqa.awayapi.Set_Away_Valid@275f1c40]" name="test_start_Away_using_valid_thermostatID_cancel" duration-ms="57544" started-at="2015-04-01T17:28:02Z" finished-at="2015-04-01T17:29:00Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- test_start_Away_using_valid_thermostatID -->
+        </test-method> <!-- test_start_Away_using_valid_thermostatID_cancel -->
+        <test-method status="PASS" signature="test_start_Away_using_valid_thermostatID_cancel_by_mo()[pri:0, instance:com.ecofactorqa.awayapi.Set_Away_Valid@275f1c40]" name="test_start_Away_using_valid_thermostatID_cancel_by_mo" duration-ms="56296" started-at="2015-04-01T17:29:00Z" finished-at="2015-04-01T17:29:56Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test_start_Away_using_valid_thermostatID_cancel_by_mo -->
       </class> <!-- com.ecofactorqa.awayapi.Set_Away_Valid -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
