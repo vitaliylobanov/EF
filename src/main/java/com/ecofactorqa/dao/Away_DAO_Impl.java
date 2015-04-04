@@ -33,8 +33,11 @@ public class Away_DAO_Impl {
 	public static int start_away_thermostat_id_thermostat_event_phase_50=0;
 	public static int start_away_thermostat_id_thermostat_event_phase_30=0;
 	public static int start_away_thermostat_id_thermostat_event_phase_0=0;
-	public static int end_away_thermostat_id_thermostat_event_phase_20=0;
-	public static int end_away_thermostat_id_thermostat_event_phase_70=0;
+	public static int cancel_away_thermostat_id_thermostat_event_phase_20=0;
+	public static int cancel_away_thermostat_id_thermostat_event_phase_70=0;
+	public static int cancel_away_thermostat_id_thermostat_event_phase_10=0;
+	public static int end_away_thermostat_id_thermostat_event_phase_40=0;
+	public static int end_away_thermostat_id_thermostat_event_phase_60=0;
 	public static int end_away_thermostat_id_thermostat_event_phase_10=0;
 
 	
@@ -167,7 +170,7 @@ public class Away_DAO_Impl {
 		}
 	}
 	
-	public static void end_away_efts(int t_id) {
+	public static void cancel_away_efts(int t_id) {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			Connection connection = DriverManager.getConnection(efts_db_url,efts_db_user,efts_db_pass);
@@ -176,16 +179,47 @@ public class Away_DAO_Impl {
 	        String sql = "SELECT * FROM ef_thermostat_event where thermostat_id= '" + t_id + "' and event_phase=20 and algorithm_id=-20 and event_status='PROCESSED' and event_sys_time between timestamp (DATE_sub(now(), interval 30 SECOND)) and timestamp(now()) order by last_updated DESC limit 2;";	        
 	        ResultSet result = statment.executeQuery(sql);
 	        while (result.next()) {
-	        	end_away_thermostat_id_thermostat_event_phase_20 = result.getInt("thermostat_id");
+	        	cancel_away_thermostat_id_thermostat_event_phase_20 = result.getInt("thermostat_id");
 	        }
 	        
 	        String sql1 = "SELECT * FROM ef_thermostat_event where thermostat_id= '" + t_id + "' and event_phase=70 and algorithm_id=-20 and event_status='PROCESSED' and event_sys_time between timestamp (DATE_sub(now(), interval 30 SECOND)) and timestamp(now()) order by last_updated DESC limit 2;";	        
 	        ResultSet result1 = statment.executeQuery(sql1);
 	        while (result1.next()) {
-	        	end_away_thermostat_id_thermostat_event_phase_70 = result1.getInt("thermostat_id");
+	        	cancel_away_thermostat_id_thermostat_event_phase_70 = result1.getInt("thermostat_id");
 	        }
 	        
 	        String sql2 = "SELECT * FROM ef_thermostat_event where thermostat_id= '" + t_id + "' and event_phase=10 and algorithm_id=-20 and event_sys_time between timestamp (DATE_sub(now(), interval 30 SECOND)) and timestamp(now()) order by last_updated DESC limit 2;";	        
+	        ResultSet result2 = statment.executeQuery(sql2);
+	        while (result2.next()) {
+	        	cancel_away_thermostat_id_thermostat_event_phase_10 = result2.getInt("thermostat_id");
+	        }       	        
+		} 
+		catch (SQLException se) {
+			se.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public static void end_away_efts(int t_id) {
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			Connection connection = DriverManager.getConnection(efts_db_url,efts_db_user,efts_db_pass);
+		    Statement statment = connection.createStatement();
+
+	        String sql = "SELECT * FROM ef_thermostat_event where thermostat_id= '" + t_id + "' and event_phase=40 and algorithm_id=-20 and event_status='PROCESSED' and event_sys_time between timestamp (DATE_sub(now(), interval 300 SECOND)) and timestamp(now()) order by last_updated DESC limit 2;";	        
+	        ResultSet result = statment.executeQuery(sql);
+	        while (result.next()) {
+	        	end_away_thermostat_id_thermostat_event_phase_40 = result.getInt("thermostat_id");
+	        }
+	        
+	        String sql1 = "SELECT * FROM ef_thermostat_event where thermostat_id= '" + t_id + "' and event_phase=60 and algorithm_id=-20 and event_status='PROCESSED' and event_sys_time between timestamp (DATE_sub(now(), interval 300 SECOND)) and timestamp(now()) order by last_updated DESC limit 2;";	        
+	        ResultSet result1 = statment.executeQuery(sql1);
+	        while (result1.next()) {
+	        	end_away_thermostat_id_thermostat_event_phase_60 = result1.getInt("thermostat_id");
+	        }
+	        
+	        String sql2 = "SELECT * FROM ef_thermostat_event where thermostat_id= '" + t_id + "' and event_phase=10 and algorithm_id=-20 and event_sys_time between timestamp (DATE_sub(now(), interval 300 SECOND)) and timestamp(now()) order by last_updated DESC limit 2;";	        
 	        ResultSet result2 = statment.executeQuery(sql2);
 	        while (result2.next()) {
 	        	end_away_thermostat_id_thermostat_event_phase_10 = result2.getInt("thermostat_id");

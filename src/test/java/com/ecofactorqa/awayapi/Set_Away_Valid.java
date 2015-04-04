@@ -1,7 +1,13 @@
 package com.ecofactorqa.awayapi;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.TimeZone;
+
 import com.ecofactorqa.dao.*;
 import com.ecofactorqa.util.APIprop;
+import com.ecofactorqa.util.DateUtil;
 import com.ecofactorqa.util.WaitUtil;
 
 import javax.ws.rs.client.Client;
@@ -85,7 +91,7 @@ public class Set_Away_Valid {
 		Response response2 = invocationBuilder2.delete();
 		System.out.println(response2);
 		
-		// Assertions end away
+		// Assertions cancel away
 		WaitUtil.smallWait();
 		Away_DAO_Impl.end_away_ef_11(t_id);
 		Assert.assertEquals(Away_DAO_Impl.end_away_thermostat_id_algo, end_away);
@@ -96,13 +102,13 @@ public class Set_Away_Valid {
 		System.out.println("The user_id in ef_program is " + Away_DAO_Impl.end_away_user_id_program + ", Expected thermostat id " + end_away);
 		
 		WaitUtil.tinyWait();
-		Away_DAO_Impl.end_away_efts(t_id);
-		Assert.assertEquals(Away_DAO_Impl.end_away_thermostat_id_thermostat_event_phase_20, t_id);
-		System.out.println("The thermostat_id in ef_thermostat_event with phase 20 is " + Away_DAO_Impl.end_away_thermostat_id_thermostat_event_phase_20 + ", Expected thermostat id " + t_id);
-		Assert.assertEquals(Away_DAO_Impl.end_away_thermostat_id_thermostat_event_phase_70, t_id);
-		System.out.println("The thermostat_id in ef_thermostat_event with phase 70 is " + Away_DAO_Impl.end_away_thermostat_id_thermostat_event_phase_70 + ", Expected thermostat id " + t_id);
-		Assert.assertEquals(Away_DAO_Impl.end_away_thermostat_id_thermostat_event_phase_10, t_id);
-		System.out.println("The thermostat_id in ef_thermostat_event with phase 10 is " + Away_DAO_Impl.end_away_thermostat_id_thermostat_event_phase_10 + ", Expected thermostat id " + t_id);
+		Away_DAO_Impl.cancel_away_efts(t_id);
+		Assert.assertEquals(Away_DAO_Impl.cancel_away_thermostat_id_thermostat_event_phase_20, t_id);
+		System.out.println("The thermostat_id in ef_thermostat_event with phase 20 is " + Away_DAO_Impl.cancel_away_thermostat_id_thermostat_event_phase_20 + ", Expected thermostat id " + t_id);
+		Assert.assertEquals(Away_DAO_Impl.cancel_away_thermostat_id_thermostat_event_phase_70, t_id);
+		System.out.println("The thermostat_id in ef_thermostat_event with phase 70 is " + Away_DAO_Impl.cancel_away_thermostat_id_thermostat_event_phase_70 + ", Expected thermostat id " + t_id);
+		Assert.assertEquals(Away_DAO_Impl.cancel_away_thermostat_id_thermostat_event_phase_10, t_id);
+		System.out.println("The thermostat_id in ef_thermostat_event with phase 10 is " + Away_DAO_Impl.cancel_away_thermostat_id_thermostat_event_phase_10 + ", Expected thermostat id " + t_id);
 	
 	
 	}
@@ -158,7 +164,7 @@ public class Set_Away_Valid {
 		Assert.assertTrue(response2.getStatus() == 200,"Expected status 200. Actual status is :"+ response2.getStatus());
 		System.out.println(response2);
 		
-		// Assertions end away
+		// Assertions cancel away
 		WaitUtil.smallWait();
 		Away_DAO_Impl.end_away_ef_11(t_id);
 		Assert.assertEquals(Away_DAO_Impl.end_away_thermostat_id_algo, end_away);
@@ -169,18 +175,30 @@ public class Set_Away_Valid {
 		System.out.println("The user_id in ef_program is " + Away_DAO_Impl.end_away_user_id_program + ", Expected thermostat id " + end_away);
 		
 		WaitUtil.tinyWait();
-		Away_DAO_Impl.end_away_efts(t_id);
-		Assert.assertEquals(Away_DAO_Impl.end_away_thermostat_id_thermostat_event_phase_20, t_id);
-		System.out.println("The thermostat_id in ef_thermostat_event with phase 20 is " + Away_DAO_Impl.end_away_thermostat_id_thermostat_event_phase_20 + ", Expected thermostat id " + t_id);
-		Assert.assertEquals(Away_DAO_Impl.end_away_thermostat_id_thermostat_event_phase_10, t_id);
-		System.out.println("The thermostat_id in ef_thermostat_event with phase 10 is " + Away_DAO_Impl.end_away_thermostat_id_thermostat_event_phase_10 + ", Expected thermostat id " + t_id);
+		Away_DAO_Impl.cancel_away_efts(t_id);
+		Assert.assertEquals(Away_DAO_Impl.cancel_away_thermostat_id_thermostat_event_phase_20, t_id);
+		System.out.println("The thermostat_id in ef_thermostat_event with phase 20 is " + Away_DAO_Impl.cancel_away_thermostat_id_thermostat_event_phase_20 + ", Expected thermostat id " + t_id);
+		Assert.assertEquals(Away_DAO_Impl.cancel_away_thermostat_id_thermostat_event_phase_10, t_id);
+		System.out.println("The thermostat_id in ef_thermostat_event with phase 10 is " + Away_DAO_Impl.cancel_away_thermostat_id_thermostat_event_phase_10 + ", Expected thermostat id " + t_id);
 	
 	
 	}
 
 	@Test
 	public void test_start_Away_using_valid_thermostatID_natural_end() {
-		String jsonString = APIprop.json_away_start_valid_data;
+		String jsonString = APIprop.json_away_start_valid_data1;
+
+        SimpleDateFormat dateFormatUTC = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss+'00:00'");
+        dateFormatUTC.setTimeZone(TimeZone.getTimeZone("UTC"));
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(new Date()); // Now use today date.
+        calendar.add(Calendar.MINUTE, 4); // Adding 4 min
+        String output = dateFormatUTC.format(calendar.getTime()); 
+		
+		jsonString = jsonString.replaceFirst("<end_time>",output);
+		System.out.println(jsonString);
+		
+		
 		//cancel away that we dont have any active aways
 		Invocation.Builder invocationBuilder1 = client
 				.target(setThermostatAway).request(MediaType.APPLICATION_JSON);
@@ -219,17 +237,9 @@ public class Set_Away_Valid {
 		Assert.assertEquals(Away_DAO_Impl.start_away_thermostat_id_thermostat_event_phase_0, t_id);
 		System.out.println("The thermostat_id in ef_thermostat_event with phase 0 is " + Away_DAO_Impl.start_away_thermostat_id_thermostat_event_phase_0 + ", Expected thermostat id " + t_id);
 		
-		//cancel away by doing mo
-		WaitUtil.tinyWait();
-		String moJsonString = APIprop.json_state_valid_coolsetpoint;
-		Invocation.Builder invocationBuilder2 = client
-				.target(thermostatStateURL).request(MediaType.APPLICATION_JSON);
-		Response response2 = invocationBuilder2.put(Entity.json(moJsonString));
-		Assert.assertTrue(response2.getStatus() == 200,"Expected status 200. Actual status is :"+ response2.getStatus());
-		System.out.println(response2);
-		
-		// Assertions end away
-		WaitUtil.smallWait();
+
+		// Assertions natural end away
+		WaitUtil.veryHugeWait();
 		Away_DAO_Impl.end_away_ef_11(t_id);
 		Assert.assertEquals(Away_DAO_Impl.end_away_thermostat_id_algo, end_away);
 		System.out.println("The thermostat_id in ef_thermostat_algo_control is " + Away_DAO_Impl.end_away_thermostat_id_algo + ", Expected thermostat id " + end_away);
@@ -240,10 +250,12 @@ public class Set_Away_Valid {
 		
 		WaitUtil.tinyWait();
 		Away_DAO_Impl.end_away_efts(t_id);
-		Assert.assertEquals(Away_DAO_Impl.end_away_thermostat_id_thermostat_event_phase_20, t_id);
-		System.out.println("The thermostat_id in ef_thermostat_event with phase 20 is " + Away_DAO_Impl.end_away_thermostat_id_thermostat_event_phase_20 + ", Expected thermostat id " + t_id);
+		Assert.assertEquals(Away_DAO_Impl.end_away_thermostat_id_thermostat_event_phase_40, t_id);
+		System.out.println("The thermostat_id in ef_thermostat_event with phase 40 is " + Away_DAO_Impl.end_away_thermostat_id_thermostat_event_phase_40 + ", Expected thermostat id " + t_id);
+		Assert.assertEquals(Away_DAO_Impl.end_away_thermostat_id_thermostat_event_phase_60, t_id);
+		System.out.println("The thermostat_id in ef_thermostat_event with phase 60 is " + Away_DAO_Impl.end_away_thermostat_id_thermostat_event_phase_60 + ", Expected thermostat id " + t_id);
 		Assert.assertEquals(Away_DAO_Impl.end_away_thermostat_id_thermostat_event_phase_10, t_id);
-		System.out.println("The thermostat_id in ef_thermostat_event with phase 10 is " + Away_DAO_Impl.end_away_thermostat_id_thermostat_event_phase_10 + ", Expected thermostat id " + t_id);
+		System.out.println("The thermostat_id in ef_thermostat_event with phase 0 is " + Away_DAO_Impl.end_away_thermostat_id_thermostat_event_phase_10 + ", Expected thermostat id " + t_id);
 	
 	
 	}
