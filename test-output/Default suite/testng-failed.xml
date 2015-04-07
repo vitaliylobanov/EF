@@ -5,8 +5,8 @@
     <classes>
       <class name="com.ecofactorqa.awayapi.Set_Away_Valid">
         <methods>
+          <include name="test_start_Away_using_valid_thermostatID_cancel_by_mo"/>
           <include name="init"/>
-          <include name="test_start_Away_using_valid_thermostatID_natural_end"/>
         </methods>
       </class> <!-- com.ecofactorqa.awayapi.Set_Away_Valid -->
     </classes>

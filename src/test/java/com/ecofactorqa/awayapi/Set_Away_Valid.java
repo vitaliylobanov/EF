@@ -192,7 +192,7 @@ public class Set_Away_Valid {
         dateFormatUTC.setTimeZone(TimeZone.getTimeZone("UTC"));
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(new Date()); // Now use today date.
-        calendar.add(Calendar.MINUTE, 4); // Adding 4 min
+        calendar.add(Calendar.MINUTE, 8); // Adding 4 min
         String output = dateFormatUTC.format(calendar.getTime()); 
 		
 		jsonString = jsonString.replaceFirst("<end_time>",output);
@@ -240,6 +240,8 @@ public class Set_Away_Valid {
 
 		// Assertions natural end away
 		WaitUtil.veryHugeWait();
+		WaitUtil.hugeWait();
+		
 		Away_DAO_Impl.end_away_ef_11(t_id);
 		Assert.assertEquals(Away_DAO_Impl.end_away_thermostat_id_algo, end_away);
 		System.out.println("The thermostat_id in ef_thermostat_algo_control is " + Away_DAO_Impl.end_away_thermostat_id_algo + ", Expected thermostat id " + end_away);

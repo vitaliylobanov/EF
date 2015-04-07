@@ -21,7 +21,7 @@ public class StateAPI_Set_Invalid_HVAC_Mode {
 
 
 	private String thermostatStateURL = APIprop.THERMOSTAT_STATE_URL
-			.replaceFirst("thermostat_id", "31437");
+			.replaceFirst("thermostat_id", "32753");
 
 	@BeforeClass
 	public void init() {
