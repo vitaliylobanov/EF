@@ -2,19 +2,19 @@
 <testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="58730" started-at="2015-04-07T19:18:49Z" finished-at="2015-04-07T19:19:47Z">
+  <suite name="Default suite" duration-ms="78937" started-at="2015-04-22T00:02:06Z" finished-at="2015-04-22T00:03:25Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="58730" started-at="2015-04-07T19:18:49Z" finished-at="2015-04-07T19:19:47Z">
+    <test name="Default test" duration-ms="78937" started-at="2015-04-22T00:02:06Z" finished-at="2015-04-22T00:03:25Z">
       <class name="com.ecofactorqa.awayapi.Set_Away_Valid">
-        <test-method status="PASS" signature="init()[pri:0, instance:com.ecofactorqa.awayapi.Set_Away_Valid@62dbfb5d]" name="init" is-config="true" duration-ms="280" started-at="2015-04-07T12:18:49Z" finished-at="2015-04-07T12:18:49Z">
+        <test-method status="PASS" signature="init()[pri:0, instance:com.ecofactorqa.awayapi.Set_Away_Valid@a81472b]" name="init" is-config="true" duration-ms="261" started-at="2015-04-21T17:02:06Z" finished-at="2015-04-21T17:02:07Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- init -->
-        <test-method status="PASS" signature="test_start_Away_using_valid_thermostatID_cancel_by_mo()[pri:0, instance:com.ecofactorqa.awayapi.Set_Away_Valid@62dbfb5d]" name="test_start_Away_using_valid_thermostatID_cancel_by_mo" duration-ms="58430" started-at="2015-04-07T12:18:49Z" finished-at="2015-04-07T12:19:47Z">
+        <test-method status="PASS" signature="test_start_Away_using_valid_thermostatID_updateAway_cancel()[pri:0, instance:com.ecofactorqa.awayapi.Set_Away_Valid@a81472b]" name="test_start_Away_using_valid_thermostatID_updateAway_cancel" duration-ms="78666" started-at="2015-04-21T17:02:07Z" finished-at="2015-04-21T17:03:25Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- test_start_Away_using_valid_thermostatID_cancel_by_mo -->
+        </test-method> <!-- test_start_Away_using_valid_thermostatID_updateAway_cancel -->
       </class> <!-- com.ecofactorqa.awayapi.Set_Away_Valid -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
