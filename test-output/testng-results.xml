@@ -2,20 +2,20 @@
 <testng-results skipped="0" failed="0" total="2" passed="2">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="59967" started-at="2015-04-22T01:02:07Z" finished-at="2015-04-22T01:03:07Z">
+  <suite name="Default suite" duration-ms="70449" started-at="2015-04-22T02:14:10Z" finished-at="2015-04-22T02:15:20Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="59967" started-at="2015-04-22T01:02:07Z" finished-at="2015-04-22T01:03:07Z">
+    <test name="Default test" duration-ms="70449" started-at="2015-04-22T02:14:10Z" finished-at="2015-04-22T02:15:20Z">
       <class name="com.ecofactorqa.stateapi.StateAPI_Set_Valid_HVAC_mode">
-        <test-method status="PASS" signature="init()[pri:0, instance:com.ecofactorqa.stateapi.StateAPI_Set_Valid_HVAC_mode@2782f364]" name="init" is-config="true" duration-ms="90" started-at="2015-04-21T18:02:07Z" finished-at="2015-04-21T18:02:07Z">
+        <test-method status="PASS" signature="init()[pri:0, instance:com.ecofactorqa.stateapi.StateAPI_Set_Valid_HVAC_mode@5402fe28]" name="init" is-config="true" duration-ms="120" started-at="2015-04-21T19:14:10Z" finished-at="2015-04-21T19:14:10Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- init -->
-        <test-method status="PASS" signature="set_thermostat_to_cool_mode()[pri:0, instance:com.ecofactorqa.stateapi.StateAPI_Set_Valid_HVAC_mode@2782f364]" name="set_thermostat_to_cool_mode" duration-ms="30191" started-at="2015-04-21T18:02:07Z" finished-at="2015-04-21T18:02:37Z">
+        <test-method status="PASS" signature="set_thermostat_to_cool_mode()[pri:0, instance:com.ecofactorqa.stateapi.StateAPI_Set_Valid_HVAC_mode@5402fe28]" name="set_thermostat_to_cool_mode" duration-ms="35840" started-at="2015-04-21T19:14:10Z" finished-at="2015-04-21T19:14:46Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- set_thermostat_to_cool_mode -->
-        <test-method status="PASS" signature="set_thermostat_to_heat_mode()[pri:0, instance:com.ecofactorqa.stateapi.StateAPI_Set_Valid_HVAC_mode@2782f364]" name="set_thermostat_to_heat_mode" duration-ms="29665" started-at="2015-04-21T18:02:37Z" finished-at="2015-04-21T18:03:07Z">
+        <test-method status="PASS" signature="set_thermostat_to_heat_mode()[pri:0, instance:com.ecofactorqa.stateapi.StateAPI_Set_Valid_HVAC_mode@5402fe28]" name="set_thermostat_to_heat_mode" duration-ms="34479" started-at="2015-04-21T19:14:46Z" finished-at="2015-04-21T19:15:20Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- set_thermostat_to_heat_mode -->

@@ -11,12 +11,17 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import com.ecofactorqa.dao.Away_DAO_Impl;
+import com.ecofactorqa.dao.Thermostat_State_DAO_Impl;
 import com.ecofactorqa.util.APIprop;
 import com.ecofactorqa.util.WaitUtil;
 
 public class StateAPI_Set_Valid_HVAC_mode {
 
 	private Client client;
+	
+	//variables for assertions
+	int t_id=32753;
 
 	private String thermostatStateURL = APIprop.THERMOSTAT_STATE_URL
 			.replaceFirst("thermostat_id", "32753");
@@ -48,6 +53,14 @@ public class StateAPI_Set_Valid_HVAC_mode {
 		WaitUtil.tinyWait();
 		Assert.assertTrue(response1.getStatus() == 200,"Expected status 200. Actual status is :"+ response1.getStatus());
 		System.out.println(response1);
+		
+		//db verification, efts thermostat event
+		WaitUtil.tinyWait();
+		Thermostat_State_DAO_Impl.thermostatStateApi_efts(t_id);
+		Assert.assertEquals(Thermostat_State_DAO_Impl.coolHVACMode, t_id);
+		System.out.println("The thermostat_id in ef_thermostat_event with hvacMode changed to cool " + Thermostat_State_DAO_Impl.coolHVACMode + ", Expected thermostat id " + t_id);
+		Assert.assertEquals(Thermostat_State_DAO_Impl.collSetpoint, t_id);
+		System.out.println("The thermostat_id in ef_thermostat_event with with cool mo event " + Thermostat_State_DAO_Impl.collSetpoint + ", Expected thermostat id " + t_id);
 		
         //verify T_stat state
 		WaitUtil.tinyWait();
@@ -82,6 +95,14 @@ public class StateAPI_Set_Valid_HVAC_mode {
 		WaitUtil.tinyWait();
 		Assert.assertTrue(response1.getStatus() == 200,"Expected status 200. Actual status is :"	+ response1.getStatus());
 		System.out.println(response1);
+		
+		//db verification, efts thermostat event
+		WaitUtil.tinyWait();
+		Thermostat_State_DAO_Impl.thermostatStateApi_efts(t_id);
+		Assert.assertEquals(Thermostat_State_DAO_Impl.heatHVACMode, t_id);
+		System.out.println("The thermostat_id in ef_thermostat_event with hvacMode changed to heat " + Thermostat_State_DAO_Impl.heatHVACMode + ", Expected thermostat id " + t_id);
+		Assert.assertEquals(Thermostat_State_DAO_Impl.heatSetpoint, t_id);
+		System.out.println("The thermostat_id in ef_thermostat_event with with heat mo event " + Thermostat_State_DAO_Impl.heatSetpoint + ", Expected thermostat id " + t_id);
 
 		//verify T_stat state
 		WaitUtil.tinyWait();
