@@ -11,7 +11,6 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import com.ecofactorqa.dao.Away_DAO_Impl;
 import com.ecofactorqa.dao.Thermostat_State_DAO_Impl;
 import com.ecofactorqa.util.APIprop;
 import com.ecofactorqa.util.WaitUtil;
