@@ -1,25 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" total="2" passed="2">
+<testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="70449" started-at="2015-04-22T02:14:10Z" finished-at="2015-04-22T02:15:20Z">
+  <suite name="Default suite" duration-ms="393" started-at="2015-04-29T02:26:26Z" finished-at="2015-04-29T02:26:26Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="70449" started-at="2015-04-22T02:14:10Z" finished-at="2015-04-22T02:15:20Z">
-      <class name="com.ecofactorqa.stateapi.StateAPI_Set_Valid_HVAC_mode">
-        <test-method status="PASS" signature="init()[pri:0, instance:com.ecofactorqa.stateapi.StateAPI_Set_Valid_HVAC_mode@5402fe28]" name="init" is-config="true" duration-ms="120" started-at="2015-04-21T19:14:10Z" finished-at="2015-04-21T19:14:10Z">
+    <test name="Default test" duration-ms="393" started-at="2015-04-29T02:26:26Z" finished-at="2015-04-29T02:26:26Z">
+      <class name="com.ecofactor.spo.SPO">
+        <test-method status="PASS" signature="createStartEntriesForSpo()[pri:0, instance:com.ecofactor.spo.SPO@2282d3bc]" name="createStartEntriesForSpo" duration-ms="362" started-at="2015-04-28T19:26:26Z" finished-at="2015-04-28T19:26:26Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- init -->
-        <test-method status="PASS" signature="set_thermostat_to_cool_mode()[pri:0, instance:com.ecofactorqa.stateapi.StateAPI_Set_Valid_HVAC_mode@5402fe28]" name="set_thermostat_to_cool_mode" duration-ms="35840" started-at="2015-04-21T19:14:10Z" finished-at="2015-04-21T19:14:46Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- set_thermostat_to_cool_mode -->
-        <test-method status="PASS" signature="set_thermostat_to_heat_mode()[pri:0, instance:com.ecofactorqa.stateapi.StateAPI_Set_Valid_HVAC_mode@5402fe28]" name="set_thermostat_to_heat_mode" duration-ms="34479" started-at="2015-04-21T19:14:46Z" finished-at="2015-04-21T19:15:20Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- set_thermostat_to_heat_mode -->
-      </class> <!-- com.ecofactorqa.stateapi.StateAPI_Set_Valid_HVAC_mode -->
+        </test-method> <!-- createStartEntriesForSpo -->
+      </class> <!-- com.ecofactor.spo.SPO -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
