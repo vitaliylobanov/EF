@@ -71,6 +71,7 @@ public class StateAPI_Set_Valid_HVAC_mode {
 		Assert.assertTrue(content1.contains("\"cool_setpoint\":71"),"Expected cool_setpoint 71");
 		Assert.assertTrue(content1.contains("\"fan_mode\":\"auto\""),"Expected fan_mode AUTO");
 		Assert.assertTrue(content1.contains("\"setpoint_reason\":\"mo\""),"Expected set_point_reason MO");
+		System.out.println(content1);
 	}
 
 	@Test(priority = 2)

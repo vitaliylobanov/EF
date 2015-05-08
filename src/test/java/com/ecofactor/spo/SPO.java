@@ -54,7 +54,7 @@ public class SPO {
 
 	@Test
 	public void createStartEntriesForSpo(){
-		//verify t_stat in a not ee mode
+		//verify t_stat is in schedule, plus do mo
 		Invocation.Builder invocationBuilder = client.target(thermostatStateURL).request(MediaType.APPLICATION_JSON);
 		Response response = invocationBuilder.get();
 		String content = response.readEntity(String.class);
@@ -62,6 +62,40 @@ public class SPO {
 		Assert.assertTrue(content.contains("\"hvac_mode\":\"cool\""),"Expected hvac_mode COOL");
 		Assert.assertFalse(content.contains("\"setpoint_reason\":\"ee\""),"Expected set_point_reason should not be EE");
 		System.out.println("Thermostat is in a cool mode, and set point reason is not ee. ");
+		
+//		//set t_stat to cool mode
+//		String jsonString = APIprop.json_state_valid_hvac_mode_cool;
+//		Invocation.Builder invocationBuilderHVACMode = client.target(thermostatStateURL).request(MediaType.APPLICATION_JSON);
+//		Response response = invocationBuilderHVACMode.put(Entity.json(jsonString));
+//		WaitUtil.tinyWait();	
+//		Assert.assertTrue(response.getStatus() == 200,"Expected status 200. Actual status is :"+ response.getStatus());
+//		System.out.println(response);
+//
+//        //set cool setpoint 
+//		String jsonString1 = APIprop.json_state_valid_coolsetpoint;
+//		Invocation.Builder invocationBuilderCoolSetpoint = client.target(thermostatStateURL).request(MediaType.APPLICATION_JSON);
+//		Response responseget = invocationBuilderCoolSetpoint.get();
+//		String content = responseget.readEntity(String.class);
+//		Assert.assertTrue(content.contains("\"setpoint_reason\":\"schedule\""),"Expected set_point_reason SCHEDULE");
+//		WaitUtil.smallWait();
+//		Response response1 = invocationBuilderCoolSetpoint.put(Entity.json(jsonString1));
+//		WaitUtil.tinyWait();
+//		Assert.assertTrue(response1.getStatus() == 200,"Expected status 200. Actual status is :"+ response1.getStatus());
+//		System.out.println(response1);
+//		WaitUtil.tinyWait();
+//		
+//		Invocation.Builder invocationBuilder = client.target(thermostatStateURL).request(MediaType.APPLICATION_JSON);
+//		Response response2 = invocationBuilder.get();
+//		String content1 = response2.readEntity(String.class);
+//		Assert.assertTrue(response2.getStatus() == 200,"Expected status 200. Actual status is :"+ response2.getStatus());
+//		Assert.assertTrue(content1.contains("\"hvac_mode\":\"cool\""),"Expected hvac_mode COOL");
+//		Assert.assertTrue(content1.contains("\"cool_setpoint\":71"),"Expected cool_setpoint 71");
+//		Assert.assertTrue(content1.contains("\"fan_mode\":\"auto\""),"Expected fan_mode AUTO");
+//		Assert.assertTrue(content1.contains("\"setpoint_reason\":\"mo\""),"Expected set_point_reason MO");
+//		System.out.println(content1);
+		
+		
+		
 		
 		//set time for next_phase_time, execution_start_time_utc.
         SimpleDateFormat dateFormatUTC = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
