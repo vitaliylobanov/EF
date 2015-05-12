@@ -3,12 +3,12 @@
 <suite name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="com.ecofactorqa.stateapi.StateAPI_Set_Valid_HVAC_mode">
+      <class name="com.ecofactor.spo.SPO">
         <methods>
+          <include name="createStartEntriesForSpo"/>
           <include name="init"/>
-          <include name="set_thermostat_to_cool_mode"/>
         </methods>
-      </class> <!-- com.ecofactorqa.stateapi.StateAPI_Set_Valid_HVAC_mode -->
+      </class> <!-- com.ecofactor.spo.SPO -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

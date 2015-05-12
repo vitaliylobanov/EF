@@ -7,12 +7,15 @@ import javax.ws.rs.client.Invocation;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import org.codehaus.jackson.map.ObjectMapper;
+import org.json.simple.JSONObject;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import com.ecofactorqa.dao.Thermostat_State_DAO_Impl;
 import com.ecofactorqa.util.APIprop;
+import com.ecofactorqa.util.JsonUtil;
 import com.ecofactorqa.util.WaitUtil;
 
 public class StateAPI_Set_Valid_HVAC_mode {
@@ -72,6 +75,22 @@ public class StateAPI_Set_Valid_HVAC_mode {
 		Assert.assertTrue(content1.contains("\"fan_mode\":\"auto\""),"Expected fan_mode AUTO");
 		Assert.assertTrue(content1.contains("\"setpoint_reason\":\"mo\""),"Expected set_point_reason MO");
 		System.out.println(content1);
+		
+        final JSONObject jsonObject = JsonUtil.parseObject(content1);
+
+        final JSONObject knownstate = (JSONObject) jsonObject
+                .get("best_known_current_state_thermostat_data");
+
+        final String cool_setpoint = knownstate.get("cool_setpoint").toString();
+        System.out.println("cool_setpoint---" + cool_setpoint);
+        
+        final String hvac_mode = knownstate.get("hvac_mode").toString();
+        System.out.println("hvac_mode--- " + hvac_mode);
+
+        final String setpoint_reason = knownstate.get("setpoint_reason").toString();
+        System.out.println("setpoint_reason--- " + setpoint_reason);
+
+		
 	}
 
 	@Test(priority = 2)
