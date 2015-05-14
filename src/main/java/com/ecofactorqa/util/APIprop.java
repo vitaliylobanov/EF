@@ -64,6 +64,7 @@ public class APIprop {
 	public static final String json_state_valid_hvac_mode_cool = "{\"hvac_mode\":\"cool\"}";
 	public static final String json_state_valid_hvac_mode_heat = "{\"hvac_mode\":\"heat\"}";
 	public static final String json_state_valid_coolsetpoint = "{\"cool_setpoint\": 71}";
+	public static final String json_state_valid_coolsetpointSPO = "{\"cool_setpoint\": 76}";
 	public static final String json_state_valid_coolsetpoint_fanmode = "{\"cool_setpoint\": 71,\"fan_mode\":\"auto\"}";	
 	public static final String json_state_valid_heatsetpoint = "{\"heat_setpoint\": 64}";
 	public static final String json_state_valid_heatsetpoint_fanmode = "{\"heat_setpoint\": 64,\"fan_mode\":\"on\"}";

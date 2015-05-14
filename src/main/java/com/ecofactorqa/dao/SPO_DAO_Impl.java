@@ -24,6 +24,7 @@ public class SPO_DAO_Impl {
     public static int start_spo_thermostat_id_thermostat_algoritm=0;
     public static int end_spo_thermostat_id_thermostat_event=0;
     public static int end_spo_thermostat_id_thermostat_algoritm=0;
+    public static int end_spo_thermostat_id_mo=0;
     
 
 	public static void insertStartSpoEntry(int t_id, int event_ee_start, String next_phase_time_start, String date_setup_start, String execution_start_time_utc_start, String execution_end_time_utc_start, String mo_cutoff_time_utc_start) {
@@ -69,7 +70,7 @@ public class SPO_DAO_Impl {
 		}
 	}
 	
-	public static void start_away_efts(int t_id, int event_ee_start) {
+	public static void start_SPO_efts(int t_id, int event_ee_start) {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			Connection connection = DriverManager.getConnection(efts_db_url,efts_db_user,efts_db_pass);
@@ -88,7 +89,7 @@ public class SPO_DAO_Impl {
 		}
 	}
 	
-	public static void start_away_ef11(int t_id, int setting_phase_0_start) {
+	public static void start_SPO_ef11(int t_id, int setting_phase_0_start) {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			Connection connection = DriverManager.getConnection(ef_11_db_url,ef_11_db_user,ef_11_db_pass);
@@ -107,7 +108,7 @@ public class SPO_DAO_Impl {
 		}
 	}
 	
-	public static void end_away_efts(int t_id, int event_ee_end) {
+	public static void end_SPO_efts(int t_id, int event_ee_end) {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			Connection connection = DriverManager.getConnection(efts_db_url,efts_db_user,efts_db_pass);
@@ -126,7 +127,7 @@ public class SPO_DAO_Impl {
 		}
 	}
 	
-	public static void end_away_ef11(int t_id, int setting_phase_0_end) {
+	public static void end_SPO_ef11(int t_id, int setting_phase_0_end) {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			Connection connection = DriverManager.getConnection(ef_11_db_url,ef_11_db_user,ef_11_db_pass);
@@ -137,6 +138,26 @@ public class SPO_DAO_Impl {
 	        while (result.next()) {
 	        	end_spo_thermostat_id_thermostat_algoritm = result.getInt("thermostat_id");
 	        }      	        
+		} 
+		catch (SQLException se) {
+			se.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public static void end_SPO_MO_efts(int t_id, int coolSetpointSPOEnd) {
+		try {
+			
+			Class.forName("com.mysql.jdbc.Driver");
+			Connection connection = DriverManager.getConnection(efts_db_url,efts_db_user,efts_db_pass);
+		    Statement statment = connection.createStatement();
+
+		    String sql = "SELECT * FROM ef_thermostat_event where thermostat_id= '" + t_id + "' and event_phase=0 and algorithm_id=-10 and new_setting= '" + coolSetpointSPOEnd + "' and event_status='PROCESSED' and action='cool_setting' and event_sys_time between timestamp (DATE_sub(now(), interval 750 SECOND)) and timestamp(now()) order by last_updated DESC limit 1;";	        
+	        ResultSet result = statment.executeQuery(sql);
+	        while (result.next()) {
+	        	end_spo_thermostat_id_mo = result.getInt("thermostat_id");
+	        }   	        
 		} 
 		catch (SQLException se) {
 			se.printStackTrace();
