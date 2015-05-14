@@ -154,7 +154,7 @@ public class SPO {
 		Assert.assertTrue(response1.getStatus() == 200,"Expected status 200. Actual status is :"+ response1.getStatus());
 		Assert.assertTrue(content1.contains("\"hvac_mode\":\"cool\""),"Expected hvac_mode COOL");
 		Assert.assertTrue(content1.contains("\"setpoint_reason\":\"ee\""),"Expected set_point_reason EE");
-		Assert.assertTrue(content1.contains("\"cool_setpoint\":73"),"Expected cool_setpoint 73"); // 73F = 71F (is latest mo line 95) + 2F (line 39 SPO_DAO_Impl) 
+		Assert.assertTrue(content1.contains("\"cool_setpoint\":73"),"Expected cool_setpoint 73"); // 73F = 71F (is latest mo line 95) + 2F (line 31) 
 		System.out.println("Current Thermostat state is " + content1);
 		
 		//efts sart db verification
@@ -224,41 +224,20 @@ public class SPO {
         
         final String cool_setpoint = knownstate.get("cool_setpoint").toString();
         System.out.println("cool_setpoint--- " + cool_setpoint);
-		
-        //set cool setpoint 
-        WaitUtil.tinyWait();
-		String jsonCoolSetpointChange = APIprop.json_state_valid_coolsetpoint;
-		Invocation.Builder invocationBuilderCoolSetpoint = client.target(thermostatStateURL).request(MediaType.APPLICATION_JSON);
-		Response responseCoolSetpoint = invocationBuilderCoolSetpoint.put(Entity.json(jsonCoolSetpointChange));
-		WaitUtil.tinyWait();
-		Assert.assertTrue(responseCoolSetpoint.getStatus() == 200,"Expected status 200. Actual status is : "+ responseCoolSetpoint.getStatus());
-		System.out.println(responseCoolSetpoint);
-		WaitUtil.tinyWait();
-		
-		Invocation.Builder invocationBuilderState = client.target(thermostatStateURL).request(MediaType.APPLICATION_JSON);
-		Response responseStateThermostat = invocationBuilderState.get();
-		String contentStateThermostat = responseStateThermostat.readEntity(String.class);
-		Assert.assertTrue(responseStateThermostat.getStatus() == 200,"Expected status 200. Actual status is :"+ responseStateThermostat.getStatus());
-		Assert.assertTrue(contentStateThermostat.contains("\"hvac_mode\":\"cool\""),"Expected hvac_mode COOL");
-		Assert.assertTrue(contentStateThermostat.contains("\"cool_setpoint\":71"),"Expected cool_setpoint 71");
-		Assert.assertTrue(contentStateThermostat.contains("\"fan_mode\":\"auto\""),"Expected fan_mode AUTO");
-		Assert.assertTrue(contentStateThermostat.contains("\"setpoint_reason\":\"mo\""),"Expected set_point_reason MO");
-		System.out.println("Current Thermostat state is " + contentStateThermostat);
-		WaitUtil.tinyWait();
-		
+				
 		//set time for next_phase_time, execution_start_time_utc.
         SimpleDateFormat dateFormatUTC = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         dateFormatUTC.setTimeZone(TimeZone.getTimeZone("UTC"));
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(new Date()); // Now use today date.
-        calendar.add(Calendar.MINUTE, 2); // Adding 2 min
+        calendar.add(Calendar.MINUTE, 35); // Adding 2 min
         next_phase_time_start = dateFormatUTC.format(calendar.getTime());
         execution_start_time_utc_start = next_phase_time_start;
         
 		//set time for execution_end_time_utc.
         Calendar calendar1 = Calendar.getInstance();
         calendar1.setTime(new Date()); // Now use today date.
-        calendar1.add(Calendar.MINUTE, 7); // Adding 7 min
+        calendar1.add(Calendar.MINUTE, 45); // Adding 7 min
         execution_end_time_utc_start = dateFormatUTC.format(calendar1.getTime());
         
 		//set time for date_setup,mo_cutoff_time_utc.
@@ -283,8 +262,36 @@ public class SPO {
 		SPO_DAO_Impl.insertEndSpoEntry(t_id, next_phase_time_end, date_setup_end, execution_start_time_utc_end, mo_cutoff_time_utc_end);		
 		System.out.println("SPO entries were created in db. Waiting to verify SPO starts correctly.......... ");
 		
+
+        //set cool setpoint 
+        WaitUtil.oneMinuteWait();
+        WaitUtil.oneMinuteWait();
+		String jsonCoolSetpointChange = APIprop.json_state_valid_coolsetpoint;
+		Invocation.Builder invocationBuilderCoolSetpoint = client.target(thermostatStateURL).request(MediaType.APPLICATION_JSON);
+		Response responseCoolSetpoint = invocationBuilderCoolSetpoint.put(Entity.json(jsonCoolSetpointChange));
+		WaitUtil.tinyWait();
+		Assert.assertTrue(responseCoolSetpoint.getStatus() == 200,"Expected status 200. Actual status is : "+ responseCoolSetpoint.getStatus());
+		System.out.println(responseCoolSetpoint);
+		WaitUtil.tinyWait();
+		
+		Invocation.Builder invocationBuilderState = client.target(thermostatStateURL).request(MediaType.APPLICATION_JSON);
+		Response responseStateThermostat = invocationBuilderState.get();
+		String contentStateThermostat = responseStateThermostat.readEntity(String.class);
+		Assert.assertTrue(responseStateThermostat.getStatus() == 200,"Expected status 200. Actual status is :"+ responseStateThermostat.getStatus());
+		Assert.assertTrue(contentStateThermostat.contains("\"hvac_mode\":\"cool\""),"Expected hvac_mode COOL");
+		Assert.assertTrue(contentStateThermostat.contains("\"cool_setpoint\":71"),"Expected cool_setpoint 71");
+		Assert.assertTrue(contentStateThermostat.contains("\"fan_mode\":\"auto\""),"Expected fan_mode AUTO");
+		Assert.assertTrue(contentStateThermostat.contains("\"setpoint_reason\":\"mo\""),"Expected set_point_reason MO");
+		System.out.println("Current Thermostat state is " + contentStateThermostat);
+		WaitUtil.tinyWait();
+		
 		//verify start setpoint was applied to the t_stat using state api call
-		WaitUtil.hugeWait();
+		WaitUtil.veryHugeWait();
+		WaitUtil.veryHugeWait();
+		WaitUtil.veryHugeWait();
+		WaitUtil.veryHugeWait();
+		WaitUtil.threeMinutesWait();
+		
 		Invocation.Builder invocationBuilder1 = client.target(thermostatStateURL).request(MediaType.APPLICATION_JSON);
 		Response response1 = invocationBuilder1.get();
 		String content1 = response1.readEntity(String.class);
@@ -298,7 +305,7 @@ public class SPO {
 		WaitUtil.tinyWait();
 		SPO_DAO_Impl.start_away_efts(t_id, event_ee_start);
 		Assert.assertEquals(SPO_DAO_Impl.start_spo_thermostat_id_thermostat_event, t_id);
-		
+			
 		//ef11 start db verification
 		WaitUtil.tinyWait();
 		SPO_DAO_Impl.start_away_ef11(t_id, setting_phase_0_start);
@@ -307,6 +314,8 @@ public class SPO {
 		
 		//verify end setpoint was applied to the t_stat using state api call
 		WaitUtil.hugeWait();
+		WaitUtil.threeMinutesWait();
+		
 		Invocation.Builder invocationBuilder2 = client.target(thermostatStateURL).request(MediaType.APPLICATION_JSON);
 		Response response2 = invocationBuilder2.get();
 		String content2 = response2.readEntity(String.class);
