@@ -5,8 +5,8 @@
     <classes>
       <class name="com.ecofactor.spo.SPO">
         <methods>
+          <include name="createSpoScheduleChandeMOcutoffTime"/>
           <include name="init"/>
-          <include name="createSpoMODuringSPO"/>
         </methods>
       </class> <!-- com.ecofactor.spo.SPO -->
     </classes>
