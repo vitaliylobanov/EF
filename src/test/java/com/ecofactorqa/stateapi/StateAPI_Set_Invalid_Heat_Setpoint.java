@@ -20,7 +20,7 @@ public class StateAPI_Set_Invalid_Heat_Setpoint {
 
 
 	private String thermostatStateURL = APIprop.THERMOSTAT_STATE_URL
-			.replaceFirst("thermostat_id", "32753");
+			.replaceFirst("thermostat_id", "31437");
 
 	@BeforeClass
 	public void init() {

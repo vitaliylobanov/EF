@@ -25,16 +25,16 @@ public class Set_Away_Valid {
 	private Client client;
 	
 	//variables for assertions
-	int t_id=32753;
+	int t_id=31437;
 	String user_away_status="USER_AWAY";
-	int u_id=31861;
+	int u_id=23531;
 	int end_away=0;
 	
     // changing t_id for api call
 	private String setThermostatAway = APIprop.SET_THERMOSTAT_AWAY_URL
-			.replaceFirst("thermostat_id", "32753");
+			.replaceFirst("thermostat_id", "31437");
 	private String thermostatStateURL = APIprop.THERMOSTAT_STATE_URL
-			.replaceFirst("thermostat_id", "32753");
+			.replaceFirst("thermostat_id", "31437");
 
 	@BeforeClass
 	public void init() {

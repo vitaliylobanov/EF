@@ -28,7 +28,7 @@ public class SPO {
 	private Client client;
 	
     //variables for assertions spo
-	final int t_id = 32753;
+	final int t_id = 31437;
 	final int event_ee_start = 2;
 	final int setting_phase_0_start = event_ee_start;
 	final int event_ee_end = 0;
@@ -36,7 +36,7 @@ public class SPO {
     final int coolSetpointSPOEndMO = 76;
 	//away int for assertions
     int end_away=0;
-	final int u_id=31861;
+	final int u_id=23531;
 	
     String next_phase_time_start;
     String date_setup_start;
@@ -52,9 +52,9 @@ public class SPO {
     
     //state api t_stat change
 	private String thermostatStateURL = APIprop.THERMOSTAT_STATE_URL
-			.replaceFirst("thermostat_id", "32753");
+			.replaceFirst("thermostat_id", "31437");
 	private String setThermostatAway = APIprop.SET_THERMOSTAT_AWAY_URL
-			.replaceFirst("thermostat_id", "32753");
+			.replaceFirst("thermostat_id", "31437");
 	
 	@BeforeClass
 	public void init() {

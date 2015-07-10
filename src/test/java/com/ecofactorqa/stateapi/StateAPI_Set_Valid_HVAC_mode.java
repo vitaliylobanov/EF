@@ -23,10 +23,10 @@ public class StateAPI_Set_Valid_HVAC_mode {
 	private Client client;
 	
 	//variables for assertions
-	int t_id=32753;
+	int t_id=31437;
 
 	private String thermostatStateURL = APIprop.THERMOSTAT_STATE_URL
-			.replaceFirst("thermostat_id", "32753");
+			.replaceFirst("thermostat_id", "31437");
 
 	@BeforeClass
 	public void init() {
@@ -76,19 +76,19 @@ public class StateAPI_Set_Valid_HVAC_mode {
 		Assert.assertTrue(content1.contains("\"setpoint_reason\":\"mo\""),"Expected set_point_reason MO");
 		System.out.println(content1);
 		
-        final JSONObject jsonObject = JsonUtil.parseObject(content1);
-
-        final JSONObject knownstate = (JSONObject) jsonObject
-                .get("best_known_current_state_thermostat_data");
-
-        final String cool_setpoint = knownstate.get("cool_setpoint").toString();
-        System.out.println("cool_setpoint---" + cool_setpoint);
-        
-        final String hvac_mode = knownstate.get("hvac_mode").toString();
-        System.out.println("hvac_mode--- " + hvac_mode);
-
-        final String setpoint_reason = knownstate.get("setpoint_reason").toString();
-        System.out.println("setpoint_reason--- " + setpoint_reason);
+//        final JSONObject jsonObject = JsonUtil.parseObject(content1);
+//
+//        final JSONObject knownstate = (JSONObject) jsonObject
+//                .get("best_known_current_state_thermostat_data");
+//
+//        final String cool_setpoint = knownstate.get("cool_setpoint").toString();
+//        System.out.println("cool_setpoint---" + cool_setpoint);
+//        
+//        final String hvac_mode = knownstate.get("hvac_mode").toString();
+//        System.out.println("hvac_mode--- " + hvac_mode);
+//
+//        final String setpoint_reason = knownstate.get("setpoint_reason").toString();
+//        System.out.println("setpoint_reason--- " + setpoint_reason);
 
 		
 	}
