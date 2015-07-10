@@ -2,20 +2,20 @@
 <testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="7200" started-at="2015-07-10T15:50:54Z" finished-at="2015-07-10T15:51:01Z">
+  <suite name="Default suite" duration-ms="831071" started-at="2015-07-10T22:12:47Z" finished-at="2015-07-10T22:26:38Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="7200" started-at="2015-07-10T15:50:54Z" finished-at="2015-07-10T15:51:01Z">
-      <class name="com.ecofactorqa.stateapi.test">
-        <test-method status="PASS" signature="init()[pri:0, instance:com.ecofactorqa.stateapi.test@3778de07]" name="init" is-config="true" duration-ms="100" started-at="2015-07-10T08:50:54Z" finished-at="2015-07-10T08:50:54Z">
+    <test name="Default test" duration-ms="831071" started-at="2015-07-10T22:12:47Z" finished-at="2015-07-10T22:26:38Z">
+      <class name="com.ecofactor.spo.SPO">
+        <test-method status="PASS" signature="init()[pri:0, instance:com.ecofactor.spo.SPO@707e4019]" name="init" is-config="true" duration-ms="201" started-at="2015-07-10T15:12:47Z" finished-at="2015-07-10T15:12:47Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- init -->
-        <test-method status="PASS" signature="set_thermostat_to_cool_mode()[pri:0, instance:com.ecofactorqa.stateapi.test@3778de07]" name="set_thermostat_to_cool_mode" duration-ms="7090" started-at="2015-07-10T08:50:54Z" finished-at="2015-07-10T08:51:01Z">
+        <test-method status="PASS" signature="createSpoForHeatThermostat_191()[pri:0, instance:com.ecofactor.spo.SPO@707e4019]" name="createSpoForHeatThermostat_191" duration-ms="830860" started-at="2015-07-10T15:12:47Z" finished-at="2015-07-10T15:26:38Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- set_thermostat_to_cool_mode -->
-      </class> <!-- com.ecofactorqa.stateapi.test -->
+        </test-method> <!-- createSpoForHeatThermostat_191 -->
+      </class> <!-- com.ecofactor.spo.SPO -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
