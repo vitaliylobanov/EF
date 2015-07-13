@@ -5,10 +5,11 @@ package com.ecofactorqa.util;
 public class APIprop {
 	public static final String THERMOSTAT_STATE_URL = "http://qa-plat-tc1.ecofactor.com:8089/services/ws/v1.0/thermostat/thermostat_id/state";
 	public static final String SET_THERMOSTAT_AWAY_URL = "http://qa-plat-tc1.ecofactor.com:8089/services/ws/v1.0/thermostat/thermostat_id/away";
+	public static final String SET_DAILY_SCHEDULE_UPDATE_URL = "http://qa-plat-tc1.ecofactor.com:8089/ws/v1.0/thermostat/thermostat_id/dailySchedule/daily_schedule_id";
 	
 	public static final String json_away_start_valid_data1 = "{\"cool_setpoint\": 80.01,\"heat_setpoint\": 65.01,\"end_ts\":\"<end_time>\"}";
 	public static final String json_away_start_valid_data = "{\"cool_setpoint\": 80.01,\"heat_setpoint\": 65.01,\"end_ts\": \"2015-12-03T06:35:00+00:00\"}";
-	public static final String json_away_update_valid_data = "{\"cool_setpoint\": 74,\"heat_setpoint\": 68,\"end_ts\": \"2015-07-03T17:05:00+00:00\"}";
+	public static final String json_away_update_valid_data = "{\"cool_setpoint\": 74,\"heat_setpoint\": 68,\"end_ts\": \"2015-12-03T17:05:00+00:00\"}";
 	public static final String json_away_start_invalid_date_past = "{\"cool_setpoint\": 80.01,\"heat_setpoint\": 65.01,\"end_ts\": \"2013-07-03T06:35:00+00:00\"}";
 	public static final String json_away_start_invalid_date_no_date = "{\"cool_setpoint\": 80.01,\"heat_setpoint\": 65.01,\"end_ts\": \"T06:35:00+00:00\"}";
 	public static final String json_away_start_invalid_date_no_time = "{\"cool_setpoint\": 80.01,\"heat_setpoint\": 65.01,\"end_ts\": \"2015-07-03T\"}";
@@ -57,8 +58,6 @@ public class APIprop {
 	public static final String json_away_start_invalid_heat_setpoint_boundary_max = "{\"cool_setpoint\": 81,\"heat_setpoint\": 100,\"end_ts\": \"2015-07-03T06:35:00+00:00\"}";
 	public static final String json_away_start_invalid_heat_setpoint_boundary_min = "{\"cool_setpoint\": 81,\"heat_setpoint\": 17.01,\"end_ts\": \"2015-07-03T06:35:00+00:00\"}";
 	public static final String json_away_start_invalid_heat_setpoint_char = "{\"cool_setpoint\": 76,\"heat_setpoint\": dgdg67,\"end_ts\": \"2015-07-03T06:35:00+00:00\"}";
-
-
 	
 	
 	public static final String json_state_valid_hvac_mode_cool = "{\"hvac_mode\":\"cool\"}";
@@ -111,5 +110,9 @@ public class APIprop {
     public static final String json_state_invalid_heatsetpoint_decimaldot = "{\"heat_setpoint\":65.53}";
     public static final String json_state_invalid_heatsetpoint_doublequotes = "{\"heat_setpoint\":\"62\"}";
     public static final String json_state_invalid_heatsetpoint_singlequotes = "{\"heat_setpoint\":\'64\'}";
+    
+    
+    public static final String json_daily_schedule_update = "{\"name\": \"Same each day\",\"intervals\": [{ \"name\":\"Other\",\"start_time\": \"06:00\",\"cool_setpoint\":72,\"heat_setpoint\": 67}]}"; 
+    public static final String json_daily_schedule_update_second_time = "{\"name\": \"Same each day\",\"intervals\": [{ \"name\":\"Other\",\"start_time\": \"06:00\",\"cool_setpoint\":75,\"heat_setpoint\": 67}]}";
 
 }

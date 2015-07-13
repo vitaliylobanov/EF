@@ -5,7 +5,7 @@
     <classes>
       <class name="com.ecofactor.spo.SPO">
         <methods>
-          <include name="createSpoForHeatThermostat_191"/>
+          <include name="createSPOStartTimeLessThen5MinAfterScheduleChange"/>
           <include name="init"/>
         </methods>
       </class> <!-- com.ecofactor.spo.SPO -->
