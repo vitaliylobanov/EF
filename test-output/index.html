@@ -48,7 +48,7 @@
               <ul>
                 <li>
                   <a href="#" class="navigator-link " panel-name="test-xml-Default_suite">
-                    <span>C:\Users\Vitaliy Lobanov\AppData\Local\Temp\testng-eclipse-346810696\testng-customsuite.xml</span>
+                    <span>C:\Users\Vitaliy Lobanov\AppData\Local\Temp\testng-eclipse-1076259266\testng-customsuite.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -101,7 +101,7 @@
                     <div class="method-list-content failed suite-Default_suite">
                       <span>
                         <img width="3%" src="failed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="com.ecofactor.spo.SPO" hash-for-method="createSPOStartTimeLessThen5MinAfterScheduleChange">createSPOStartTimeLessThen5MinAfterScheduleChange</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="com.ecofactor.spo.SPO" hash-for-method="createSPOScheduleChangeDuringSPOExecution">createSPOScheduleChangeDuringSPOExecution</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content failed suite-Default_suite -->
@@ -124,16 +124,16 @@
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="createSPOStartTimeLessThen5MinAfterScheduleChange">
-                  </a> <!-- createSPOStartTimeLessThen5MinAfterScheduleChange -->
-                  <span class="method-name">createSPOStartTimeLessThen5MinAfterScheduleChange</span>
+                  <a name="createSPOScheduleChangeDuringSPOExecution">
+                  </a> <!-- createSPOScheduleChangeDuringSPOExecution -->
+                  <span class="method-name">createSPOScheduleChangeDuringSPOExecution</span>
                   <div class="stack-trace">java.lang.AssertionError: expected [31437] but found [0]
 	at org.testng.Assert.fail(Assert.java:94)
 	at org.testng.Assert.failNotEquals(Assert.java:494)
 	at org.testng.Assert.assertEquals(Assert.java:123)
 	at org.testng.Assert.assertEquals(Assert.java:370)
 	at org.testng.Assert.assertEquals(Assert.java:380)
-	at com.ecofactor.spo.SPO.createSPOStartTimeLessThen5MinAfterScheduleChange(SPO.java:900)
+	at com.ecofactor.spo.SPO.createSPOScheduleChangeDuringSPOExecution(SPO.java:1069)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -167,7 +167,7 @@
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\Vitaliy Lobanov\AppData\Local\Temp\testng-eclipse-346810696\testng-customsuite.xml</span>
+            <span class="header-content">C:\Users\Vitaliy Lobanov\AppData\Local\Temp\testng-eclipse-1076259266\testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -178,7 +178,7 @@
     &lt;classes&gt;
       &lt;class name=&quot;com.ecofactor.spo.SPO&quot;&gt;
         &lt;methods&gt;
-          &lt;include name=&quot;createSPOStartTimeLessThen5MinAfterScheduleChange&quot;/&gt;
+          &lt;include name=&quot;createSPOScheduleChangeDuringSPOExecution&quot;/&gt;
         &lt;/methods&gt;
       &lt;/class&gt; &lt;!-- com.ecofactor.spo.SPO --&gt;
     &lt;/classes&gt;
@@ -222,14 +222,14 @@ data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
 data.addRows(1);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'createSPOStartTimeLessThen5MinAfterScheduleChange')
+data.setCell(0, 1, 'createSPOScheduleChangeDuringSPOExecution')
 data.setCell(0, 2, 'com.ecofactor.spo.SPO')
-data.setCell(0, 3, 418502);
+data.setCell(0, 3, 785034);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 6 minutes</span>
+              <span class="suite-total-time">Total running time: 13 minutes</span>
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
@@ -244,7 +244,7 @@ return data;
         </div> <!-- panel -->
         <div panel-name="ignored-methods-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">5 ignored methods</span>
+            <span class="header-content">6 ignored methods</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="ignored-class-div">
@@ -255,6 +255,8 @@ return data;
                 <span class="ignored-method-name">createSpoMobeforeMOcutoffTime</span>
                 <br/>
                 <span class="ignored-method-name">createSpoForHeatThermostat_heat_191</span>
+                <br/>
+                <span class="ignored-method-name">createSPOStartTimeLessThen5MinAfterScheduleChange</span>
                 <br/>
                 <span class="ignored-method-name">createSpoMODuringSPO</span>
                 <br/>
@@ -278,8 +280,8 @@ return data;
               <div class="test-method">
                 <img src="failed.png">
                 </img>
-                <span class="method-name">createSPOStartTimeLessThen5MinAfterScheduleChange</span>
-                <span class="method-start">120 ms</span>
+                <span class="method-name">createSPOScheduleChangeDuringSPOExecution</span>
+                <span class="method-start">122 ms</span>
               </div> <!-- test-method -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

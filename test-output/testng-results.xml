@@ -2,16 +2,16 @@
 <testng-results skipped="0" failed="1" total="1" passed="0">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="418642" started-at="2015-07-13T23:05:01Z" finished-at="2015-07-13T23:12:00Z">
+  <suite name="Default suite" duration-ms="785176" started-at="2015-07-15T00:37:06Z" finished-at="2015-07-15T00:50:11Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="418642" started-at="2015-07-13T23:05:01Z" finished-at="2015-07-13T23:12:00Z">
+    <test name="Default test" duration-ms="785176" started-at="2015-07-15T00:37:06Z" finished-at="2015-07-15T00:50:11Z">
       <class name="com.ecofactor.spo.SPO">
-        <test-method status="PASS" signature="init()[pri:0, instance:com.ecofactor.spo.SPO@661c28c8]" name="init" is-config="true" duration-ms="110" started-at="2015-07-13T16:05:01Z" finished-at="2015-07-13T16:05:01Z">
+        <test-method status="PASS" signature="init()[pri:0, instance:com.ecofactor.spo.SPO@3d992030]" name="init" is-config="true" duration-ms="122" started-at="2015-07-14T17:37:06Z" finished-at="2015-07-14T17:37:06Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- init -->
-        <test-method status="FAIL" signature="createSPOStartTimeLessThen5MinAfterScheduleChange()[pri:0, instance:com.ecofactor.spo.SPO@661c28c8]" name="createSPOStartTimeLessThen5MinAfterScheduleChange" duration-ms="418502" started-at="2015-07-13T16:05:01Z" finished-at="2015-07-13T16:12:00Z">
+        <test-method status="FAIL" signature="createSPOScheduleChangeDuringSPOExecution()[pri:0, instance:com.ecofactor.spo.SPO@3d992030]" name="createSPOScheduleChangeDuringSPOExecution" duration-ms="785034" started-at="2015-07-14T17:37:06Z" finished-at="2015-07-14T17:50:11Z">
           <exception class="java.lang.AssertionError">
             <message>
               <![CDATA[expected [31437] but found [0]]]>
@@ -23,7 +23,7 @@
 	at org.testng.Assert.assertEquals(Assert.java:123)
 	at org.testng.Assert.assertEquals(Assert.java:370)
 	at org.testng.Assert.assertEquals(Assert.java:380)
-	at com.ecofactor.spo.SPO.createSPOStartTimeLessThen5MinAfterScheduleChange(SPO.java:900)
+	at com.ecofactor.spo.SPO.createSPOScheduleChangeDuringSPOExecution(SPO.java:1069)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -53,7 +53,7 @@
           </exception> <!-- java.lang.AssertionError -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- createSPOStartTimeLessThen5MinAfterScheduleChange -->
+        </test-method> <!-- createSPOScheduleChangeDuringSPOExecution -->
       </class> <!-- com.ecofactor.spo.SPO -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->

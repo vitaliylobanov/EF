@@ -5,7 +5,7 @@
     <classes>
       <class name="com.ecofactor.spo.SPO">
         <methods>
-          <include name="createSPOStartTimeLessThen5MinAfterScheduleChange"/>
+          <include name="createSPOScheduleChangeDuringSPOExecution"/>
           <include name="init"/>
         </methods>
       </class> <!-- com.ecofactor.spo.SPO -->
