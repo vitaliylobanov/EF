@@ -115,7 +115,7 @@ public class APIprop {
     public static final String json_daily_schedule_update = "{\"name\": \"Same each day\",\"intervals\": [{ \"name\":\"Other\","
     		+ "\"start_time\": \"06:00\",\"cool_setpoint\":72,\"heat_setpoint\": 67}]}"; 
     public static final String json_daily_schedule_update_second_time = "{\"name\": \"Same each day\",\"intervals\": [{ \"name\":\"Other\","
-    		+ "\"start_time\": \"06:00\",\"cool_setpoint\":71,\"heat_setpoint\": 67},{\"name\":\"Other\","
+    		+ "\"start_time\": \"06:00\",\"cool_setpoint\":70,\"heat_setpoint\": 67},{\"name\":\"Other\","
     		+ "\"start_time\": \"<schedule_second_interval_start_time>\",\"cool_setpoint\":75,\"heat_setpoint\": 67}]}";
 
 }

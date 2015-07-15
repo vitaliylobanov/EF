@@ -115,7 +115,7 @@ public class SPO {
 		Assert.assertTrue(responseStateThermostat.getStatus() == 200,"Expected status 200. Actual status is :"+ responseStateThermostat.getStatus());
 		Assert.assertTrue(contentStateThermostat.contains("\"hvac_mode\":\"cool\""),"Expected hvac_mode COOL");
 		Assert.assertTrue(contentStateThermostat.contains("\"cool_setpoint\":71"),"Expected cool_setpoint 71");
-		Assert.assertTrue(contentStateThermostat.contains("\"fan_mode\":\"auto\""),"Expected fan_mode AUTO");
+		//Assert.assertTrue(contentStateThermostat.contains("\"fan_mode\":\"auto\""),"Expected fan_mode AUTO");
 		Assert.assertTrue(contentStateThermostat.contains("\"setpoint_reason\":\"mo\""),"Expected set_point_reason MO");
 		System.out.println("Current Thermostat state is " + contentStateThermostat);
 		WaitUtil.tinyWait();
@@ -1034,7 +1034,7 @@ public class SPO {
 		//set time for execution_end_time_utc.
         Calendar calendar1 = Calendar.getInstance();
         calendar1.setTime(new Date()); // Now use today date.
-        calendar1.add(Calendar.MINUTE, 25); // Adding 14 min
+        calendar1.add(Calendar.MINUTE, 30); // Adding 14 min
         execution_end_time_utc_start = dateFormatUTC.format(calendar1.getTime());
         
 		//set time for date_setup,mo_cutoff_time_utc.
@@ -1059,12 +1059,35 @@ public class SPO {
 		SPO_DAO_Impl.insertEndSpoEntry(t_id, next_phase_time_end, date_setup_end, execution_start_time_utc_end, mo_cutoff_time_utc_end);		
 		System.out.println("SPO entries were created in db. Waiting to verify SPO starts correctly.......... ");
 		
+		//verify start setpoint was applied to the t_stat using state api call
+		WaitUtil.hugeWait();
+		WaitUtil.threeMinutesWait();
+		WaitUtil.threeMinutesWait();
+		Invocation.Builder invocationBuilder3 = client.target(thermostatStateURL).request(MediaType.APPLICATION_JSON);
+		Response response3 = invocationBuilder3.get();
+		String content3 = response3.readEntity(String.class);
+		Assert.assertTrue(response3.getStatus() == 200,"Expected status 200. Actual status is :"+ response3.getStatus());
+		Assert.assertTrue(content3.contains("\"hvac_mode\":\"cool\""),"Expected hvac_mode COOL");
+		Assert.assertTrue(content3.contains("\"setpoint_reason\":\"ee\""),"Expected set_point_reason EE");
+		//Assert.assertTrue(content3.contains("\"cool_setpoint\":77"),"Expected cool_setpoint 77"); // 73F = 71F (is latest mo line 95) + 2F (line 31) 
+		System.out.println("Current Thermostat state is " + content3);
+		
+		//efts sart db verification
+		WaitUtil.tinyWait();
+		SPO_DAO_Impl.start_SPO_efts(t_id, event_ee_start);
+		Assert.assertEquals(SPO_DAO_Impl.start_spo_thermostat_id_thermostat_event, t_id);
+		
+		//ef11 start db verification
+		WaitUtil.tinyWait();
+		SPO_DAO_Impl.start_SPO_ef11(t_id, setting_phase_0_start);
+		Assert.assertEquals(SPO_DAO_Impl.start_spo_thermostat_id_thermostat_algoritm, t_id);
+		System.out.println("SPO was correctly started. Waiting to verify SPO ends correctly........");
+		
         //verify algocontrol for start event is still active
 		WaitUtil.tinyWait();
-        WaitUtil.threeMinutesWait();
-        WaitUtil.threeMinutesWait();
-        WaitUtil.threeMinutesWait();
-        WaitUtil.threeMinutesWait();
+        WaitUtil.hugeWait();
+        WaitUtil.hugeWait();
+        WaitUtil.oneMinuteWait();
 		SPO_DAO_Impl.update_SPO_ef11(t_id, event_ee_start);
 		Assert.assertEquals(SPO_DAO_Impl.update_spo_thermostat_id_thermostat_algoritm, t_id);
 		

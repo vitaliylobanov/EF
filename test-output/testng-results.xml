@@ -1,60 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="1" total="1" passed="0">
+<testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="785176" started-at="2015-07-15T00:37:06Z" finished-at="2015-07-15T00:50:11Z">
+  <suite name="Default suite" duration-ms="16745" started-at="2015-07-15T23:14:12Z" finished-at="2015-07-15T23:14:29Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="785176" started-at="2015-07-15T00:37:06Z" finished-at="2015-07-15T00:50:11Z">
-      <class name="com.ecofactor.spo.SPO">
-        <test-method status="PASS" signature="init()[pri:0, instance:com.ecofactor.spo.SPO@3d992030]" name="init" is-config="true" duration-ms="122" started-at="2015-07-14T17:37:06Z" finished-at="2015-07-14T17:37:06Z">
+    <test name="Default test" duration-ms="16745" started-at="2015-07-15T23:14:12Z" finished-at="2015-07-15T23:14:29Z">
+      <class name="com.ecofactorqa.stateapi.test">
+        <test-method status="PASS" signature="init()[pri:0, instance:com.ecofactorqa.stateapi.test@199ec67]" name="init" is-config="true" duration-ms="110" started-at="2015-07-15T16:14:12Z" finished-at="2015-07-15T16:14:12Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- init -->
-        <test-method status="FAIL" signature="createSPOScheduleChangeDuringSPOExecution()[pri:0, instance:com.ecofactor.spo.SPO@3d992030]" name="createSPOScheduleChangeDuringSPOExecution" duration-ms="785034" started-at="2015-07-14T17:37:06Z" finished-at="2015-07-14T17:50:11Z">
-          <exception class="java.lang.AssertionError">
-            <message>
-              <![CDATA[expected [31437] but found [0]]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: expected [31437] but found [0]
-	at org.testng.Assert.fail(Assert.java:94)
-	at org.testng.Assert.failNotEquals(Assert.java:494)
-	at org.testng.Assert.assertEquals(Assert.java:123)
-	at org.testng.Assert.assertEquals(Assert.java:370)
-	at org.testng.Assert.assertEquals(Assert.java:380)
-	at com.ecofactor.spo.SPO.createSPOScheduleChangeDuringSPOExecution(SPO.java:1069)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:84)
-	at org.testng.internal.Invoker.invokeMethod(Invoker.java:714)
-	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
-	at org.testng.TestRunner.privateRun(TestRunner.java:767)
-	at org.testng.TestRunner.run(TestRunner.java:617)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1224)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1149)
-	at org.testng.TestNG.run(TestNG.java:1057)
-	at org.testng.remote.RemoteTestNG.run(RemoteTestNG.java:111)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:204)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:175)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.AssertionError -->
+        <test-method status="PASS" signature="set_thermostat_to_cool_mode()[pri:0, instance:com.ecofactorqa.stateapi.test@199ec67]" name="set_thermostat_to_cool_mode" duration-ms="16614" started-at="2015-07-15T16:14:12Z" finished-at="2015-07-15T16:14:29Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- createSPOScheduleChangeDuringSPOExecution -->
-      </class> <!-- com.ecofactor.spo.SPO -->
+        </test-method> <!-- set_thermostat_to_cool_mode -->
+      </class> <!-- com.ecofactorqa.stateapi.test -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
