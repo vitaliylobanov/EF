@@ -1086,7 +1086,8 @@ public class SPO {
         //verify algocontrol for start event is still active
 		WaitUtil.tinyWait();
         WaitUtil.hugeWait();
-        WaitUtil.hugeWait();
+        WaitUtil.threeMinutesWait();
+        WaitUtil.oneMinuteWait();
         WaitUtil.oneMinuteWait();
 		SPO_DAO_Impl.update_SPO_ef11(t_id, event_ee_start);
 		Assert.assertEquals(SPO_DAO_Impl.update_spo_thermostat_id_thermostat_algoritm, t_id);
