@@ -203,6 +203,123 @@ public class SPO {
 		System.out.println("SPO was correctly ended. SPO verification is done.");
 	}
 	
+	@Test //PLAT - 
+	public void createSpoForHeatThermostat_cool_190(){
+		//verify t_stat is in schedule, plus do mo
+		String jsonString = APIprop.json_state_valid_hvac_mode_cool;
+		Invocation.Builder invocationBuilderHVACMode = client.target(thermostatStateURL).request(MediaType.APPLICATION_JSON);
+		Response responseCoolHvacMode = invocationBuilderHVACMode.put(Entity.json(jsonString));
+		WaitUtil.tinyWait();	
+		Assert.assertTrue(responseCoolHvacMode.getStatus() == 200,"Expected status 200. Actual status is :"+ responseCoolHvacMode.getStatus());
+		System.out.println(responseCoolHvacMode);
+		
+		WaitUtil.tinyWait();
+		Invocation.Builder invocationBuilder = client.target(thermostatStateURL).request(MediaType.APPLICATION_JSON);
+		Response response = invocationBuilder.get();
+		String content = response.readEntity(String.class);
+		Assert.assertTrue(response.getStatus() == 200,"Expected status 200. Actual status is :"+ response.getStatus());
+		Assert.assertTrue(content.contains("\"hvac_mode\":\"cool\""),"Expected hvac_mode COOL");
+		Assert.assertTrue(content.contains("\"setpoint_reason\":\"schedule\""),"Expected set_point_reason should be schedule");
+		//Assert.assertFalse(content.contains("\"setpoint_reason\":\"ee\""),"Expected set_point_reason should not be EE");
+
+		//PArsing json response
+        final JSONObject jsonObject = JsonUtil.parseObject(content);
+        final JSONObject knownstate = (JSONObject) jsonObject.get("best_known_current_state_thermostat_data");
+        
+        //Printing out State of The t_stat
+        final String setpoint_reason = jsonObject.get("setpoint_reason").toString();
+        System.out.println("setpoint_reason--- " + setpoint_reason);
+        
+        final String hvac_mode = knownstate.get("hvac_mode").toString();
+        System.out.println("hvac_mode--- " + hvac_mode);
+        
+        final String cool_setpoint = knownstate.get("cool_setpoint").toString();
+        System.out.println("cool_setpoint--- " + cool_setpoint);
+		
+		
+		//set time for next_phase_time, execution_start_time_utc.
+        SimpleDateFormat dateFormatUTC = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        dateFormatUTC.setTimeZone(TimeZone.getTimeZone("UTC"));
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(new Date()); // Now use today date.
+        calendar.add(Calendar.MINUTE, 2); // Adding 2 min
+        next_phase_time_start = dateFormatUTC.format(calendar.getTime());
+        execution_start_time_utc_start = next_phase_time_start;
+        
+		//set time for execution_end_time_utc.
+        Calendar calendar1 = Calendar.getInstance();
+        calendar1.setTime(new Date()); // Now use today date.
+        calendar1.add(Calendar.MINUTE, 7); // Adding 7 min
+        execution_end_time_utc_start = dateFormatUTC.format(calendar1.getTime());
+        
+		//set time for date_setup,mo_cutoff_time_utc.
+        Calendar calendar2 = Calendar.getInstance();
+        calendar2.setTime(new Date()); // Now use today date.
+        calendar2.add(Calendar.MINUTE, 1); // Adding 1 min
+        date_setup_start = dateFormatUTC.format(calendar2.getTime());
+        mo_cutoff_time_utc_start = date_setup_start;
+ 		
+        System.out.println("Inserting SPO start entry into ef 11 DB......");
+        //insert start spo entry
+		SPO_DAO_Impl.insertStartSpoEntry(t_id, event_ee_start, next_phase_time_start, date_setup_start, execution_start_time_utc_start, execution_end_time_utc_start, mo_cutoff_time_utc_start);
+		
+		//time conversion for end SPO entry
+		next_phase_time_end = execution_end_time_utc_start;
+		date_setup_end = date_setup_start;
+		execution_start_time_utc_end = execution_end_time_utc_start;
+		mo_cutoff_time_utc_end = mo_cutoff_time_utc_start;
+		
+		System.out.println("Inserting SPO end entry into ef 11 DB......");
+		//insert end spo entry
+		SPO_DAO_Impl.insertEndSpoEntry(t_id, next_phase_time_end, date_setup_end, execution_start_time_utc_end, mo_cutoff_time_utc_end);		
+		System.out.println("SPO entries were created in db. Waiting to verify SPO starts correctly.......... ");
+		
+		//verify start setpoint was applied to the t_stat using state api call
+		WaitUtil.hugeWait();
+		Invocation.Builder invocationBuilder1 = client.target(thermostatStateURL).request(MediaType.APPLICATION_JSON);
+		Response response1 = invocationBuilder1.get();
+		String content1 = response1.readEntity(String.class);
+		Assert.assertTrue(response1.getStatus() == 200,"Expected status 200. Actual status is :"+ response1.getStatus());
+		Assert.assertTrue(content1.contains("\"hvac_mode\":\"cool\""),"Expected hvac_mode COOL");
+		Assert.assertTrue(content1.contains("\"setpoint_reason\":\"ee\""),"Expected set_point_reason EE");
+		//Assert.assertTrue(content1.contains("\"cool_setpoint\":73"),"Expected cool_setpoint 73"); // 73F = 71F (is latest mo line 95) + 2F (line 31) 
+		System.out.println("Current Thermostat state is " + content1);
+		
+		//efts sart db verification
+		WaitUtil.tinyWait();
+		SPO_DAO_Impl.start_SPO_efts(t_id, event_ee_start);
+		Assert.assertEquals(SPO_DAO_Impl.start_spo_thermostat_id_thermostat_event, t_id);
+		
+		//ef11 start db verification
+		WaitUtil.tinyWait();
+		SPO_DAO_Impl.start_SPO_ef11(t_id, setting_phase_0_start);
+		Assert.assertEquals(SPO_DAO_Impl.start_spo_thermostat_id_thermostat_algoritm, t_id);
+		System.out.println("SPO was correctly started. Waiting to verify SPO ends correctly........");
+		
+		//verify end setpoint was applied to the t_stat using state api call
+		WaitUtil.hugeWait();
+		Invocation.Builder invocationBuilder2 = client.target(thermostatStateURL).request(MediaType.APPLICATION_JSON);
+		Response response2 = invocationBuilder2.get();
+		String content2 = response2.readEntity(String.class);
+		Assert.assertTrue(response2.getStatus() == 200,"Expected status 200. Actual status is :"+ response2.getStatus());
+		Assert.assertTrue(content2.contains("\"hvac_mode\":\"cool\""),"Expected hvac_mode COOL");
+		Assert.assertFalse(content2.contains("\"setpoint_reason\":\"ee\""),"Expected set_point_reason EE");
+		//Assert.assertTrue(content2.contains("\"setpoint_reason\":\"mo\""),"Expected set_point_reason MO");
+		//Assert.assertTrue(content2.contains("\"cool_setpoint\":71"),"Expected cool_setpoint 71"); // 71F = 71F (is latest mo line 95)
+		System.out.println("Current Thermostat state is " + content2);
+				
+		//efts end db verification
+		WaitUtil.tinyWait();
+		SPO_DAO_Impl.end_SPO_efts(t_id, event_ee_end);
+		Assert.assertEquals(SPO_DAO_Impl.end_spo_thermostat_id_thermostat_event, t_id);
+				
+		//ef11 start db verification
+		WaitUtil.tinyWait();
+		SPO_DAO_Impl.end_SPO_ef11(t_id, setting_phase_0_end);
+		Assert.assertEquals(SPO_DAO_Impl.end_spo_thermostat_id_thermostat_algoritm, t_id);
+		System.out.println("SPO was correctly ended. SPO verification is done.");
+	}
+	
 	@Test //PLAT -
 	public void createSpoForHeatThermostat_heat_191(){
 		//set t_stat to heat mode
@@ -1130,6 +1247,198 @@ public class SPO {
 				
 		//efts end db verification
 		WaitUtil.tinyWait();
+		SPO_DAO_Impl.end_SPO_efts(t_id, event_ee_end);
+		Assert.assertEquals(SPO_DAO_Impl.end_spo_thermostat_id_thermostat_event, t_id);
+				
+		//ef11 start db verification
+		WaitUtil.tinyWait();
+		SPO_DAO_Impl.end_SPO_ef11(t_id, setting_phase_0_end);
+		Assert.assertEquals(SPO_DAO_Impl.end_spo_thermostat_id_thermostat_algoritm, t_id);
+		System.out.println("SPO was correctly ended. SPO verification is done.");
+	}
+	
+	@Test //PLAT - 494
+	public void createSPOAwayEndedDuringShedPhase(){
+		//verify t_stat is in schedule, plus do mo
+		String jsonString = APIprop.json_state_valid_hvac_mode_cool;
+		Invocation.Builder invocationBuilderHVACMode = client.target(thermostatStateURL).request(MediaType.APPLICATION_JSON);
+		Response responseCoolHvacMode = invocationBuilderHVACMode.put(Entity.json(jsonString));
+		WaitUtil.tinyWait();	
+		Assert.assertTrue(responseCoolHvacMode.getStatus() == 200,"Expected status 200. Actual status is :"+ responseCoolHvacMode.getStatus());
+		System.out.println(responseCoolHvacMode);
+		
+		WaitUtil.tinyWait();
+		Invocation.Builder invocationBuilder = client.target(thermostatStateURL).request(MediaType.APPLICATION_JSON);
+		Response response = invocationBuilder.get();
+		String content = response.readEntity(String.class);
+		Assert.assertTrue(response.getStatus() == 200,"Expected status 200. Actual status is :"+ response.getStatus());
+		Assert.assertTrue(content.contains("\"hvac_mode\":\"cool\""),"Expected hvac_mode COOL");
+		Assert.assertTrue(content.contains("\"setpoint_reason\":\"schedule\""),"Expected set_point_reason should be schedule");
+		//Assert.assertFalse(content.contains("\"setpoint_reason\":\"ee\""),"Expected set_point_reason should not be EE");
+
+		//PArsing json response
+        final JSONObject jsonObject = JsonUtil.parseObject(content);
+        final JSONObject knownstate = (JSONObject) jsonObject.get("best_known_current_state_thermostat_data");
+        
+        //Printing out State of The t_stat
+        final String setpoint_reason = jsonObject.get("setpoint_reason").toString();
+        System.out.println("setpoint_reason--- " + setpoint_reason);
+        
+        final String hvac_mode = knownstate.get("hvac_mode").toString();
+        System.out.println("hvac_mode--- " + hvac_mode);
+        
+        final String cool_setpoint = knownstate.get("cool_setpoint").toString();
+        System.out.println("cool_setpoint--- " + cool_setpoint);
+                
+		//set time for next_phase_time, execution_start_time_utc.
+        SimpleDateFormat dateFormatUTC = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        dateFormatUTC.setTimeZone(TimeZone.getTimeZone("UTC"));
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(new Date()); // Now use today date.
+        calendar.add(Calendar.MINUTE, 2); // Adding 2 min
+        next_phase_time_start = dateFormatUTC.format(calendar.getTime());
+        execution_start_time_utc_start = next_phase_time_start;
+        
+		//set time for execution_end_time_utc.
+        Calendar calendar1 = Calendar.getInstance();
+        calendar1.setTime(new Date()); // Now use today date.
+        calendar1.add(Calendar.MINUTE, 22); // Adding 8 min
+        execution_end_time_utc_start = dateFormatUTC.format(calendar1.getTime());
+        
+		//set time for date_setup,mo_cutoff_time_utc.
+        Calendar calendar2 = Calendar.getInstance();
+        calendar2.setTime(new Date()); // Now use today date.
+        calendar2.add(Calendar.MINUTE, 1); // Adding 1 min
+        date_setup_start = dateFormatUTC.format(calendar2.getTime());
+        mo_cutoff_time_utc_start = date_setup_start;
+ 		
+        System.out.println("Inserting SPO start entry into ef 11 DB......");
+        //insert start spo entry
+		SPO_DAO_Impl.insertStartSpoEntry(t_id, event_ee_start, next_phase_time_start, date_setup_start, execution_start_time_utc_start, execution_end_time_utc_start, mo_cutoff_time_utc_start);
+		
+		//time conversion for end SPO entry
+		next_phase_time_end = execution_end_time_utc_start;
+		date_setup_end = date_setup_start;
+		execution_start_time_utc_end = execution_end_time_utc_start;
+		mo_cutoff_time_utc_end = mo_cutoff_time_utc_start;
+		
+		System.out.println("Inserting SPO end entry into ef 11 DB......");
+		//insert end spo entry
+		SPO_DAO_Impl.insertEndSpoEntry(t_id, next_phase_time_end, date_setup_end, execution_start_time_utc_end, mo_cutoff_time_utc_end);		
+		System.out.println("SPO entries were created in db. Waiting to verify SPO starts correctly.......... ");
+		
+		//verify start setpoint was applied to the t_stat using state api call
+		WaitUtil.hugeWait();
+		Invocation.Builder invocationBuilder1 = client.target(thermostatStateURL).request(MediaType.APPLICATION_JSON);
+		Response response1 = invocationBuilder1.get();
+		String content1 = response1.readEntity(String.class);
+		Assert.assertTrue(response1.getStatus() == 200,"Expected status 200. Actual status is :"+ response1.getStatus());
+		Assert.assertTrue(content1.contains("\"hvac_mode\":\"cool\""),"Expected hvac_mode COOL");
+		Assert.assertTrue(content1.contains("\"setpoint_reason\":\"ee\""),"Expected set_point_reason AWAY");
+		System.out.println("Current Thermostat state is " + content1);		
+		
+		//efts sart db verification
+		WaitUtil.tinyWait();
+		SPO_DAO_Impl.start_SPO_efts(t_id, event_ee_start);
+		Assert.assertEquals(SPO_DAO_Impl.start_spo_thermostat_id_thermostat_event, t_id);
+				
+		//ef11 start db verification
+		WaitUtil.tinyWait();
+		SPO_DAO_Impl.start_SPO_ef11(t_id, setting_phase_0_start);
+		Assert.assertEquals(SPO_DAO_Impl.start_spo_thermostat_id_thermostat_algoritm, t_id);
+		System.out.println("SPO was correctly started. Waiting to verify SPO ends correctly........");
+		
+        //Start_AWAY
+        //set custom end time for away
+		String jsonStringAway = APIprop.json_away_start_valid_data1;
+        SimpleDateFormat dateFormatUTCAway = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss+'00:00'");
+        dateFormatUTCAway.setTimeZone(TimeZone.getTimeZone("UTC"));
+        Calendar calendarAWAY = Calendar.getInstance();
+        calendarAWAY.setTime(new Date()); // Now use today date.
+        calendarAWAY.add(Calendar.MINUTE, 5); // Adding 12 min
+        String output = dateFormatUTCAway.format(calendarAWAY.getTime()); 
+        jsonStringAway = jsonStringAway.replaceFirst("<end_time>",output);
+		System.out.println(jsonStringAway);
+		
+		//cancel away that we don't have any active away
+		Invocation.Builder invocationBuilderCancelAway = client.target(setThermostatAway).request(MediaType.APPLICATION_JSON);
+		Response responseCancelAway = invocationBuilderCancelAway.delete();
+		System.out.println(responseCancelAway); 	
+		
+		//start away
+		WaitUtil.tinyWait();
+		Invocation.Builder invocationBuilderAway = client.target(setThermostatAway).request(MediaType.APPLICATION_JSON);
+		Response responseAway = invocationBuilderAway.put(Entity.json(jsonStringAway));
+		Assert.assertTrue(responseAway.getStatus() == 200,"Expected status 200. Actual status is :"+ responseAway.getStatus());
+		System.out.println(responseAway);
+		
+		//Assertions start away	ef11
+		WaitUtil.tinyWait();	
+		Away_DAO_Impl.start_away_ef_11(t_id);
+		Assert.assertEquals(Away_DAO_Impl.start_away_thermostat_id_algo_control, t_id);
+		System.out.println("The thermostat_id in ef_thermostat_algo_control is " + Away_DAO_Impl.start_away_thermostat_id_algo_control + ", Expected thermostat id " + t_id);
+		Assert.assertEquals(Away_DAO_Impl.start_away_thermostat_id_program_log, t_id);
+		System.out.println("The thermostat_id in ef_thermostat_program_log is " + Away_DAO_Impl.start_away_thermostat_id_program_log + ", Expected thermostat id " + t_id);
+		Assert.assertEquals(Away_DAO_Impl.start_away_thermostat_id_program, user_away_status);
+		System.out.println("The progarm status in ef_program is " + Away_DAO_Impl.start_away_thermostat_id_program + ", Expected status is " + user_away_status);
+		Assert.assertEquals(Away_DAO_Impl.start_away_user_id_program, u_id);
+		System.out.println("The user_id in ef_program is " + Away_DAO_Impl.start_away_user_id_program + ", Expected user_id is " + u_id);	
+		
+		//Assertions start away	efts
+		WaitUtil.tinyWait();
+		Away_DAO_Impl.start_away_efts(t_id);
+		Assert.assertEquals(Away_DAO_Impl.start_away_thermostat_id_thermostat_event_phase_50, t_id);
+		System.out.println("The thermostat_id in ef_thermostat_event with phase 50 is " + Away_DAO_Impl.start_away_thermostat_id_thermostat_event_phase_50 + ", Expected thermostat id " + t_id);
+		Assert.assertEquals(Away_DAO_Impl.start_away_thermostat_id_thermostat_event_phase_30, t_id);
+		System.out.println("The thermostat_id in ef_thermostat_event with phase 30 is " + Away_DAO_Impl.start_away_thermostat_id_thermostat_event_phase_30 + ", Expected thermostat id " + t_id);
+		Assert.assertEquals(Away_DAO_Impl.start_away_thermostat_id_thermostat_event_phase_0, t_id);
+		System.out.println("The thermostat_id in ef_thermostat_event with phase 0 is " + Away_DAO_Impl.start_away_thermostat_id_thermostat_event_phase_0 + ", Expected thermostat id " + t_id);
+		
+		//verify end setpoint was applied to the t_stat using state api call
+		WaitUtil.threeMinutesWait();
+		Invocation.Builder invocationBuilder2 = client.target(thermostatStateURL).request(MediaType.APPLICATION_JSON);
+		Response response2 = invocationBuilder2.get();
+		String content2 = response2.readEntity(String.class);
+		Assert.assertTrue(response2.getStatus() == 200,"Expected status 200. Actual status is :"+ response2.getStatus());
+		Assert.assertTrue(content2.contains("\"hvac_mode\":\"cool\""),"Expected hvac_mode COOL");
+		Assert.assertTrue(content2.contains("\"setpoint_reason\":\"away\""),"Expected set_point_reason AWAY");
+		//Assert.assertTrue(content2.contains("\"cool_setpoint\":71"),"Expected cool_setpoint 71"); // 71F = 71F (is latest mo line 95)
+		System.out.println("Current Thermostat state is " + content2);
+
+		// Assertions natural end away
+		WaitUtil.threeMinutesWait();
+		WaitUtil.oneMinuteWait();
+		Away_DAO_Impl.end_away_ef_11(t_id);
+		Assert.assertEquals(Away_DAO_Impl.end_away_thermostat_id_algo, end_away);
+		System.out.println("The thermostat_id in ef_thermostat_algo_control is " + Away_DAO_Impl.end_away_thermostat_id_algo + ", Expected thermostat id " + end_away);
+		Assert.assertEquals(Away_DAO_Impl.end_away_thermostat_id_program_log, end_away);
+		System.out.println("The thermostat_id in ef_thermostat_program_log is " + Away_DAO_Impl.end_away_thermostat_id_program_log + ", Expected thermostat id " + end_away);
+		Assert.assertEquals(Away_DAO_Impl.end_away_user_id_program, end_away);
+		System.out.println("The user_id in ef_program is " + Away_DAO_Impl.end_away_user_id_program + ", Expected thermostat id " + end_away);
+				
+		WaitUtil.tinyWait();
+		Away_DAO_Impl.end_away_efts(t_id);
+		Assert.assertEquals(Away_DAO_Impl.end_away_thermostat_id_thermostat_event_phase_40, t_id);
+		System.out.println("The thermostat_id in ef_thermostat_event with phase 40 is " + Away_DAO_Impl.end_away_thermostat_id_thermostat_event_phase_40 + ", Expected thermostat id " + t_id);
+		Assert.assertEquals(Away_DAO_Impl.end_away_thermostat_id_thermostat_event_phase_60, t_id);
+		System.out.println("The thermostat_id in ef_thermostat_event with phase 60 is " + Away_DAO_Impl.end_away_thermostat_id_thermostat_event_phase_60 + ", Expected thermostat id " + t_id);
+		Assert.assertEquals(Away_DAO_Impl.end_away_thermostat_id_thermostat_event_phase_10, t_id);
+		System.out.println("The thermostat_id in ef_thermostat_event with phase 0 is " + Away_DAO_Impl.end_away_thermostat_id_thermostat_event_phase_10 + ", Expected thermostat id " + t_id);
+		
+		//verify start setpoint was applied to the t_stat using state api call
+		WaitUtil.threeMinutesWait();
+		Invocation.Builder invocationBuilder3 = client.target(thermostatStateURL).request(MediaType.APPLICATION_JSON);
+		Response response3 = invocationBuilder3.get();
+		String content3 = response3.readEntity(String.class);
+		Assert.assertTrue(response3.getStatus() == 200,"Expected status 200. Actual status is :"+ response3.getStatus());
+		Assert.assertTrue(content3.contains("\"hvac_mode\":\"cool\""),"Expected hvac_mode COOL");
+		Assert.assertTrue(content3.contains("\"setpoint_reason\":\"ee\""),"Expected set_point_reason AWAY");
+		System.out.println("Current Thermostat state is " + content3);	
+		
+		//efts end db verification
+		WaitUtil.tinyWait();
+		WaitUtil.veryHugeWait();
+		WaitUtil.hugeWait();
 		SPO_DAO_Impl.end_SPO_efts(t_id, event_ee_end);
 		Assert.assertEquals(SPO_DAO_Impl.end_spo_thermostat_id_thermostat_event, t_id);
 				
