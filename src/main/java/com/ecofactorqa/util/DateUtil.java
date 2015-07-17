@@ -8,7 +8,6 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
-import java.util.SimpleTimeZone;
 import java.util.TimeZone;
 
 import org.joda.time.DateTime;

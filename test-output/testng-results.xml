@@ -2,28 +2,28 @@
 <testng-results skipped="0" failed="1" total="1" passed="0">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="712578" started-at="2015-07-16T23:00:50Z" finished-at="2015-07-16T23:12:43Z">
+  <suite name="Default suite" duration-ms="210373" started-at="2015-07-17T21:56:03Z" finished-at="2015-07-17T21:59:33Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="712578" started-at="2015-07-16T23:00:50Z" finished-at="2015-07-16T23:12:43Z">
-      <class name="com.ecofactor.spo.SPO">
-        <test-method status="PASS" signature="init()[pri:0, instance:com.ecofactor.spo.SPO@38a09316]" name="init" is-config="true" duration-ms="110" started-at="2015-07-16T16:00:50Z" finished-at="2015-07-16T16:00:50Z">
+    <test name="Default test" duration-ms="210373" started-at="2015-07-17T21:56:03Z" finished-at="2015-07-17T21:59:33Z">
+      <class name="com.ecofactor.realtemp.RealTemp">
+        <test-method status="PASS" signature="init()[pri:0, instance:com.ecofactor.realtemp.RealTemp@56d15836]" name="init" is-config="true" duration-ms="121" started-at="2015-07-17T14:56:03Z" finished-at="2015-07-17T14:56:03Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- init -->
-        <test-method status="FAIL" signature="createSPOAwayEndedDuringShedPhase()[pri:0, instance:com.ecofactor.spo.SPO@38a09316]" name="createSPOAwayEndedDuringShedPhase" duration-ms="712448" started-at="2015-07-16T16:00:50Z" finished-at="2015-07-16T16:12:43Z">
+        <test-method status="FAIL" signature="createRealTempForCoolThermostat_cool_130()[pri:0, instance:com.ecofactor.realtemp.RealTemp@56d15836]" name="createRealTempForCoolThermostat_cool_130" duration-ms="210222" started-at="2015-07-17T14:56:03Z" finished-at="2015-07-17T14:59:33Z">
           <exception class="java.lang.AssertionError">
             <message>
-              <![CDATA[expected [0] but found [31437]]]>
+              <![CDATA[expected [32753] but found [0]]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: expected [0] but found [31437]
+              <![CDATA[java.lang.AssertionError: expected [32753] but found [0]
 	at org.testng.Assert.fail(Assert.java:94)
 	at org.testng.Assert.failNotEquals(Assert.java:494)
 	at org.testng.Assert.assertEquals(Assert.java:123)
 	at org.testng.Assert.assertEquals(Assert.java:370)
 	at org.testng.Assert.assertEquals(Assert.java:380)
-	at com.ecofactor.spo.SPO.createSPOAwayEndedDuringShedPhase(SPO.java:1413)
+	at com.ecofactor.realtemp.RealTemp.createRealTempForCoolThermostat_cool_130(RealTemp.java:149)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -53,8 +53,8 @@
           </exception> <!-- java.lang.AssertionError -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- createSPOAwayEndedDuringShedPhase -->
-      </class> <!-- com.ecofactor.spo.SPO -->
+        </test-method> <!-- createRealTempForCoolThermostat_cool_130 -->
+      </class> <!-- com.ecofactor.realtemp.RealTemp -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

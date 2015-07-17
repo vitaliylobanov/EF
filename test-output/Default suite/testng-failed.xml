@@ -3,12 +3,12 @@
 <suite name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="com.ecofactor.spo.SPO">
+      <class name="com.ecofactor.realtemp.RealTemp">
         <methods>
-          <include name="createSPOAwayEndedDuringShedPhase"/>
           <include name="init"/>
+          <include name="createRealTempForCoolThermostat_cool_130"/>
         </methods>
-      </class> <!-- com.ecofactor.spo.SPO -->
+      </class> <!-- com.ecofactor.realtemp.RealTemp -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

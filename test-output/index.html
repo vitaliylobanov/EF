@@ -48,7 +48,7 @@
               <ul>
                 <li>
                   <a href="#" class="navigator-link " panel-name="test-xml-Default_suite">
-                    <span>C:\Users\Vitaliy Lobanov\AppData\Local\Temp\testng-eclipse--143396293\testng-customsuite.xml</span>
+                    <span>C:\Users\Vitaliy Lobanov\AppData\Local\Temp\testng-eclipse--1827046549\testng-customsuite.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -101,7 +101,7 @@
                     <div class="method-list-content failed suite-Default_suite">
                       <span>
                         <img width="3%" src="failed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="com.ecofactor.spo.SPO" hash-for-method="createSPOAwayEndedDuringShedPhase">createSPOAwayEndedDuringShedPhase</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="com.ecofactor.realtemp.RealTemp" hash-for-method="createRealTempForCoolThermostat_cool_130">createRealTempForCoolThermostat_cool_130</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content failed suite-Default_suite -->
@@ -119,21 +119,21 @@
           <div class="suite-Default_suite-class-failed">
             <div class="main-panel-header rounded-window-top">
               <img src="failed.png"/>
-              <span class="class-name">com.ecofactor.spo.SPO</span>
+              <span class="class-name">com.ecofactor.realtemp.RealTemp</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="createSPOAwayEndedDuringShedPhase">
-                  </a> <!-- createSPOAwayEndedDuringShedPhase -->
-                  <span class="method-name">createSPOAwayEndedDuringShedPhase</span>
-                  <div class="stack-trace">java.lang.AssertionError: expected [0] but found [31437]
+                  <a name="createRealTempForCoolThermostat_cool_130">
+                  </a> <!-- createRealTempForCoolThermostat_cool_130 -->
+                  <span class="method-name">createRealTempForCoolThermostat_cool_130</span>
+                  <div class="stack-trace">java.lang.AssertionError: expected [32753] but found [0]
 	at org.testng.Assert.fail(Assert.java:94)
 	at org.testng.Assert.failNotEquals(Assert.java:494)
 	at org.testng.Assert.assertEquals(Assert.java:123)
 	at org.testng.Assert.assertEquals(Assert.java:370)
 	at org.testng.Assert.assertEquals(Assert.java:380)
-	at com.ecofactor.spo.SPO.createSPOAwayEndedDuringShedPhase(SPO.java:1413)
+	at com.ecofactor.realtemp.RealTemp.createRealTempForCoolThermostat_cool_130(RealTemp.java:149)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -167,7 +167,7 @@
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\Vitaliy Lobanov\AppData\Local\Temp\testng-eclipse--143396293\testng-customsuite.xml</span>
+            <span class="header-content">C:\Users\Vitaliy Lobanov\AppData\Local\Temp\testng-eclipse--1827046549\testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -176,11 +176,11 @@
 &lt;suite name=&quot;Default suite&quot;&gt;
   &lt;test verbose=&quot;2&quot; name=&quot;Default test&quot;&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;com.ecofactor.spo.SPO&quot;&gt;
+      &lt;class name=&quot;com.ecofactor.realtemp.RealTemp&quot;&gt;
         &lt;methods&gt;
-          &lt;include name=&quot;createSPOAwayEndedDuringShedPhase&quot;/&gt;
+          &lt;include name=&quot;createRealTempForCoolThermostat_cool_130&quot;/&gt;
         &lt;/methods&gt;
-      &lt;/class&gt; &lt;!-- com.ecofactor.spo.SPO --&gt;
+      &lt;/class&gt; &lt;!-- com.ecofactor.realtemp.RealTemp --&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Default test --&gt;
 &lt;/suite&gt; &lt;!-- Default suite --&gt;
@@ -222,14 +222,14 @@ data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
 data.addRows(1);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'createSPOAwayEndedDuringShedPhase')
-data.setCell(0, 2, 'com.ecofactor.spo.SPO')
-data.setCell(0, 3, 712448);
+data.setCell(0, 1, 'createRealTempForCoolThermostat_cool_130')
+data.setCell(0, 2, 'com.ecofactor.realtemp.RealTemp')
+data.setCell(0, 3, 210222);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 11 minutes</span>
+              <span class="suite-total-time">Total running time: 3 minutes</span>
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
@@ -244,27 +244,13 @@ return data;
         </div> <!-- panel -->
         <div panel-name="ignored-methods-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">8 ignored methods</span>
+            <span class="header-content">1 ignored method</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="ignored-class-div">
-              <span class="ignored-class-name">com.ecofactor.spo.SPO</span>
+              <span class="ignored-class-name">com.ecofactor.realtemp.RealTemp</span>
               <div class="ignored-methods-div">
-                <span class="ignored-method-name">createSpoScheduleChangeMOcutoffTime</span>
-                <br/>
-                <span class="ignored-method-name">createSpoMobeforeMOcutoffTime</span>
-                <br/>
-                <span class="ignored-method-name">createSpoForHeatThermostat_heat_191</span>
-                <br/>
-                <span class="ignored-method-name">createSpoForHeatThermostat_cool_190</span>
-                <br/>
-                <span class="ignored-method-name">createSPOScheduleChangeDuringSPOExecution</span>
-                <br/>
-                <span class="ignored-method-name">createSPOStartTimeLessThen5MinAfterScheduleChange</span>
-                <br/>
-                <span class="ignored-method-name">createSpoMODuringSPO</span>
-                <br/>
-                <span class="ignored-method-name">createSpoAwayBeforeSPOstartFoSPODuration</span>
+                <span class="ignored-method-name">createRealTempForHeatThermostat_heat_191</span>
                 <br/>
               </div> <!-- ignored-methods-div -->
             </div> <!-- ignored-class-div -->
@@ -276,7 +262,7 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">com.ecofactor.spo.SPO</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">com.ecofactor.realtemp.RealTemp</div> <!-- chronological-class-name -->
               <div class="configuration-class before">
                 <span class="method-name">init</span>
                 <span class="method-start">0 ms</span>
@@ -284,8 +270,8 @@ return data;
               <div class="test-method">
                 <img src="failed.png">
                 </img>
-                <span class="method-name">createSPOAwayEndedDuringShedPhase</span>
-                <span class="method-start">110 ms</span>
+                <span class="method-name">createRealTempForCoolThermostat_cool_130</span>
+                <span class="method-start">121 ms</span>
               </div> <!-- test-method -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

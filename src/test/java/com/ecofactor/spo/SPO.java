@@ -204,7 +204,7 @@ public class SPO {
 	}
 	
 	@Test //PLAT - 
-	public void createSpoForHeatThermostat_cool_190(){
+	public void createSpoForCoolThermostat_cool_190(){
 		//verify t_stat is in schedule, plus do mo
 		String jsonString = APIprop.json_state_valid_hvac_mode_cool;
 		Invocation.Builder invocationBuilderHVACMode = client.target(thermostatStateURL).request(MediaType.APPLICATION_JSON);
