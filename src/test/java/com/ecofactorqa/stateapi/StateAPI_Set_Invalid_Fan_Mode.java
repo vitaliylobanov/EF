@@ -17,9 +17,11 @@ public class StateAPI_Set_Invalid_Fan_Mode {
 	
 	private Client client;
 
-
+	int t_id=31437;
+	final String str_tid = Integer.toString(t_id);
+	
 	private String thermostatStateURL = APIprop.THERMOSTAT_STATE_URL
-			.replaceFirst("thermostat_id", "31437");
+			.replaceFirst("thermostat_id", str_tid);
 
 	@BeforeClass
 	public void init() {

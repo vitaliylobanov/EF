@@ -20,9 +20,10 @@ public class Set_Away_Invalid {
 	
 	private Client client;
 	int t_id=32753;
+	final String str_tid = Integer.toString(t_id);
 
 	private String setThermostatAway = APIprop.SET_THERMOSTAT_AWAY_URL
-			.replaceFirst("thermostat_id", "32753");
+			.replaceFirst("thermostat_id", str_tid);
 
 	@BeforeClass
 	public void init() {

@@ -23,11 +23,14 @@ public class test {
 	private Client client;
 	
 	//variables for assertions
-	int t_id=31437;
+	int t_id = 31437;
 	int daily_schedule_id = 259955;
+	final String str_tid = Integer.toString(t_id);
+	final String str_schedule_id = Integer.toString(daily_schedule_id);
+	
 
 	private String thermostatStateURL = APIprop.SET_DAILY_SCHEDULE_UPDATE_URL
-			.replaceFirst("thermostat_id", "31437").replaceFirst("daily_schedule_id","259955");
+			.replaceFirst("thermostat_id", str_tid).replaceFirst("daily_schedule_id",str_schedule_id);
 
 	@BeforeClass
 	public void init() {

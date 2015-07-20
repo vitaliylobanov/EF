@@ -29,12 +29,13 @@ public class Set_Away_Valid {
 	String user_away_status="USER_AWAY";
 	int u_id=23531;
 	int end_away=0;
+	final String str_tid = Integer.toString(t_id);
 	
     // changing t_id for api call
 	private String setThermostatAway = APIprop.SET_THERMOSTAT_AWAY_URL
-			.replaceFirst("thermostat_id", "31437");
+			.replaceFirst("thermostat_id", str_tid);
 	private String thermostatStateURL = APIprop.THERMOSTAT_STATE_URL
-			.replaceFirst("thermostat_id", "31437");
+			.replaceFirst("thermostat_id", str_tid);
 
 	@BeforeClass
 	public void init() {

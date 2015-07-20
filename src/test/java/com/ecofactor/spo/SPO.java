@@ -34,9 +34,13 @@ public class SPO {
 	final int event_ee_end = 0;
 	final int setting_phase_0_end = event_ee_end;
     final int coolSetpointSPOEndMO = 76;
+    final int daily_schedule_id = 259955;
 	//away int for assertions
     int end_away=0;
 	final int u_id=23531;
+	
+	final String str_tid = Integer.toString(t_id);
+	final String str_schedule_id = Integer.toString(daily_schedule_id);
 	
     String next_phase_time_start;
     String date_setup_start;
@@ -52,11 +56,11 @@ public class SPO {
     
     //state api t_stat change
 	private String thermostatStateURL = APIprop.THERMOSTAT_STATE_URL
-			.replaceFirst("thermostat_id", "31437");
+			.replaceFirst("thermostat_id", str_tid);
 	private String setThermostatAway = APIprop.SET_THERMOSTAT_AWAY_URL
-			.replaceFirst("thermostat_id", "31437");
+			.replaceFirst("thermostat_id", str_tid);
 	private String dailyScheduleUpdate = APIprop.SET_DAILY_SCHEDULE_UPDATE_URL
-			.replaceFirst("thermostat_id", "31437").replaceFirst("daily_schedule_id","259955");
+			.replaceFirst("thermostat_id", str_tid).replaceFirst("daily_schedule_id", str_schedule_id);
 	
 	@BeforeClass
 	public void init() {

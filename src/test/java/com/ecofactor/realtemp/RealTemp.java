@@ -17,9 +17,7 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import com.ecofactorqa.dao.Away_DAO_Impl;
 import com.ecofactorqa.dao.Real_Temp_DAO_Impl;
-import com.ecofactorqa.dao.SPO_DAO_Impl;
 import com.ecofactorqa.util.APIprop;
 import com.ecofactorqa.util.JsonUtil;
 import com.ecofactorqa.util.WaitUtil;
@@ -30,30 +28,15 @@ public class RealTemp {
 	
     //variables for assertions spo
 	final int t_id = 32753;
-	final int event_ee_start = 2;
-	final int setting_phase_0_start = event_ee_start;
-	final int event_ee_end = 0;
-	final int setting_phase_0_end = event_ee_end;
-    final int coolSetpointSPOEndMO = 76;
-	//away int for assertions
-    int end_away=0;
-	final int u_id=23531;
+	final String str_tid = Integer.toString(t_id);
 	
     String next_phase_time_start;
     String date_setup_start;
     String execution_start_time_utc_start;
-    String execution_end_time_utc_start;
-    String mo_cutoff_time_utc_start;
-    String next_phase_time_end;
-    String date_setup_end;
-    String execution_start_time_utc_end;
-    String mo_cutoff_time_utc_end;
-    //away string assertions
-	final String user_away_status="USER_AWAY";
     
     //state api t_stat change
 	private String thermostatStateURL = APIprop.THERMOSTAT_STATE_URL
-			.replaceFirst("thermostat_id", "31437");
+			.replaceFirst("thermostat_id", str_tid);
 	
 	@BeforeClass
 	public void init() {

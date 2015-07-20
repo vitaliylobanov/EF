@@ -7,15 +7,12 @@ import javax.ws.rs.client.Invocation;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import org.codehaus.jackson.map.ObjectMapper;
-import org.json.simple.JSONObject;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import com.ecofactorqa.dao.Thermostat_State_DAO_Impl;
 import com.ecofactorqa.util.APIprop;
-import com.ecofactorqa.util.JsonUtil;
 import com.ecofactorqa.util.WaitUtil;
 
 public class StateAPI_Set_Valid_HVAC_mode {
@@ -24,9 +21,10 @@ public class StateAPI_Set_Valid_HVAC_mode {
 	
 	//variables for assertions
 	int t_id=31437;
+	final String str_tid = Integer.toString(t_id);
 
 	private String thermostatStateURL = APIprop.THERMOSTAT_STATE_URL
-			.replaceFirst("thermostat_id", "31437");
+			.replaceFirst("thermostat_id", str_tid);
 
 	@BeforeClass
 	public void init() {
