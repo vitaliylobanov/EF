@@ -7,7 +7,6 @@ import java.util.TimeZone;
 
 import com.ecofactorqa.dao.*;
 import com.ecofactorqa.util.APIprop;
-import com.ecofactorqa.util.DateUtil;
 import com.ecofactorqa.util.WaitUtil;
 
 import javax.ws.rs.client.Client;

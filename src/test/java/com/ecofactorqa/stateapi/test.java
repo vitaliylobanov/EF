@@ -7,16 +7,11 @@ import javax.ws.rs.client.Invocation;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import org.codehaus.jackson.map.ObjectMapper;
-import org.json.simple.JSONObject;
-import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import com.ecofactorqa.dao.Thermostat_State_DAO_Impl;
 import com.ecofactorqa.util.APIprop;
-import com.ecofactorqa.util.JsonUtil;
-import com.ecofactorqa.util.WaitUtil;
+
 
 public class test {
 
