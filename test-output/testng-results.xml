@@ -2,19 +2,19 @@
 <testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="388331" started-at="2015-07-20T22:21:49Z" finished-at="2015-07-20T22:28:17Z">
+  <suite name="Default suite" duration-ms="398547" started-at="2015-07-29T01:12:13Z" finished-at="2015-07-29T01:18:52Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="388331" started-at="2015-07-20T22:21:49Z" finished-at="2015-07-20T22:28:17Z">
+    <test name="Default test" duration-ms="398547" started-at="2015-07-29T01:12:13Z" finished-at="2015-07-29T01:18:52Z">
       <class name="com.ecofactor.realtemp.RealTemp">
-        <test-method status="PASS" signature="init()[pri:0, instance:com.ecofactor.realtemp.RealTemp@6a35d38e]" name="init" is-config="true" duration-ms="130" started-at="2015-07-20T15:21:49Z" finished-at="2015-07-20T15:21:49Z">
+        <test-method status="PASS" signature="init()[pri:0, instance:com.ecofactor.realtemp.RealTemp@7df992df]" name="init" is-config="true" duration-ms="100" started-at="2015-07-28T18:12:13Z" finished-at="2015-07-28T18:12:13Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- init -->
-        <test-method status="PASS" signature="createRealTempForCoolThermostat_cool_130()[pri:0, instance:com.ecofactor.realtemp.RealTemp@6a35d38e]" name="createRealTempForCoolThermostat_cool_130" duration-ms="388180" started-at="2015-07-20T15:21:49Z" finished-at="2015-07-20T15:28:17Z">
+        <test-method status="PASS" signature="createRealTempForHeatThermostat_heat_130()[pri:0, instance:com.ecofactor.realtemp.RealTemp@7df992df]" name="createRealTempForHeatThermostat_heat_130" duration-ms="398417" started-at="2015-07-28T18:12:13Z" finished-at="2015-07-28T18:18:52Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- createRealTempForCoolThermostat_cool_130 -->
+        </test-method> <!-- createRealTempForHeatThermostat_heat_130 -->
       </class> <!-- com.ecofactor.realtemp.RealTemp -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
