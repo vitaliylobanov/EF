@@ -148,7 +148,7 @@ public class RealTemp {
 	}
 	
 	@Test //PLAT - 721
-	public void createRealTempForHeatThermostat_heat_191(){
+	public void createRealTempForHeatThermostat_heat_130(){
 		//cancel all activ real temps for t_stat
 		Real_Temp_DAO_Impl.cancel_active_real_temp(t_id);
 				
