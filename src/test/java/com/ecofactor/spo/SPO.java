@@ -776,7 +776,7 @@ public class SPO {
 		String content = response.readEntity(String.class);
 		Assert.assertTrue(response.getStatus() == 200,"Expected status 200. Actual status is :"+ response.getStatus());
 		Assert.assertTrue(content.contains("\"hvac_mode\":\"cool\""),"Expected hvac_mode COOL");
-		Assert.assertTrue(content.contains("\"setpoint_reason\":\"schedule\""),"Expected set_point_reason should be schedule");
+		//Assert.assertTrue(content.contains("\"setpoint_reason\":\"schedule\""),"Expected set_point_reason should be schedule");
 		//Assert.assertFalse(content.contains("\"setpoint_reason\":\"ee\""),"Expected set_point_reason should not be EE");
 
 		//PArsing json response

@@ -2,20 +2,20 @@
 <testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="398547" started-at="2015-07-29T01:12:13Z" finished-at="2015-07-29T01:18:52Z">
+  <suite name="Default suite" duration-ms="654757" started-at="2015-08-07T16:52:29Z" finished-at="2015-08-07T17:03:24Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="398547" started-at="2015-07-29T01:12:13Z" finished-at="2015-07-29T01:18:52Z">
-      <class name="com.ecofactor.realtemp.RealTemp">
-        <test-method status="PASS" signature="init()[pri:0, instance:com.ecofactor.realtemp.RealTemp@7df992df]" name="init" is-config="true" duration-ms="100" started-at="2015-07-28T18:12:13Z" finished-at="2015-07-28T18:12:13Z">
+    <test name="Default test" duration-ms="654757" started-at="2015-08-07T16:52:29Z" finished-at="2015-08-07T17:03:24Z">
+      <class name="com.ecofactor.spo.SPO">
+        <test-method status="PASS" signature="init()[pri:0, instance:com.ecofactor.spo.SPO@6ea1ade8]" name="init" is-config="true" duration-ms="143" started-at="2015-08-07T09:52:29Z" finished-at="2015-08-07T09:52:29Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- init -->
-        <test-method status="PASS" signature="createRealTempForHeatThermostat_heat_130()[pri:0, instance:com.ecofactor.realtemp.RealTemp@7df992df]" name="createRealTempForHeatThermostat_heat_130" duration-ms="398417" started-at="2015-07-28T18:12:13Z" finished-at="2015-07-28T18:18:52Z">
+        <test-method status="PASS" signature="createSpoAwayBeforeSPOstartFoSPODuration()[pri:0, instance:com.ecofactor.spo.SPO@6ea1ade8]" name="createSpoAwayBeforeSPOstartFoSPODuration" duration-ms="654594" started-at="2015-08-07T09:52:29Z" finished-at="2015-08-07T10:03:24Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- createRealTempForHeatThermostat_heat_130 -->
-      </class> <!-- com.ecofactor.realtemp.RealTemp -->
+        </test-method> <!-- createSpoAwayBeforeSPOstartFoSPODuration -->
+      </class> <!-- com.ecofactor.spo.SPO -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
