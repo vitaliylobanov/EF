@@ -56,9 +56,10 @@ public class StateAPI_Set_Valid_HVAC_mode {
 		
 		//db verification, efts thermostat event
 		WaitUtil.tinyWait();
-		Thermostat_State_DAO_Impl.thermostatStateApi_efts(t_id);
+		Thermostat_State_DAO_Impl.thermostatStateApi_efts_cool_hvac_mode(t_id);
 		Assert.assertEquals(Thermostat_State_DAO_Impl.coolHVACMode, t_id);
 		System.out.println("The thermostat_id in ef_thermostat_event with hvacMode changed to cool " + Thermostat_State_DAO_Impl.coolHVACMode + ", Expected thermostat id " + t_id);
+		Thermostat_State_DAO_Impl.thermostatStateApi_efts_cool_setpoint(t_id);
 		Assert.assertEquals(Thermostat_State_DAO_Impl.collSetpoint, t_id);
 		System.out.println("The thermostat_id in ef_thermostat_event with with cool mo event " + Thermostat_State_DAO_Impl.collSetpoint + ", Expected thermostat id " + t_id);
 		
@@ -115,9 +116,10 @@ public class StateAPI_Set_Valid_HVAC_mode {
 		
 		//db verification, efts thermostat event
 		WaitUtil.tinyWait();
-		Thermostat_State_DAO_Impl.thermostatStateApi_efts(t_id);
+		Thermostat_State_DAO_Impl.thermostatStateApi_efts_heat_hvac_mode(t_id);
 		Assert.assertEquals(Thermostat_State_DAO_Impl.heatHVACMode, t_id);
 		System.out.println("The thermostat_id in ef_thermostat_event with hvacMode changed to heat " + Thermostat_State_DAO_Impl.heatHVACMode + ", Expected thermostat id " + t_id);
+		Thermostat_State_DAO_Impl.thermostatStateApi_efts_heat_setpoint(t_id);
 		Assert.assertEquals(Thermostat_State_DAO_Impl.heatSetpoint, t_id);
 		System.out.println("The thermostat_id in ef_thermostat_event with with heat mo event " + Thermostat_State_DAO_Impl.heatSetpoint + ", Expected thermostat id " + t_id);
 
