@@ -1,4 +1,4 @@
-package com.ecofactor.comcastUI;
+package com.ecofactor.comcastUIMoDetection;
 
 import java.util.concurrent.TimeUnit;
 
@@ -12,7 +12,7 @@ import org.testng.Assert;
 
 import com.ecofactorqa.dao.MO_Detection_DAO_Impl;
 
-public class test {
+public class MoDetection {
   private WebDriver driver;
   private String baseUrl;
   private StringBuffer verificationErrors = new StringBuffer();
