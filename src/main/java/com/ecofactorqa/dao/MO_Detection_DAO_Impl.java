@@ -59,7 +59,7 @@ public class MO_Detection_DAO_Impl {
 		    Statement statment = connection.createStatement();
 
 		    String sql = "SELECT * FROM ef_thermostat_event where thermostat_id= '" + t_id + "' and event_phase=20 and algorithm_id=-10 and event_status='PROCESSED' "
-		    		+ "and action='cool_setting' and event_sys_time between timestamp (DATE_sub(now(), interval 50 SECOND)) and timestamp(now()) order by last_updated DESC limit 6;";	        
+		    		+ "and action='cool_setting' and event_sys_time between timestamp (DATE_sub(now(), interval 60 SECOND)) and timestamp(now()) order by last_updated DESC limit 6;";	        
 	        ResultSet result = statment.executeQuery(sql);
 	        while (result.next()) {
 	        	coolHVACMode = result.getInt("thermostat_id");
