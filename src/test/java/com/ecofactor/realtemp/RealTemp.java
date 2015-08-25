@@ -27,7 +27,7 @@ public class RealTemp {
 	private Client client;
 	
     //variables for assertions spo
-	final int t_id = 32753;
+	final int t_id = 31437;
 	final String str_tid = Integer.toString(t_id);
 	
     String next_phase_time_start;
@@ -148,17 +148,17 @@ public class RealTemp {
 	}
 	
 	@Test //PLAT - 721
-	public void createRealTempForHeatThermostat_heat_130(){
+	public void createRealTempForHeatThermostat_heat_131(){
 		//cancel all activ real temps for t_stat
 		Real_Temp_DAO_Impl.cancel_active_real_temp(t_id);
 				
 		//verify t_stat is in schedule, plus do mo
 		String jsonString = APIprop.json_state_valid_hvac_mode_heat;
 		Invocation.Builder invocationBuilderHVACMode = client.target(thermostatStateURL).request(MediaType.APPLICATION_JSON);
-		Response responseCoolHvacMode = invocationBuilderHVACMode.put(Entity.json(jsonString));
+		Response responseHeatHvacMode = invocationBuilderHVACMode.put(Entity.json(jsonString));
 		WaitUtil.tinyWait();	
-		Assert.assertTrue(responseCoolHvacMode.getStatus() == 200,"Expected status 200. Actual status is :"+ responseCoolHvacMode.getStatus());
-		System.out.println(responseCoolHvacMode);
+		Assert.assertTrue(responseHeatHvacMode.getStatus() == 200,"Expected status 200. Actual status is :"+ responseHeatHvacMode.getStatus());
+		System.out.println(responseHeatHvacMode);
 				
 		WaitUtil.tinyWait();
 		WaitUtil.tinyWait();
@@ -200,7 +200,7 @@ public class RealTemp {
 
 		System.out.println("Inserting Real Temp start entry into ef 11 DB......");
 		// insert start spo entry
-		Real_Temp_DAO_Impl.insertStartRealTempEntry(t_id,next_phase_time_start, date_setup_start,execution_start_time_utc_start);
+		Real_Temp_DAO_Impl.insertStartRealTempEntryHeat(t_id,next_phase_time_start, date_setup_start,execution_start_time_utc_start);
 
 		// verify start setpoint was applied to the t_stat using state api call
 		WaitUtil.threeMinutesWait();
@@ -227,13 +227,13 @@ public class RealTemp {
 		// efts start db verification
 		WaitUtil.tinyWait();
 		WaitUtil.threeMinutesWait();
-		Real_Temp_DAO_Impl.start_real_temp_efts(t_id);
-		Assert.assertEquals(Real_Temp_DAO_Impl.start_realtemp_thermostat_id_thermostat_event,t_id);
+		Real_Temp_DAO_Impl.start_real_temp_efts_heat(t_id);
+		Assert.assertEquals(Real_Temp_DAO_Impl.start_realtemp_thermostat_id_thermostat_event_heat,t_id);
 
 		// ef11 start db verification
 		WaitUtil.tinyWait();
-		Real_Temp_DAO_Impl.real_temp_rescheduled_ef11(t_id);
-		Assert.assertEquals(Real_Temp_DAO_Impl.reschedule_real_temp_thermostat_id_thermostat_algoritm,t_id);
+		Real_Temp_DAO_Impl.real_temp_rescheduled_ef11_heat(t_id);
+		Assert.assertEquals(Real_Temp_DAO_Impl.reschedule_real_temp_thermostat_id_thermostat_algoritm_heat,t_id);
 
 		// verify end setpoint was applied to the t_stat using state api call
 		WaitUtil.tinyWait();

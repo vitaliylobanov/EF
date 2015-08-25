@@ -3,12 +3,12 @@
 <suite name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="com.ecofactorqa.awayapi.Set_Away_Valid">
+      <class name="com.ecofactor.realtemp.RealTemp">
         <methods>
-          <include name="test_start_Away_using_valid_thermostatID_cancel_by_mo"/>
+          <include name="createRealTempForHeatThermostat_heat_131"/>
           <include name="init"/>
         </methods>
-      </class> <!-- com.ecofactorqa.awayapi.Set_Away_Valid -->
+      </class> <!-- com.ecofactor.realtemp.RealTemp -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
