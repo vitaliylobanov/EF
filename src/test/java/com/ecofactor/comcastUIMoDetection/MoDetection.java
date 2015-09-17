@@ -16,7 +16,9 @@ public class MoDetection {
   private WebDriver driver;
   private String baseUrl;
   private StringBuffer verificationErrors = new StringBuffer();
-  final int t_id = 24818;
+  final int t_id = 25059;
+  final String userPass= "CakeRamp1";
+  final String userEmail= "xheco16@comcast.net";
 
 
   @Before
@@ -30,9 +32,9 @@ public class MoDetection {
   public void moDetectionCoolSetpointDown() throws Exception {
     driver.get(baseUrl);
     driver.findElement(By.id("passwd")).clear();
-    driver.findElement(By.id("passwd")).sendKeys("CakeRamp1");
+    driver.findElement(By.id("passwd")).sendKeys(userPass);
     driver.findElement(By.id("user")).clear();
-    driver.findElement(By.id("user")).sendKeys("xheco16@comcast.net");
+    driver.findElement(By.id("user")).sendKeys(userEmail);
     driver.findElement(By.id("sign_in")).click();
     Thread.sleep(2000);
     driver.findElement(By.xpath("//button[text() = 'OK']")).click();
@@ -79,9 +81,9 @@ public class MoDetection {
   public void moDetectionCoolSetpointUp() throws Exception {
     driver.get(baseUrl);
     driver.findElement(By.id("passwd")).clear();
-    driver.findElement(By.id("passwd")).sendKeys("CakeRamp1");
+    driver.findElement(By.id("passwd")).sendKeys(userPass);
     driver.findElement(By.id("user")).clear();
-    driver.findElement(By.id("user")).sendKeys("xheco16@comcast.net");
+    driver.findElement(By.id("user")).sendKeys(userEmail);
     driver.findElement(By.id("sign_in")).click();
     Thread.sleep(2000);
     driver.findElement(By.xpath("//button[text() = 'OK']")).click();
@@ -124,9 +126,9 @@ public class MoDetection {
   public void moDetectionCoolModeTurnONHoldMode() throws Exception {
     driver.get(baseUrl);
     driver.findElement(By.id("passwd")).clear();
-    driver.findElement(By.id("passwd")).sendKeys("CakeRamp1");
+    driver.findElement(By.id("passwd")).sendKeys(userPass);
     driver.findElement(By.id("user")).clear();
-    driver.findElement(By.id("user")).sendKeys("xheco16@comcast.net");
+    driver.findElement(By.id("user")).sendKeys(userEmail);
     driver.findElement(By.id("sign_in")).click();
     Thread.sleep(2000);
     driver.findElement(By.xpath("//button[text() = 'OK']")).click();
@@ -137,8 +139,8 @@ public class MoDetection {
     driver.findElement(By.id("multiThermoSettingDiv_0")).click();
     Thread.sleep(2000);
     driver.findElement(By.id("holdOnOffBtn")).click();
-    Thread.sleep(10000);
-    MO_Detection_DAO_Impl.moForComcastUserThermostatID();
+    Thread.sleep(30000);
+    MO_Detection_DAO_Impl.moForComcastUserPermModeOn();
 	Assert.assertEquals(MO_Detection_DAO_Impl.coolHVACModeComcastPermModeOn, t_id);
 
 
@@ -148,9 +150,9 @@ public class MoDetection {
   public void moDetectionCoolModeTurnOFFHoldMode() throws Exception {
     driver.get(baseUrl);
     driver.findElement(By.id("passwd")).clear();
-    driver.findElement(By.id("passwd")).sendKeys("CakeRamp1");
+    driver.findElement(By.id("passwd")).sendKeys(userPass);
     driver.findElement(By.id("user")).clear();
-    driver.findElement(By.id("user")).sendKeys("xheco16@comcast.net");
+    driver.findElement(By.id("user")).sendKeys(userEmail);
     driver.findElement(By.id("sign_in")).click();
     Thread.sleep(2000);
     driver.findElement(By.xpath("//button[text() = 'OK']")).click();
@@ -161,8 +163,8 @@ public class MoDetection {
     driver.findElement(By.id("multiThermoSettingDiv_0")).click();
     Thread.sleep(2000);
     driver.findElement(By.id("holdOnOffBtn")).click();
-    Thread.sleep(10000);
-    MO_Detection_DAO_Impl.moForComcastUserThermostatID();
+    Thread.sleep(30000);
+    MO_Detection_DAO_Impl.moForComcastUserPermModeOff();
 	Assert.assertEquals(MO_Detection_DAO_Impl.coolHVACModeComcastPermModeOff, t_id);
 
   }
@@ -171,9 +173,9 @@ public class MoDetection {
   public void moDetectionCoolModeMoWithPermMode() throws Exception {
     driver.get(baseUrl);
     driver.findElement(By.id("passwd")).clear();
-    driver.findElement(By.id("passwd")).sendKeys("CakeRamp1");
+    driver.findElement(By.id("passwd")).sendKeys(userPass);
     driver.findElement(By.id("user")).clear();
-    driver.findElement(By.id("user")).sendKeys("xheco16@comcast.net");
+    driver.findElement(By.id("user")).sendKeys(userEmail);
     driver.findElement(By.id("sign_in")).click();
     Thread.sleep(2000);
     driver.findElement(By.xpath("//button[text() = 'OK']")).click();
@@ -224,9 +226,9 @@ public class MoDetection {
   public void moDetectionCoolModeFanAuto() throws Exception {
     driver.get(baseUrl);
     driver.findElement(By.id("passwd")).clear();
-    driver.findElement(By.id("passwd")).sendKeys("CakeRamp1");
+    driver.findElement(By.id("passwd")).sendKeys(userPass);
     driver.findElement(By.id("user")).clear();
-    driver.findElement(By.id("user")).sendKeys("xheco16@comcast.net");
+    driver.findElement(By.id("user")).sendKeys(userEmail);
     driver.findElement(By.id("sign_in")).click();
     Thread.sleep(2000);
     driver.findElement(By.xpath("//button[text() = 'OK']")).click();
@@ -247,9 +249,9 @@ public class MoDetection {
   public void moDetectionCoolModeFanOff() throws Exception {
     driver.get(baseUrl);
     driver.findElement(By.id("passwd")).clear();
-    driver.findElement(By.id("passwd")).sendKeys("CakeRamp1");
+    driver.findElement(By.id("passwd")).sendKeys(userPass);
     driver.findElement(By.id("user")).clear();
-    driver.findElement(By.id("user")).sendKeys("xheco16@comcast.net");
+    driver.findElement(By.id("user")).sendKeys(userEmail);
     driver.findElement(By.id("sign_in")).click();
     Thread.sleep(2000);
     driver.findElement(By.xpath("//button[text() = 'OK']")).click();
@@ -270,9 +272,9 @@ public class MoDetection {
   public void moDetectionChangeHVACToHEAT() throws Exception {
     driver.get(baseUrl);
     driver.findElement(By.id("passwd")).clear();
-    driver.findElement(By.id("passwd")).sendKeys("CakeRamp1");
+    driver.findElement(By.id("passwd")).sendKeys(userPass);
     driver.findElement(By.id("user")).clear();
-    driver.findElement(By.id("user")).sendKeys("xheco16@comcast.net");
+    driver.findElement(By.id("user")).sendKeys(userEmail);
     driver.findElement(By.id("sign_in")).click();
     Thread.sleep(2000);
     driver.findElement(By.xpath("//button[text() = 'OK']")).click();
@@ -292,9 +294,9 @@ public class MoDetection {
   public void moDetectionChangeHVACToOFF() throws Exception {
     driver.get(baseUrl);
     driver.findElement(By.id("passwd")).clear();
-    driver.findElement(By.id("passwd")).sendKeys("CakeRamp1");
+    driver.findElement(By.id("passwd")).sendKeys(userPass);
     driver.findElement(By.id("user")).clear();
-    driver.findElement(By.id("user")).sendKeys("xheco16@comcast.net");
+    driver.findElement(By.id("user")).sendKeys(userEmail);
     driver.findElement(By.id("sign_in")).click();
     Thread.sleep(2000);
     driver.findElement(By.xpath("//button[text() = 'OK']")).click();
@@ -314,9 +316,9 @@ public class MoDetection {
   public void moDetectionHeatSetpointUp() throws Exception {
     driver.get(baseUrl);
     driver.findElement(By.id("passwd")).clear();
-    driver.findElement(By.id("passwd")).sendKeys("CakeRamp1");
+    driver.findElement(By.id("passwd")).sendKeys(userPass);
     driver.findElement(By.id("user")).clear();
-    driver.findElement(By.id("user")).sendKeys("xheco16@comcast.net");
+    driver.findElement(By.id("user")).sendKeys(userEmail);
     driver.findElement(By.id("sign_in")).click();
     Thread.sleep(2000);
     driver.findElement(By.xpath("//button[text() = 'OK']")).click();
@@ -362,9 +364,9 @@ public class MoDetection {
   public void moDetectionHeatSetpointDown() throws Exception {
     driver.get(baseUrl);
     driver.findElement(By.id("passwd")).clear();
-    driver.findElement(By.id("passwd")).sendKeys("CakeRamp1");
+    driver.findElement(By.id("passwd")).sendKeys(userPass);
     driver.findElement(By.id("user")).clear();
-    driver.findElement(By.id("user")).sendKeys("xheco16@comcast.net");
+    driver.findElement(By.id("user")).sendKeys(userEmail);
     driver.findElement(By.id("sign_in")).click();
     Thread.sleep(2000);
     driver.findElement(By.xpath("//button[text() = 'OK']")).click();

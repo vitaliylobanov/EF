@@ -225,7 +225,7 @@ public class MO_Detection_DAO_Impl {
 		    Statement statment = connection.createStatement();
 		    
 	        String sql = "SELECT * FROM ef_thermostat_event  where thermostat_id in (" + thermostat_ids1 + ") and event_phase=1 and algorithm_id=-21 and event_status='ANALYZED'"
-	        		+ "and event_ee=NULL and action='cool_setting' and event_sys_time between timestamp (DATE_sub(now(), interval 60 SECOND)) and timestamp(now()) order by last_updated DESC limit 1;";
+	        		+ "and event_ee is NULL and action='cool_setting' and event_sys_time between timestamp (DATE_sub(now(), interval 60 SECOND)) and timestamp(now()) order by last_updated DESC limit 1;";
 	        ResultSet result = statment.executeQuery(sql);
 	        while (result.next()) {
 	        	coolHVACModeComcastPermModeOn = result.getInt("thermostat_id");
@@ -252,7 +252,7 @@ public class MO_Detection_DAO_Impl {
 		    Statement statment = connection.createStatement();
 		    
 	        String sql = "SELECT * FROM ef_thermostat_event  where thermostat_id in (" + thermostat_ids1 + ") and event_phase=0 and algorithm_id=-21 and event_status='ANALYZED'"
-	        		+ "and event_ee=NULL and action='cool_setting' and event_sys_time between timestamp (DATE_sub(now(), interval 60 SECOND)) and timestamp(now()) order by last_updated DESC limit 1;";
+	        		+ "and event_ee is NULL and action='cool_setting' and event_sys_time between timestamp (DATE_sub(now(), interval 60 SECOND)) and timestamp(now()) order by last_updated DESC limit 1;";
 	        ResultSet result = statment.executeQuery(sql);
 	        while (result.next()) {
 	        	coolHVACModeComcastPermModeOff = result.getInt("thermostat_id");
