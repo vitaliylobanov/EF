@@ -63,7 +63,6 @@ public class Set_Away_Valid {
 		//Assertions start away
 		
 		WaitUtil.tinyWait();
-		
 		Away_DAO_Impl.start_away_ef_11(t_id);
 		Assert.assertEquals(Away_DAO_Impl.start_away_thermostat_id_algo_control, t_id);
 		System.out.println("The thermostat_id in ef_thermostat_algo_control is " + Away_DAO_Impl.start_away_thermostat_id_algo_control + ", Expected thermostat id " + t_id);
@@ -74,7 +73,7 @@ public class Set_Away_Valid {
 		Assert.assertEquals(Away_DAO_Impl.start_away_user_id_program, u_id);
 		System.out.println("The user_id in ef_program is " + Away_DAO_Impl.start_away_user_id_program + ", Expected user_id is " + u_id);
 		
-		WaitUtil.tinyWait();
+		WaitUtil.tinyWait();;
 		Away_DAO_Impl.start_away_efts(t_id);
 		Assert.assertEquals(Away_DAO_Impl.start_away_thermostat_id_thermostat_event_phase_50, t_id);
 		System.out.println("The thermostat_id in ef_thermostat_event with phase 50 is " + Away_DAO_Impl.start_away_thermostat_id_thermostat_event_phase_50 + ", Expected thermostat id " + t_id);

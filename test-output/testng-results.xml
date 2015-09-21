@@ -2,20 +2,20 @@
 <testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="396820" started-at="2015-08-25T17:10:42Z" finished-at="2015-08-25T17:17:19Z">
+  <suite name="Default suite" duration-ms="68008" started-at="2015-09-21T22:52:00Z" finished-at="2015-09-21T22:53:08Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="396820" started-at="2015-08-25T17:10:42Z" finished-at="2015-08-25T17:17:19Z">
-      <class name="com.ecofactor.realtemp.RealTemp">
-        <test-method status="PASS" signature="init()[pri:0, instance:com.ecofactor.realtemp.RealTemp@7388665b]" name="init" is-config="true" duration-ms="90" started-at="2015-08-25T10:10:42Z" finished-at="2015-08-25T10:10:42Z">
+    <test name="Default test" duration-ms="68008" started-at="2015-09-21T22:52:00Z" finished-at="2015-09-21T22:53:08Z">
+      <class name="com.ecofactorqa.awayapi.Set_Away_Valid">
+        <test-method status="PASS" signature="init()[pri:0, instance:com.ecofactorqa.awayapi.Set_Away_Valid@4b133fd6]" name="init" is-config="true" duration-ms="122" started-at="2015-09-21T15:52:00Z" finished-at="2015-09-21T15:52:00Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- init -->
-        <test-method status="PASS" signature="createRealTempForHeatThermostat_heat_131()[pri:0, instance:com.ecofactor.realtemp.RealTemp@7388665b]" name="createRealTempForHeatThermostat_heat_131" duration-ms="396707" started-at="2015-08-25T10:10:42Z" finished-at="2015-08-25T10:17:19Z">
+        <test-method status="PASS" signature="test_start_Away_using_valid_thermostatID_updateAway_cancel()[pri:0, instance:com.ecofactorqa.awayapi.Set_Away_Valid@4b133fd6]" name="test_start_Away_using_valid_thermostatID_updateAway_cancel" duration-ms="67856" started-at="2015-09-21T15:52:00Z" finished-at="2015-09-21T15:53:08Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- createRealTempForHeatThermostat_heat_131 -->
-      </class> <!-- com.ecofactor.realtemp.RealTemp -->
+        </test-method> <!-- test_start_Away_using_valid_thermostatID_updateAway_cancel -->
+      </class> <!-- com.ecofactorqa.awayapi.Set_Away_Valid -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
