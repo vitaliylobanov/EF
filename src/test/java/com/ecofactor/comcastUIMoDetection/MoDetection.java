@@ -183,24 +183,23 @@ public class MoDetection {
     driver.findElement(By.xpath("//button[text() = 'Devices']")).click();
     Thread.sleep(2000);
     driver.findElement(By.className("x-menu-item-text")).click();
+    Thread.sleep(2000);
     driver.findElement(By.id("multiThermoSettingDiv_0")).click();
     Thread.sleep(2000);
     driver.findElement(By.id("holdOnOffBtn")).click();
     Thread.sleep(10000);
-    String setpoint = driver.findElement(By.id("multiThermoTempDecimal_0")).getText();
-    String setpointDecimal = driver.findElement(By.id("multiThermoTempFractional_0")).getText();
+    String setpoint = driver.findElement(By.id("tempDecimalDiv")).getText();
+    String setpointDecimal = driver.findElement(By.id("tempFractionalDiv")).getText();
     System.out.println("my setpoint is " + setpoint + setpointDecimal);
-    driver.findElement(By.cssSelector("area.minusArrow")).click();
-    driver.findElement(By.cssSelector("area.minusArrow")).click();
-    driver.findElement(By.cssSelector("area.minusArrow")).click();
-    driver.findElement(By.cssSelector("area.minusArrow")).click();
-    driver.findElement(By.cssSelector("area.minusArrow")).click();
-    driver.findElement(By.cssSelector("area.minusArrow")).click();
-    driver.findElement(By.cssSelector("area.minusArrow")).click();
-    driver.findElement(By.cssSelector("area.minusArrow")).click();
+    driver.findElement(By.cssSelector("map[name=\"minusmap\"] > area.minusArrow")).click();
+    driver.findElement(By.cssSelector("map[name=\"minusmap\"] > area.minusArrow")).click();
+    driver.findElement(By.cssSelector("map[name=\"minusmap\"] > area.minusArrow")).click();
+    driver.findElement(By.cssSelector("map[name=\"minusmap\"] > area.minusArrow")).click();
+    driver.findElement(By.cssSelector("map[name=\"minusmap\"] > area.minusArrow")).click();
+    driver.findElement(By.cssSelector("map[name=\"minusmap\"] > area.minusArrow")).click();
     Thread.sleep(15000);
-    String setpoint1 = driver.findElement(By.id("multiThermoTempDecimal_0")).getText();
-    String setpointDecimal1 = driver.findElement(By.id("multiThermoTempFractional_0")).getText();
+    String setpoint1 = driver.findElement(By.id("tempDecimalDiv")).getText();
+    String setpointDecimal1 = driver.findElement(By.id("tempFractionalDiv")).getText();
     System.out.println("my NEW setpoint is " + setpoint1 + setpointDecimal1);
     
     Thread.sleep(15000);
@@ -239,7 +238,7 @@ public class MoDetection {
     driver.findElement(By.id("multiThermoSettingDiv_0")).click();
     Thread.sleep(2000);
     driver.findElement(By.id("fanOnOffBtn")).click();
-    Thread.sleep(10000);
+    Thread.sleep(60000);
     MO_Detection_DAO_Impl.moForComcastUserSetpointFanModeAuto();
 	Assert.assertEquals(MO_Detection_DAO_Impl.coolHVACModeComcastSetpointFanAuto, t_id);
 

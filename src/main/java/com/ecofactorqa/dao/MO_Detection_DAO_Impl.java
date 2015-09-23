@@ -334,8 +334,8 @@ public class MO_Detection_DAO_Impl {
 			Connection connection = DriverManager.getConnection(efts_db_url_apps,efts_db_user_apps,efts_db_pass_apps);
 		    Statement statment = connection.createStatement();
 		    
-	        String sql = "SELECT * FROM ef_thermostat_range_data_p  where thermostat_id in (" + thermostat_ids1 + ") and fan_mode =4 and event_sys_time between timestamp (DATE_sub(now(), interval 60 SECOND)) "
-	        		+ "and timestamp(now()) order by last_updated DESC limit 1;";
+	        String sql = "SELECT * FROM ef_thermostat_range_data_p  where thermostat_id in (" + thermostat_ids1 + ") and fan_mode =4 and start_time between timestamp (DATE_sub(now(), interval 60 SECOND)) "
+	        		+ "and timestamp(now()) limit 1;";
 	        ResultSet result = statment.executeQuery(sql);
 	        while (result.next()) {
 	        	coolHVACModeComcastSetpointFanAuto = result.getInt("thermostat_id");
