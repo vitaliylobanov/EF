@@ -261,7 +261,7 @@ public class MoDetection {
     driver.findElement(By.id("multiThermoSettingDiv_0")).click();
     Thread.sleep(2000);
     driver.findElement(By.id("fanOnOffBtn")).click();
-    Thread.sleep(10000);
+    Thread.sleep(60000);
     MO_Detection_DAO_Impl.moForComcastUserSetpointFanModeOff();
 	Assert.assertEquals(MO_Detection_DAO_Impl.coolHVACModeComcastSetpointFanOff, t_id);
 
@@ -284,7 +284,7 @@ public class MoDetection {
     driver.findElement(By.id("multiThermoSettingDiv_0")).click();
     Thread.sleep(2000);
     driver.findElement(By.id("heatBtn")).click();
-    Thread.sleep(10000);
+    Thread.sleep(20000);
     MO_Detection_DAO_Impl.moForComcastUserHVACHeat();
 	Assert.assertEquals(MO_Detection_DAO_Impl.coolHVACModeComcastHeat, t_id);
   }
