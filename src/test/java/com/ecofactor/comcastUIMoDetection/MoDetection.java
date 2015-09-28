@@ -288,29 +288,7 @@ public class MoDetection {
     MO_Detection_DAO_Impl.moForComcastUserHVACHeat();
 	Assert.assertEquals(MO_Detection_DAO_Impl.coolHVACModeComcastHeat, t_id);
   }
-  
-  @Test
-  public void moDetectionChangeHVACToOFF() throws Exception {
-    driver.get(baseUrl);
-    driver.findElement(By.id("passwd")).clear();
-    driver.findElement(By.id("passwd")).sendKeys(userPass);
-    driver.findElement(By.id("user")).clear();
-    driver.findElement(By.id("user")).sendKeys(userEmail);
-    driver.findElement(By.id("sign_in")).click();
-    Thread.sleep(2000);
-    driver.findElement(By.xpath("//button[text() = 'OK']")).click();
-    driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-    driver.findElement(By.xpath("//button[text() = 'Devices']")).click();
-    Thread.sleep(2000);
-    driver.findElement(By.className("x-menu-item-text")).click();
-    driver.findElement(By.id("multiThermoSettingDiv_0")).click();
-    Thread.sleep(2000);
-    driver.findElement(By.id("offBtn")).click();
-    Thread.sleep(10000);
-    MO_Detection_DAO_Impl.moForComcastUserHVACOff();
-	Assert.assertEquals(MO_Detection_DAO_Impl.coolHVACModeComcastOff, t_id);
-  }
-  
+    
   @Test
   public void moDetectionHeatSetpointUp() throws Exception {
     driver.get(baseUrl);
@@ -328,23 +306,23 @@ public class MoDetection {
     driver.findElement(By.id("multiThermoSettingDiv_0")).click();
     Thread.sleep(2000);
     driver.findElement(By.id("heatBtn")).click();
-    Thread.sleep(10000);
-    String setpoint = driver.findElement(By.id("multiThermoTempDecimal_0")).getText();
-    String setpointDecimal = driver.findElement(By.id("multiThermoTempFractional_0")).getText();
+    Thread.sleep(20000);
+    String setpoint = driver.findElement(By.id("tempDecimalDiv")).getText();
+    String setpointDecimal = driver.findElement(By.id("tempFractionalDiv")).getText();
     System.out.println("my setpoint is " + setpoint + setpointDecimal);
-    driver.findElement(By.cssSelector("area.plusArrow")).click();
-    driver.findElement(By.cssSelector("area.plusArrow")).click();
-    driver.findElement(By.cssSelector("area.plusArrow")).click();
-    driver.findElement(By.cssSelector("area.plusArrow")).click();
+    driver.findElement(By.cssSelector("map[name=\"plusmap\"] > area.plusArrow")).click();
+    driver.findElement(By.cssSelector("map[name=\"plusmap\"] > area.plusArrow")).click();
+    driver.findElement(By.cssSelector("map[name=\"plusmap\"] > area.plusArrow")).click();
+    driver.findElement(By.cssSelector("map[name=\"plusmap\"] > area.plusArrow")).click();
     Thread.sleep(15000);
-    String setpoint1 = driver.findElement(By.id("multiThermoTempDecimal_0")).getText();
-    String setpointDecimal1 = driver.findElement(By.id("multiThermoTempFractional_0")).getText();
+    String setpoint1 = driver.findElement(By.id("tempDecimalDiv")).getText();
+    String setpointDecimal1 = driver.findElement(By.id("tempFractionalDiv")).getText();
     System.out.println("my NEW setpoint is " + setpoint1 + setpointDecimal1);
     
     Thread.sleep(15000);
-	MO_Detection_DAO_Impl.moForComcastUserThermostatID();
-	Assert.assertEquals(MO_Detection_DAO_Impl.coolHVACModeComcast, t_id);
-	MO_Detection_DAO_Impl.moForComcastUserSetpoint();
+	MO_Detection_DAO_Impl.moForComcastUserHeatThermostatID();
+	Assert.assertEquals(MO_Detection_DAO_Impl.heatHVACModeComcast, t_id);
+	MO_Detection_DAO_Impl.moForComcastUserHeatSetpoint();
 	//new setpoint string
 	String concatNewSetpoint = new StringBuilder().append(setpoint1).append(setpointDecimal1).toString();
 	
@@ -356,7 +334,7 @@ public class MoDetection {
 	int newUISetpointRounded = (int) Math.round(newUISetpoint);
 	System.out.println(newUISetpoint);
 	System.out.println(newUISetpointRounded);
-	Assert.assertEquals(MO_Detection_DAO_Impl.coolHVACModeComcastSetpointRounded, newUISetpointRounded);
+	Assert.assertEquals(MO_Detection_DAO_Impl.heatHVACModeComcastSetpointRounded, newUISetpointRounded);
   }
   
   @Test
@@ -376,27 +354,25 @@ public class MoDetection {
     driver.findElement(By.id("multiThermoSettingDiv_0")).click();
     Thread.sleep(2000);
     driver.findElement(By.id("heatBtn")).click();
-    Thread.sleep(10000);
-    String setpoint = driver.findElement(By.id("multiThermoTempDecimal_0")).getText();
-    String setpointDecimal = driver.findElement(By.id("multiThermoTempFractional_0")).getText();
+    Thread.sleep(30000);
+    String setpoint = driver.findElement(By.id("tempDecimalDiv")).getText();
+    String setpointDecimal = driver.findElement(By.id("tempFractionalDiv")).getText();
     System.out.println("my setpoint is " + setpoint + setpointDecimal);
-    driver.findElement(By.cssSelector("area.minusArrow")).click();
-    driver.findElement(By.cssSelector("area.minusArrow")).click();
-    driver.findElement(By.cssSelector("area.minusArrow")).click();
-    driver.findElement(By.cssSelector("area.minusArrow")).click();
-    driver.findElement(By.cssSelector("area.minusArrow")).click();
-    driver.findElement(By.cssSelector("area.minusArrow")).click();
-    driver.findElement(By.cssSelector("area.minusArrow")).click();
-    driver.findElement(By.cssSelector("area.minusArrow")).click();
-    Thread.sleep(15000);
-    String setpoint1 = driver.findElement(By.id("multiThermoTempDecimal_0")).getText();
-    String setpointDecimal1 = driver.findElement(By.id("multiThermoTempFractional_0")).getText();
+    driver.findElement(By.cssSelector("map[name=\"minusmap\"] > area.minusArrow")).click();
+    driver.findElement(By.cssSelector("map[name=\"minusmap\"] > area.minusArrow")).click();
+    driver.findElement(By.cssSelector("map[name=\"minusmap\"] > area.minusArrow")).click();
+    driver.findElement(By.cssSelector("map[name=\"minusmap\"] > area.minusArrow")).click();
+    driver.findElement(By.cssSelector("map[name=\"minusmap\"] > area.minusArrow")).click();
+    driver.findElement(By.cssSelector("map[name=\"minusmap\"] > area.minusArrow")).click();
+    Thread.sleep(25000);
+    String setpoint1 = driver.findElement(By.id("tempDecimalDiv")).getText();
+    String setpointDecimal1 = driver.findElement(By.id("tempFractionalDiv")).getText();
     System.out.println("my NEW setpoint is " + setpoint1 + setpointDecimal1);
     
-    Thread.sleep(15000);
-	MO_Detection_DAO_Impl.moForComcastUserThermostatID();
-	Assert.assertEquals(MO_Detection_DAO_Impl.coolHVACModeComcast, t_id);
-	MO_Detection_DAO_Impl.moForComcastUserSetpoint();
+    Thread.sleep(20000);
+	MO_Detection_DAO_Impl.moForComcastUserHeatThermostatID();
+	Assert.assertEquals(MO_Detection_DAO_Impl.heatHVACModeComcast, t_id);
+	MO_Detection_DAO_Impl.moForComcastUserHeatSetpoint();
 	//new setpoint string
 	String concatNewSetpoint = new StringBuilder().append(setpoint1).append(setpointDecimal1).toString();
 	
@@ -408,10 +384,32 @@ public class MoDetection {
 	int newUISetpointRounded = (int) Math.round(newUISetpoint);
 	System.out.println(newUISetpoint);
 	System.out.println(newUISetpointRounded);
-	Assert.assertEquals(MO_Detection_DAO_Impl.coolHVACModeComcastSetpointRounded, newUISetpointRounded);
+	Assert.assertEquals(MO_Detection_DAO_Impl.heatHVACModeComcastSetpointRounded, newUISetpointRounded);
 
   }
 
+  @Test
+  public void moDetectionChangeHVACToOFF() throws Exception {
+    driver.get(baseUrl);
+    driver.findElement(By.id("passwd")).clear();
+    driver.findElement(By.id("passwd")).sendKeys(userPass);
+    driver.findElement(By.id("user")).clear();
+    driver.findElement(By.id("user")).sendKeys(userEmail);
+    driver.findElement(By.id("sign_in")).click();
+    Thread.sleep(2000);
+    driver.findElement(By.xpath("//button[text() = 'OK']")).click();
+    driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+    driver.findElement(By.xpath("//button[text() = 'Devices']")).click();
+    Thread.sleep(2000);
+    driver.findElement(By.className("x-menu-item-text")).click();
+    driver.findElement(By.id("multiThermoSettingDiv_0")).click();
+    Thread.sleep(2000);
+    driver.findElement(By.id("offBtn")).click();
+    Thread.sleep(30000);
+    MO_Detection_DAO_Impl.moForComcastUserHVACOff();
+	Assert.assertEquals(MO_Detection_DAO_Impl.coolHVACModeComcastOff, t_id);
+  }
+  
   @After
   public void tearDown() throws Exception {
     driver.quit();

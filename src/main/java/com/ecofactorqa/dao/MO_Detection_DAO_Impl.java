@@ -50,6 +50,9 @@ public class MO_Detection_DAO_Impl {
 	public static int coolHVACModeComcastSetpointFanOff = 0;
 	public static int coolHVACModeComcastHeat = 0;
 	public static int coolHVACModeComcastOff = 0;
+	public static int heatHVACModeComcast = 0;
+	public static int heatHVACModeComcastSetpoint = 0;
+	public static int heatHVACModeComcastSetpointRounded = 0;
 	
 	
 	public static void thermostatStateApi_efts_cool_hvac_mode(int t_id) {
@@ -183,6 +186,34 @@ public class MO_Detection_DAO_Impl {
 		}	
 	}
 	
+	public static void moForComcastUserHeatThermostatID() {
+		try {
+			//get thermostats for a user
+			MO_Detection_DAO_Impl.findThermostatIdByUserName();
+			//convert list to string
+			String thermostats = thermostat_ids.toString();
+			//delete square brackets 
+			String thermostat_ids1 = thermostats.replace("[", "").replace("]", "");
+			
+			Class.forName("com.mysql.jdbc.Driver");
+			Connection connection = DriverManager.getConnection(efts_db_url_apps,efts_db_user_apps,efts_db_pass_apps);
+		    Statement statment = connection.createStatement();
+		    
+	        String sql = "SELECT * FROM ef_thermostat_event  where thermostat_id in (" + thermostat_ids1 + ") and event_phase=0 and algorithm_id=-10 and event_status='ANALYZED'"
+	        		+ "and event_ee !=0 and action='heat_setting' and event_sys_time between timestamp (DATE_sub(now(), interval 60 SECOND)) and timestamp(now()) order by last_updated DESC limit 1;";
+	        System.out.println("my sql is pervoe " + sql);
+	        ResultSet result = statment.executeQuery(sql);
+	        while (result.next()) {
+	        	heatHVACModeComcast = result.getInt("thermostat_id");
+	        } 
+		} 
+		catch (SQLException se) {
+			se.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}	
+	}
+	
 	public static void moForComcastUserSetpoint() {
 		try {
 			//get thermostats for a user
@@ -203,6 +234,34 @@ public class MO_Detection_DAO_Impl {
 	        	coolHVACModeComcastSetpoint = result.getInt("new_setting");
 	        } 
 	        coolHVACModeComcastSetpointRounded = (int) Math.round(coolHVACModeComcastSetpoint);
+		} 
+		catch (SQLException se) {
+			se.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public static void moForComcastUserHeatSetpoint() {
+		try {
+			//get thermostats for a user
+			MO_Detection_DAO_Impl.findThermostatIdByUserName();
+			//convert list to string
+			String thermostats = thermostat_ids.toString();
+			//delete square brackets 
+			String thermostat_ids1 = thermostats.replace("[", "").replace("]", "");
+			
+			Class.forName("com.mysql.jdbc.Driver");
+			Connection connection = DriverManager.getConnection(efts_db_url_apps,efts_db_user_apps,efts_db_pass_apps);
+		    Statement statment = connection.createStatement();
+		    
+	        String sql = "SELECT * FROM ef_thermostat_event  where thermostat_id in (" + thermostat_ids1 + ") and event_phase=0 and algorithm_id=-10 and event_status='ANALYZED'"
+	        		+ "and event_ee !=0 and action='heat_setting' and event_sys_time between timestamp (DATE_sub(now(), interval 60 SECOND)) and timestamp(now()) order by last_updated DESC limit 1;";
+	        ResultSet result = statment.executeQuery(sql);
+	        while (result.next()) {
+	        	heatHVACModeComcastSetpoint = result.getInt("new_setting");
+	        } 
+	        heatHVACModeComcastSetpointRounded = (int) Math.round(heatHVACModeComcastSetpoint);
 		} 
 		catch (SQLException se) {
 			se.printStackTrace();
@@ -389,7 +448,7 @@ public class MO_Detection_DAO_Impl {
 		    Statement statment = connection.createStatement();
 		    
 	        String sql = "SELECT * FROM ef_thermostat_event  where thermostat_id in (" + thermostat_ids1 + ") and event_phase=20 and algorithm_id=-10 and event_status='ANALYZED'"
-	        		+ "and event_ee=NULL and action='heat_setting' and event_sys_time between timestamp (DATE_sub(now(), interval 60 SECOND)) and timestamp(now()) order by last_updated DESC limit 1;";
+	        		+ "and event_ee is NULL and action='heat_setting' and event_sys_time between timestamp (DATE_sub(now(), interval 60 SECOND)) and timestamp(now()) order by last_updated DESC limit 1;";
 	        ResultSet result = statment.executeQuery(sql);
 	        while (result.next()) {
 	        	coolHVACModeComcastHeat = result.getInt("thermostat_id");
@@ -416,7 +475,7 @@ public class MO_Detection_DAO_Impl {
 		    Statement statment = connection.createStatement();
 		    
 	        String sql = "SELECT * FROM ef_thermostat_event  where thermostat_id in (" + thermostat_ids1 + ") and event_phase=20 and algorithm_id=-10 and event_status='ANALYZED'"
-	        		+ "and event_ee=NULL and action='off' and event_sys_time between timestamp (DATE_sub(now(), interval 60 SECOND)) and timestamp(now()) order by last_updated DESC limit 1;";
+	        		+ "and event_ee is NULL and action='off' and event_sys_time between timestamp (DATE_sub(now(), interval 60 SECOND)) and timestamp(now()) order by last_updated DESC limit 1;";
 	        ResultSet result = statment.executeQuery(sql);
 	        while (result.next()) {
 	        	coolHVACModeComcastOff = result.getInt("thermostat_id");
