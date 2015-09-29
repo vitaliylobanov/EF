@@ -70,7 +70,7 @@ public class ComcastSchedule {
     driver.findElement(By.xpath("//div[4]/table/tbody/tr/td[13]/div/div/div[3]")).click();
     Thread.sleep(5000);
     driver.findElement(By.xpath("//div[5]/table/tbody/tr/td[13]/div/div/div[3]")).click();
-    Thread.sleep(10000);
+    Thread.sleep(20000);
     Comcast_Schedule_DAO_Impl.comcastSchedule();
 	Assert.assertEquals(Comcast_Schedule_DAO_Impl.numberOfActiveRowsForSchedule, numberOfScheduleRowsCustomModeModeTwoTstats);
   }
@@ -93,7 +93,7 @@ public class ComcastSchedule {
     driver.findElement(By.xpath("//div[4]/table/tbody/tr/td[13]/div/div/div[2]/img")).click();
     driver.findElement(By.xpath("//button[text() = 'Yes']")).click();
     Thread.sleep(5000);
-    driver.findElement(By.xpath("//div[5]/table/tbody/tr/td[13]/div/div/div[2]/img")).click();
+    driver.findElement(By.xpath("//div[4]/table/tbody/tr/td[13]/div/div/div[2]/img")).click();
     driver.findElement(By.xpath("//button[text() = 'Yes']")).click();
     Thread.sleep(10000);
     Comcast_Schedule_DAO_Impl.comcastSchedule();
