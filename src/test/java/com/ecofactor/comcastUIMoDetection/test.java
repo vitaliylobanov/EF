@@ -8,9 +8,6 @@ import static org.junit.Assert.*;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.testng.Assert;
-
-import com.ecofactorqa.dao.MO_Detection_DAO_Impl;
 
 public class test {
   private WebDriver driver;
@@ -28,6 +25,7 @@ public class test {
 
   @Test
   public void moDetectionCoolSetpointDown() throws Exception {
+	  System.out.println(baseUrl);
   }
 
   @After

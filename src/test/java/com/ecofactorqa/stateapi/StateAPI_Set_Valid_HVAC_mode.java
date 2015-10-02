@@ -45,8 +45,8 @@ public class StateAPI_Set_Valid_HVAC_mode {
         //set cool setpoint 
 		String jsonString1 = APIprop.json_state_valid_coolsetpoint_fanmode;
 		Invocation.Builder invocationBuilderCoolSetpoint = client.target(thermostatStateURL).request(MediaType.APPLICATION_JSON);
-		Response responseget = invocationBuilderCoolSetpoint.get();
-		String content = responseget.readEntity(String.class);
+		//Response responseget = invocationBuilderCoolSetpoint.get();
+		//String content = responseget.readEntity(String.class);
 		//Assert.assertTrue(content.contains("\"setpoint_reason\":\"schedule\""),"Expected set_point_reason SCHEDULE");
 		WaitUtil.smallWait();
 		Response response1 = invocationBuilderCoolSetpoint.put(Entity.json(jsonString1));

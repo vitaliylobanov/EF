@@ -191,13 +191,6 @@ public class MoDetection {
   
   @Test
   public void moDetectionCoolModeFanAuto() throws Exception {
-    driver.get(baseUrl);
-    driver.findElement(By.id("passwd")).clear();
-    driver.findElement(By.id("passwd")).sendKeys(userPass);
-    driver.findElement(By.id("user")).clear();
-    driver.findElement(By.id("user")).sendKeys(userEmail);
-    driver.findElement(By.id("sign_in")).click();
-    Thread.sleep(2000);
     driver.findElement(By.xpath("//button[text() = 'OK']")).click();
     driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
     driver.findElement(By.xpath("//button[text() = 'Devices']")).click();
@@ -214,13 +207,6 @@ public class MoDetection {
   
   @Test
   public void moDetectionCoolModeFanOff() throws Exception {
-    driver.get(baseUrl);
-    driver.findElement(By.id("passwd")).clear();
-    driver.findElement(By.id("passwd")).sendKeys(userPass);
-    driver.findElement(By.id("user")).clear();
-    driver.findElement(By.id("user")).sendKeys(userEmail);
-    driver.findElement(By.id("sign_in")).click();
-    Thread.sleep(2000);
     driver.findElement(By.xpath("//button[text() = 'OK']")).click();
     driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
     driver.findElement(By.xpath("//button[text() = 'Devices']")).click();
@@ -237,13 +223,6 @@ public class MoDetection {
   
   @Test
   public void moDetectionChangeHVACToHEAT() throws Exception {
-    driver.get(baseUrl);
-    driver.findElement(By.id("passwd")).clear();
-    driver.findElement(By.id("passwd")).sendKeys(userPass);
-    driver.findElement(By.id("user")).clear();
-    driver.findElement(By.id("user")).sendKeys(userEmail);
-    driver.findElement(By.id("sign_in")).click();
-    Thread.sleep(2000);
     driver.findElement(By.xpath("//button[text() = 'OK']")).click();
     driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
     driver.findElement(By.xpath("//button[text() = 'Devices']")).click();
@@ -259,13 +238,6 @@ public class MoDetection {
     
   @Test
   public void moDetectionHeatSetpointUp() throws Exception {
-    driver.get(baseUrl);
-    driver.findElement(By.id("passwd")).clear();
-    driver.findElement(By.id("passwd")).sendKeys(userPass);
-    driver.findElement(By.id("user")).clear();
-    driver.findElement(By.id("user")).sendKeys(userEmail);
-    driver.findElement(By.id("sign_in")).click();
-    Thread.sleep(2000);
     driver.findElement(By.xpath("//button[text() = 'OK']")).click();
     driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
     driver.findElement(By.xpath("//button[text() = 'Devices']")).click();
@@ -306,13 +278,6 @@ public class MoDetection {
   
   @Test
   public void moDetectionHeatSetpointDown() throws Exception {
-    driver.get(baseUrl);
-    driver.findElement(By.id("passwd")).clear();
-    driver.findElement(By.id("passwd")).sendKeys(userPass);
-    driver.findElement(By.id("user")).clear();
-    driver.findElement(By.id("user")).sendKeys(userEmail);
-    driver.findElement(By.id("sign_in")).click();
-    Thread.sleep(2000);
     driver.findElement(By.xpath("//button[text() = 'OK']")).click();
     driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
     driver.findElement(By.xpath("//button[text() = 'Devices']")).click();
@@ -356,13 +321,6 @@ public class MoDetection {
 
   @Test
   public void moDetectionChangeHVACToOFF() throws Exception {
-    driver.get(baseUrl);
-    driver.findElement(By.id("passwd")).clear();
-    driver.findElement(By.id("passwd")).sendKeys(userPass);
-    driver.findElement(By.id("user")).clear();
-    driver.findElement(By.id("user")).sendKeys(userEmail);
-    driver.findElement(By.id("sign_in")).click();
-    Thread.sleep(2000);
     driver.findElement(By.xpath("//button[text() = 'OK']")).click();
     driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
     driver.findElement(By.xpath("//button[text() = 'Devices']")).click();
