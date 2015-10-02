@@ -19,6 +19,8 @@ public class ComcastSchedule {
   final int t_id = 24818;
   final int numberOfScheduleRowsSimpleModeTwoTstats = 14;
   final int numberOfScheduleRowsCustomModeModeTwoTstats = 70;
+  final String userPass= "CakeRamp1";
+  final String userEmail= "xheco16@comcast.net";
 
 
 
@@ -27,17 +29,17 @@ public class ComcastSchedule {
     driver = new FirefoxDriver();
     baseUrl = "https://sp03.qa.xfinityhome.com/sp";
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+    driver.get(baseUrl);
+    driver.findElement(By.id("passwd")).clear();
+    driver.findElement(By.id("passwd")).sendKeys(userPass);
+    driver.findElement(By.id("user")).clear();
+    driver.findElement(By.id("user")).sendKeys(userEmail);
+    driver.findElement(By.id("sign_in")).click();
+    Thread.sleep(2000);
   }
 
   @Test
   public void comcastScheduleSetSimpleModeByDisableSchedule() throws Exception {
-    driver.get(baseUrl);
-    driver.findElement(By.id("passwd")).clear();
-    driver.findElement(By.id("passwd")).sendKeys("CakeRamp1");
-    driver.findElement(By.id("user")).clear();
-    driver.findElement(By.id("user")).sendKeys("xheco16@comcast.net");
-    driver.findElement(By.id("sign_in")).click();
-    Thread.sleep(2000);
     driver.findElement(By.xpath("//button[text() = 'OK']")).click();
     driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
     driver.findElement(By.xpath("//button[text() = 'Rules']")).click();
@@ -47,20 +49,13 @@ public class ComcastSchedule {
     driver.findElement(By.xpath("//div[4]/table/tbody/tr/td[13]/div/div/div[3]")).click();
     Thread.sleep(5000);
     driver.findElement(By.xpath("//div[5]/table/tbody/tr/td[13]/div/div/div[3]")).click();
-    Thread.sleep(10000);
+    Thread.sleep(14000);
     Comcast_Schedule_DAO_Impl.comcastSchedule();
 	Assert.assertEquals(Comcast_Schedule_DAO_Impl.numberOfActiveRowsForSchedule, numberOfScheduleRowsSimpleModeTwoTstats);
   }
   
   @Test
   public void comcastScheduleSetCustomModeSchedule() throws Exception {
-    driver.get(baseUrl);
-    driver.findElement(By.id("passwd")).clear();
-    driver.findElement(By.id("passwd")).sendKeys("CakeRamp1");
-    driver.findElement(By.id("user")).clear();
-    driver.findElement(By.id("user")).sendKeys("xheco16@comcast.net");
-    driver.findElement(By.id("sign_in")).click();
-    Thread.sleep(2000);
     driver.findElement(By.xpath("//button[text() = 'OK']")).click();
     driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
     driver.findElement(By.xpath("//button[text() = 'Rules']")).click();
@@ -77,13 +72,6 @@ public class ComcastSchedule {
  
   @Test
   public void comcastScheduleSetSimpleModeByDeletingSchecule() throws Exception {
-    driver.get(baseUrl);
-    driver.findElement(By.id("passwd")).clear();
-    driver.findElement(By.id("passwd")).sendKeys("CakeRamp1");
-    driver.findElement(By.id("user")).clear();
-    driver.findElement(By.id("user")).sendKeys("xheco16@comcast.net");
-    driver.findElement(By.id("sign_in")).click();
-    Thread.sleep(2000);
     driver.findElement(By.xpath("//button[text() = 'OK']")).click();
     driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
     driver.findElement(By.xpath("//button[text() = 'Rules']")).click();
@@ -100,6 +88,36 @@ public class ComcastSchedule {
 	Assert.assertEquals(Comcast_Schedule_DAO_Impl.numberOfActiveRowsForSchedule, numberOfScheduleRowsSimpleModeTwoTstats);
   }
 
+  @Test
+  public void moDetectionCoolModeTurnOFFHoldMode() throws Exception {
+    driver.findElement(By.xpath("//button[text() = 'OK']")).click();
+    driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+    driver.findElement(By.xpath("//button[text() = 'Devices']")).click();
+    Thread.sleep(2000);
+    driver.findElement(By.className("x-menu-item-text")).click();
+    driver.findElement(By.id("multiThermoSettingDiv_0")).click();
+    Thread.sleep(2000);
+    driver.findElement(By.id("manageThermostatLink")).click();
+    Thread.sleep(8000);
+    driver.findElement(By.xpath("//button[text() = 'Next']")).click();
+    Thread.sleep(1000);
+    driver.findElement(By.xpath("//button[text() = 'Next']")).click();
+    Thread.sleep(1000);
+    driver.findElement(By.xpath("//button[text() = 'Next']")).click();
+    Thread.sleep(1000);
+    driver.findElement(By.xpath("//button[text() = 'Next']")).click();
+    Thread.sleep(1000);
+    driver.findElement(By.xpath("//button[text() = 'Next']")).click();
+    Thread.sleep(1000);
+    driver.findElement(By.xpath("//button[text() = 'Next']")).click();
+    Thread.sleep(1000);
+    driver.findElement(By.xpath("//button[text() = 'Next']")).click();
+    Thread.sleep(8000);
+    driver.findElement(By.xpath("//button[text() = 'Finish']")).click();
+    Thread.sleep(8000);
+    Comcast_Schedule_DAO_Impl.comcastSchedule();
+	Assert.assertEquals(Comcast_Schedule_DAO_Impl.numberOfActiveRowsForSchedule, numberOfScheduleRowsCustomModeModeTwoTstats);
+  }
   
   
   @After

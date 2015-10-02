@@ -26,10 +26,6 @@ public class MoDetection {
     driver = new FirefoxDriver();
     baseUrl = "https://sp03.qa.xfinityhome.com/sp";
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-  }
-
-  @Test
-  public void moDetectionCoolSetpointDown() throws Exception {
     driver.get(baseUrl);
     driver.findElement(By.id("passwd")).clear();
     driver.findElement(By.id("passwd")).sendKeys(userPass);
@@ -37,6 +33,10 @@ public class MoDetection {
     driver.findElement(By.id("user")).sendKeys(userEmail);
     driver.findElement(By.id("sign_in")).click();
     Thread.sleep(2000);
+  }
+
+  @Test
+  public void moDetectionCoolSetpointDown() throws Exception {
     driver.findElement(By.xpath("//button[text() = 'OK']")).click();
     driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
     driver.findElement(By.xpath("//button[text() = 'Devices']")).click();
@@ -51,9 +51,7 @@ public class MoDetection {
     driver.findElement(By.cssSelector("area.minusArrow")).click();
     driver.findElement(By.cssSelector("area.minusArrow")).click();
     driver.findElement(By.cssSelector("area.minusArrow")).click();
-    driver.findElement(By.cssSelector("area.minusArrow")).click();
-    driver.findElement(By.cssSelector("area.minusArrow")).click();
-    Thread.sleep(15000);
+    Thread.sleep(22000);
     String setpoint1 = driver.findElement(By.id("multiThermoTempDecimal_0")).getText();
     String setpointDecimal1 = driver.findElement(By.id("multiThermoTempFractional_0")).getText();
     System.out.println("my NEW setpoint is " + setpoint1 + setpointDecimal1);
@@ -67,25 +65,17 @@ public class MoDetection {
 	
 	System.out.println("concat value " + concatNewSetpoint);
 	//convert string to int
-	int newUISetpoint = (int) Double.parseDouble(concatNewSetpoint);
-	System.out.println(newUISetpoint);
+	double newUISetpoint = (int) Double.parseDouble(concatNewSetpoint);
 	//rounding new setpoint
 	int newUISetpointRounded = (int) Math.round(newUISetpoint);
-	System.out.println(newUISetpoint);
-	System.out.println(newUISetpointRounded);
+	System.out.println("concat ui setpoint " + newUISetpoint);
+	System.out.println("rounded ui setpint " + newUISetpointRounded);
 	Assert.assertEquals(MO_Detection_DAO_Impl.coolHVACModeComcastSetpointRounded, newUISetpointRounded);
 
   }
   
   @Test
   public void moDetectionCoolSetpointUp() throws Exception {
-    driver.get(baseUrl);
-    driver.findElement(By.id("passwd")).clear();
-    driver.findElement(By.id("passwd")).sendKeys(userPass);
-    driver.findElement(By.id("user")).clear();
-    driver.findElement(By.id("user")).sendKeys(userEmail);
-    driver.findElement(By.id("sign_in")).click();
-    Thread.sleep(2000);
     driver.findElement(By.xpath("//button[text() = 'OK']")).click();
     driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
     driver.findElement(By.xpath("//button[text() = 'Devices']")).click();
@@ -98,7 +88,7 @@ public class MoDetection {
     driver.findElement(By.cssSelector("area.plusArrow")).click();
     driver.findElement(By.cssSelector("area.plusArrow")).click();
     driver.findElement(By.cssSelector("area.plusArrow")).click();
-    Thread.sleep(15000);
+    Thread.sleep(20000);
     String setpoint1 = driver.findElement(By.id("multiThermoTempDecimal_0")).getText();
     String setpointDecimal1 = driver.findElement(By.id("multiThermoTempFractional_0")).getText();
     System.out.println("my NEW setpoint is " + setpoint1 + setpointDecimal1);
@@ -112,25 +102,17 @@ public class MoDetection {
 	
 	System.out.println("concat value " + concatNewSetpoint);
 	//convert string to int
-	int newUISetpoint = (int) Double.parseDouble(concatNewSetpoint);
-	System.out.println(newUISetpoint);
+	double newUISetpoint = (int) Double.parseDouble(concatNewSetpoint);
 	//rounding new setpoint
 	int newUISetpointRounded = (int) Math.round(newUISetpoint);
-	System.out.println(newUISetpoint);
-	System.out.println(newUISetpointRounded);
+	System.out.println("concat ui setpoint " + newUISetpoint);
+	System.out.println("rounded ui setpint " + newUISetpointRounded);
 	Assert.assertEquals(MO_Detection_DAO_Impl.coolHVACModeComcastSetpointRounded, newUISetpointRounded);
 
   }
   
   @Test
   public void moDetectionCoolModeTurnONHoldMode() throws Exception {
-    driver.get(baseUrl);
-    driver.findElement(By.id("passwd")).clear();
-    driver.findElement(By.id("passwd")).sendKeys(userPass);
-    driver.findElement(By.id("user")).clear();
-    driver.findElement(By.id("user")).sendKeys(userEmail);
-    driver.findElement(By.id("sign_in")).click();
-    Thread.sleep(2000);
     driver.findElement(By.xpath("//button[text() = 'OK']")).click();
     driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
     driver.findElement(By.xpath("//button[text() = 'Devices']")).click();
@@ -148,12 +130,6 @@ public class MoDetection {
   
   @Test
   public void moDetectionCoolModeTurnOFFHoldMode() throws Exception {
-    driver.get(baseUrl);
-    driver.findElement(By.id("passwd")).clear();
-    driver.findElement(By.id("passwd")).sendKeys(userPass);
-    driver.findElement(By.id("user")).clear();
-    driver.findElement(By.id("user")).sendKeys(userEmail);
-    driver.findElement(By.id("sign_in")).click();
     Thread.sleep(2000);
     driver.findElement(By.xpath("//button[text() = 'OK']")).click();
     driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
@@ -171,13 +147,6 @@ public class MoDetection {
   
   @Test
   public void moDetectionCoolModeMoWithPermMode() throws Exception {
-    driver.get(baseUrl);
-    driver.findElement(By.id("passwd")).clear();
-    driver.findElement(By.id("passwd")).sendKeys(userPass);
-    driver.findElement(By.id("user")).clear();
-    driver.findElement(By.id("user")).sendKeys(userEmail);
-    driver.findElement(By.id("sign_in")).click();
-    Thread.sleep(2000);
     driver.findElement(By.xpath("//button[text() = 'OK']")).click();
     driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
     driver.findElement(By.xpath("//button[text() = 'Devices']")).click();
@@ -211,12 +180,11 @@ public class MoDetection {
 	
 	System.out.println("concat value " + concatNewSetpoint);
 	//convert string to int
-	int newUISetpoint = (int) Double.parseDouble(concatNewSetpoint);
-	System.out.println(newUISetpoint);
+	double newUISetpoint = (int) Double.parseDouble(concatNewSetpoint);
 	//rounding new setpoint
 	int newUISetpointRounded = (int) Math.round(newUISetpoint);
-	System.out.println(newUISetpoint);
-	System.out.println(newUISetpointRounded);
+	System.out.println("concat ui setpoint " + newUISetpoint);
+	System.out.println("rounded ui setpint " + newUISetpointRounded);
 	Assert.assertEquals(MO_Detection_DAO_Impl.coolHVACModeComcastSetpointRoundedPermOn, newUISetpointRounded);
 
   }
@@ -328,12 +296,11 @@ public class MoDetection {
 	
 	System.out.println("concat value " + concatNewSetpoint);
 	//convert string to int
-	int newUISetpoint = (int) Double.parseDouble(concatNewSetpoint);
-	System.out.println(newUISetpoint);
+	double newUISetpoint = (int) Double.parseDouble(concatNewSetpoint);
 	//rounding new setpoint
 	int newUISetpointRounded = (int) Math.round(newUISetpoint);
-	System.out.println(newUISetpoint);
-	System.out.println(newUISetpointRounded);
+	System.out.println("concat ui setpoint " + newUISetpoint);
+	System.out.println("rounded ui setpint " + newUISetpointRounded);
 	Assert.assertEquals(MO_Detection_DAO_Impl.heatHVACModeComcastSetpointRounded, newUISetpointRounded);
   }
   
@@ -378,12 +345,11 @@ public class MoDetection {
 	
 	System.out.println("concat value " + concatNewSetpoint);
 	//convert string to int
-	int newUISetpoint = (int) Double.parseDouble(concatNewSetpoint);
-	System.out.println(newUISetpoint);
+	double newUISetpoint = (int) Double.parseDouble(concatNewSetpoint);
 	//rounding new setpoint
 	int newUISetpointRounded = (int) Math.round(newUISetpoint);
-	System.out.println(newUISetpoint);
-	System.out.println(newUISetpointRounded);
+	System.out.println("concat ui setpoint " + newUISetpoint);
+	System.out.println("rounded ui setpint " + newUISetpointRounded);
 	Assert.assertEquals(MO_Detection_DAO_Impl.heatHVACModeComcastSetpointRounded, newUISetpointRounded);
 
   }

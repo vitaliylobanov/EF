@@ -32,28 +32,27 @@ public class MO_Detection_DAO_Impl {
 	public static final String efts_db_pass_apps = DAOprop.efts_apps_pass;
 	
 	//efts var to verify
+	public static List<String> thermostat_ids = new ArrayList<String>();
+	public static String user_name = "exr524638";
 	public static int coolHVACMode = 0;
 	public static int heatHVACMode = 0;
 	public static int collSetpoint = 0;
 	public static int heatSetpoint = 0;
-	public static List<String> thermostat_ids = new ArrayList<String>();
-	public static String user_name = "exr524638";
 	public static int coolHVACModeComcast = 0;
-	public static int coolHVACModeComcastSetpoint = 0;
 	public static int coolHVACModeComcastSetpointRounded = 0;
 	public static int coolHVACModeComcastPermModeOn = 0;
 	public static int coolHVACModeComcastPermModeOff = 0;
 	public static int coolHVACModeComcastPermOn = 0;
-	public static int coolHVACModeComcastSetpointPermOn = 0;
 	public static int coolHVACModeComcastSetpointRoundedPermOn = 0;
 	public static int coolHVACModeComcastSetpointFanAuto = 0;
 	public static int coolHVACModeComcastSetpointFanOff = 0;
 	public static int coolHVACModeComcastHeat = 0;
 	public static int coolHVACModeComcastOff = 0;
 	public static int heatHVACModeComcast = 0;
-	public static int heatHVACModeComcastSetpoint = 0;
 	public static int heatHVACModeComcastSetpointRounded = 0;
-	
+	public static double coolHVACModeComcastSetpoint = 0;
+	public static double heatHVACModeComcastSetpoint = 0;
+	public static double coolHVACModeComcastSetpointPermOn = 0;
 	
 	public static void thermostatStateApi_efts_cool_hvac_mode(int t_id) {
 		try {
@@ -231,9 +230,11 @@ public class MO_Detection_DAO_Impl {
 	        		+ "and event_ee !=0 and action='cool_setting' and event_sys_time between timestamp (DATE_sub(now(), interval 60 SECOND)) and timestamp(now()) order by last_updated DESC limit 1;";
 	        ResultSet result = statment.executeQuery(sql);
 	        while (result.next()) {
-	        	coolHVACModeComcastSetpoint = result.getInt("new_setting");
+	        	coolHVACModeComcastSetpoint = result.getDouble("new_setting");
+	        	System.out.println("v db orig "+ coolHVACModeComcastSetpoint);
 	        } 
 	        coolHVACModeComcastSetpointRounded = (int) Math.round(coolHVACModeComcastSetpoint);
+	        System.out.println("v db rounded "+ coolHVACModeComcastSetpointRounded);
 		} 
 		catch (SQLException se) {
 			se.printStackTrace();
@@ -259,9 +260,11 @@ public class MO_Detection_DAO_Impl {
 	        		+ "and event_ee !=0 and action='heat_setting' and event_sys_time between timestamp (DATE_sub(now(), interval 60 SECOND)) and timestamp(now()) order by last_updated DESC limit 1;";
 	        ResultSet result = statment.executeQuery(sql);
 	        while (result.next()) {
-	        	heatHVACModeComcastSetpoint = result.getInt("new_setting");
+	        	heatHVACModeComcastSetpoint = result.getDouble("new_setting");
+	        	System.out.println("v db orig "+ heatHVACModeComcastSetpoint);
 	        } 
-	        heatHVACModeComcastSetpointRounded = (int) Math.round(heatHVACModeComcastSetpoint);
+	        heatHVACModeComcastSetpointRounded = (int) Math.round(heatHVACModeComcastSetpoint + 0.5);
+	        System.out.println("v db "+ heatHVACModeComcastSetpointRounded);
 		} 
 		catch (SQLException se) {
 			se.printStackTrace();
@@ -369,9 +372,11 @@ public class MO_Detection_DAO_Impl {
 	        		+ "and event_ee !=0 and action='cool_setting' and event_sys_time between timestamp (DATE_sub(now(), interval 60 SECOND)) and timestamp(now()) order by last_updated DESC limit 1;";
 	        ResultSet result = statment.executeQuery(sql);
 	        while (result.next()) {
-	        	coolHVACModeComcastSetpointPermOn = result.getInt("new_setting");
+	        	coolHVACModeComcastSetpointPermOn = result.getDouble("new_setting");
+	        	System.out.println("v db orig "+ coolHVACModeComcastSetpointPermOn);;
 	        } 
-	        coolHVACModeComcastSetpointRoundedPermOn = (int) Math.round(coolHVACModeComcastSetpointPermOn);
+	        coolHVACModeComcastSetpointRoundedPermOn = (int) Math.round(coolHVACModeComcastSetpointPermOn + 0.5);
+	        System.out.println("v db rounded "+ coolHVACModeComcastSetpointRoundedPermOn);
 		} 
 		catch (SQLException se) {
 			se.printStackTrace();
