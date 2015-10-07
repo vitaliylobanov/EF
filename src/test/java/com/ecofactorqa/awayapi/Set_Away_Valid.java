@@ -7,6 +7,7 @@ import java.util.TimeZone;
 
 import com.ecofactorqa.dao.*;
 import com.ecofactorqa.util.APIprop;
+import com.ecofactorqa.util.PlatDataProp;
 import com.ecofactorqa.util.WaitUtil;
 
 import javax.ws.rs.client.Client;
@@ -24,10 +25,10 @@ public class Set_Away_Valid {
 	private Client client;
 	
 	//variables for assertions
-	int t_id=31437;
+	int t_id = PlatDataProp.AwayPlatDigiThermostatId;
 	String user_away_status="USER_AWAY";
-	int u_id=23531;
-	int end_away=0;
+	int u_id = PlatDataProp.AwayPlatDigiUserId;
+	int end_away = PlatDataProp.AwayPlatDigiEndAwayValue;
 	final String str_tid = Integer.toString(t_id);
 	
     // changing t_id for api call

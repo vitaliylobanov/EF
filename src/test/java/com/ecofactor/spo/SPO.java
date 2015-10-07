@@ -21,6 +21,7 @@ import com.ecofactorqa.dao.Away_DAO_Impl;
 import com.ecofactorqa.dao.SPO_DAO_Impl;
 import com.ecofactorqa.util.APIprop;
 import com.ecofactorqa.util.JsonUtil;
+import com.ecofactorqa.util.PlatDataProp;
 import com.ecofactorqa.util.WaitUtil;
 
 public class SPO {
@@ -28,16 +29,16 @@ public class SPO {
 	private Client client;
 	
     //variables for assertions spo
-	final int t_id = 31437;
-	final int event_ee_start = 2;
+	final int t_id = PlatDataProp.SpoDigiPlatThermostatId;
+	final int event_ee_start = PlatDataProp.SpoPlatEventEEStart;
 	final int setting_phase_0_start = event_ee_start;
-	final int event_ee_end = 0;
+	final int event_ee_end = PlatDataProp.SpoPlatEventEEEnd;
 	final int setting_phase_0_end = event_ee_end;
-    final int coolSetpointSPOEndMO = 76;
-    final int daily_schedule_id = 259955;
+    final int coolSetpointSPOEndMO = PlatDataProp.SpoPlatEndSpoSetpoint;
+    final int daily_schedule_id = PlatDataProp.DailyScheduleIdForDigiThermostat;
 	//away int for assertions
-    int end_away=0;
-	final int u_id=23531;
+    int end_away = PlatDataProp.AwayPlatDigiEndAwayValue;
+	final int u_id = PlatDataProp.AwayPlatDigiUserId;
 	
 	final String str_tid = Integer.toString(t_id);
 	final String str_schedule_id = Integer.toString(daily_schedule_id);

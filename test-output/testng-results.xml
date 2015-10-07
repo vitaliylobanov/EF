@@ -2,20 +2,20 @@
 <testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="68008" started-at="2015-09-21T22:52:00Z" finished-at="2015-09-21T22:53:08Z">
+  <suite name="Default suite" duration-ms="660046" started-at="2015-10-07T01:27:53Z" finished-at="2015-10-07T01:38:53Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="68008" started-at="2015-09-21T22:52:00Z" finished-at="2015-09-21T22:53:08Z">
-      <class name="com.ecofactorqa.awayapi.Set_Away_Valid">
-        <test-method status="PASS" signature="init()[pri:0, instance:com.ecofactorqa.awayapi.Set_Away_Valid@4b133fd6]" name="init" is-config="true" duration-ms="122" started-at="2015-09-21T15:52:00Z" finished-at="2015-09-21T15:52:00Z">
+    <test name="Default test" duration-ms="660046" started-at="2015-10-07T01:27:53Z" finished-at="2015-10-07T01:38:53Z">
+      <class name="com.ecofactor.spo.SPO">
+        <test-method status="PASS" signature="init()[pri:0, instance:com.ecofactor.spo.SPO@38a09316]" name="init" is-config="true" duration-ms="132" started-at="2015-10-06T18:27:53Z" finished-at="2015-10-06T18:27:53Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- init -->
-        <test-method status="PASS" signature="test_start_Away_using_valid_thermostatID_updateAway_cancel()[pri:0, instance:com.ecofactorqa.awayapi.Set_Away_Valid@4b133fd6]" name="test_start_Away_using_valid_thermostatID_updateAway_cancel" duration-ms="67856" started-at="2015-09-21T15:52:00Z" finished-at="2015-09-21T15:53:08Z">
+        <test-method status="PASS" signature="createSpoMobeforeMOcutoffTime()[pri:0, instance:com.ecofactor.spo.SPO@38a09316]" name="createSpoMobeforeMOcutoffTime" duration-ms="659891" started-at="2015-10-06T18:27:53Z" finished-at="2015-10-06T18:38:53Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- test_start_Away_using_valid_thermostatID_updateAway_cancel -->
-      </class> <!-- com.ecofactorqa.awayapi.Set_Away_Valid -->
+        </test-method> <!-- createSpoMobeforeMOcutoffTime -->
+      </class> <!-- com.ecofactor.spo.SPO -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
