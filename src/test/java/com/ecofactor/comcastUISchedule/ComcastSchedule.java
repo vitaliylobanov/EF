@@ -11,23 +11,24 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
 
 import com.ecofactorqa.dao.Comcast_Schedule_DAO_Impl;
+import com.ecofactorqa.util.PlatDataProp;
 
 public class ComcastSchedule {
   private WebDriver driver;
   private String baseUrl;
   private StringBuffer verificationErrors = new StringBuffer();
-  final int t_id = 24818;
-  final int numberOfScheduleRowsSimpleModeTwoTstats = 14;
-  final int numberOfScheduleRowsCustomModeModeTwoTstats = 70;
-  final String userPass= "CakeRamp1";
-  final String userEmail= "xheco16@comcast.net";
+  final int t_id = PlatDataProp.ScheduleAppsComcastUIThermostatId;
+  final int numberOfScheduleRowsSimpleModeTwoTstats = PlatDataProp.ScheduleAppsComcastUISimpleModeTwoThermostats;
+  final int numberOfScheduleRowsCustomModeModeTwoTstats = PlatDataProp.ScheduleAppsComcastUICustomeModeTwoThermostats;
+  final String userPass= PlatDataProp.ComcastUIUserPassSP;
+  final String userEmail= PlatDataProp.ComcastUIUserEmailSP;
 
 
 
   @Before
   public void setUp() throws Exception {
     driver = new FirefoxDriver();
-    baseUrl = "https://sp03.qa.xfinityhome.com/sp";
+    baseUrl = PlatDataProp.ComcastEnv03SPUrl;
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     driver.get(baseUrl);
     driver.findElement(By.id("passwd")).clear();

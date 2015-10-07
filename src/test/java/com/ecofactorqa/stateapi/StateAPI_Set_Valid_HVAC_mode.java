@@ -13,6 +13,7 @@ import org.testng.annotations.Test;
 
 import com.ecofactorqa.dao.MO_Detection_DAO_Impl;
 import com.ecofactorqa.util.APIprop;
+import com.ecofactorqa.util.PlatDataProp;
 import com.ecofactorqa.util.WaitUtil;
 
 public class StateAPI_Set_Valid_HVAC_mode {
@@ -20,7 +21,7 @@ public class StateAPI_Set_Valid_HVAC_mode {
 	private Client client;
 	
 	//variables for assertions
-	int t_id=31437;
+	int t_id = PlatDataProp.StatePlatDigiThermostatId;
 	final String str_tid = Integer.toString(t_id);
 
 	private String thermostatStateURL = APIprop.THERMOSTAT_STATE_URL

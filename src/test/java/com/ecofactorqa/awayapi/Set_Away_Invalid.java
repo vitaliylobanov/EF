@@ -12,6 +12,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import com.ecofactorqa.util.APIprop;
+import com.ecofactorqa.util.PlatDataProp;
 import com.ecofactorqa.dao.*;
 
 public class Set_Away_Invalid {
@@ -19,7 +20,7 @@ public class Set_Away_Invalid {
 	Away_DAO_Impl db = new Away_DAO_Impl();
 	
 	private Client client;
-	int t_id=32753;
+	int t_id = PlatDataProp.AwayPlatDigiBadThermostatId;
 	final String str_tid = Integer.toString(t_id);
 
 	private String setThermostatAway = APIprop.SET_THERMOSTAT_AWAY_URL

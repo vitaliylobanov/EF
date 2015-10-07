@@ -29,13 +29,13 @@ public class SPO {
 	private Client client;
 	
     //variables for assertions spo
-	final int t_id = PlatDataProp.SpoDigiPlatThermostatId;
+	final int t_id = PlatDataProp.SpoPlatDigiThermostatId;
 	final int event_ee_start = PlatDataProp.SpoPlatEventEEStart;
 	final int setting_phase_0_start = event_ee_start;
 	final int event_ee_end = PlatDataProp.SpoPlatEventEEEnd;
 	final int setting_phase_0_end = event_ee_end;
     final int coolSetpointSPOEndMO = PlatDataProp.SpoPlatEndSpoSetpoint;
-    final int daily_schedule_id = PlatDataProp.DailyScheduleIdForDigiThermostat;
+    final int daily_schedule_id = PlatDataProp.PlatDailyScheduleIdForDigiThermostat;
 	//away int for assertions
     int end_away = PlatDataProp.AwayPlatDigiEndAwayValue;
 	final int u_id = PlatDataProp.AwayPlatDigiUserId;

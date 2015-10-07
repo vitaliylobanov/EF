@@ -20,6 +20,7 @@ import org.testng.annotations.Test;
 import com.ecofactorqa.dao.Real_Temp_DAO_Impl;
 import com.ecofactorqa.util.APIprop;
 import com.ecofactorqa.util.JsonUtil;
+import com.ecofactorqa.util.PlatDataProp;
 import com.ecofactorqa.util.WaitUtil;
 
 public class RealTemp {
@@ -27,7 +28,7 @@ public class RealTemp {
 	private Client client;
 	
     //variables for assertions spo
-	final int t_id = 31437;
+	final int t_id = PlatDataProp.RealTempPlatDigiThermostatId;
 	final String str_tid = Integer.toString(t_id);
 	
     String next_phase_time_start;

@@ -12,12 +12,13 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import com.ecofactorqa.util.APIprop;
+import com.ecofactorqa.util.PlatDataProp;
 
 public class StateAPI_Set_Invalid_Fan_Mode {
 	
 	private Client client;
 
-	int t_id=31437;
+	int t_id = PlatDataProp.StatePlatDigiThermostatId;
 	final String str_tid = Integer.toString(t_id);
 	
 	private String thermostatStateURL = APIprop.THERMOSTAT_STATE_URL
