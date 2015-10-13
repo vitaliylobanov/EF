@@ -84,7 +84,7 @@ public class Away_DAO_Impl {
 			Connection connection = DriverManager.getConnection(ef_11_db_url,ef_11_db_user,ef_11_db_pass);
 		    Statement statment = connection.createStatement();
 
-	        String sql = "SELECT * FROM ef_thermostat_algo_control where thermostat_id= '" + t_id + "' and algorithm_id=-20 and thermostat_algorithm_status='ACTIVE' order by last_updated DESC limit 2;";	        
+	        String sql = "SELECT * FROM ef_thermostat_algo_control_long where thermostat_id= '" + t_id + "' and algorithm_id=-20 and thermostat_algorithm_status=0 order by last_updated DESC limit 2;";	        
 	        ResultSet result = statment.executeQuery(sql);
 	        while (result.next()) {
 	        	start_away_thermostat_id_algo_control = result.getInt("thermostat_id");
@@ -147,7 +147,7 @@ public class Away_DAO_Impl {
 			Connection connection = DriverManager.getConnection(ef_11_db_url,ef_11_db_user,ef_11_db_pass);
 		    Statement statment = connection.createStatement();
 
-	        String sql = "SELECT * FROM ef_thermostat_algo_control where thermostat_id= '" + t_id + "' and algorithm_id=-20 and thermostat_algorithm_status='ACTIVE' order by next_phase_time DESC limit 1;";	        
+	        String sql = "SELECT * FROM ef_thermostat_algo_control_long where thermostat_id= '" + t_id + "' and algorithm_id=-20 and thermostat_algorithm_status=0 order by next_phase_time DESC limit 1;";	        
 	        ResultSet result = statment.executeQuery(sql);
 	        while (result.next()) {
 	        	end_away_thermostat_id_algo = result.getInt("thermostat_id");

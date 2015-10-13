@@ -39,9 +39,9 @@ public class SPO_DAO_Impl {
 			Connection connection = DriverManager.getConnection(ef_11_db_url,ef_11_db_user,ef_11_db_pass);
 		    Statement statment = connection.createStatement();
 
-		    String sql = "INSERT INTO ef_thermostat_algo_control (thermostat_id, algorithm_id, thermostat_algorithm_status, algorithm_phase, "
+		    String sql = "INSERT INTO ef_thermostat_algo_control_short (thermostat_id, algorithm_id, thermostat_algorithm_status, algorithm_phase, "
 		    		+ "setting_phase_0, setting_prev_phase, next_phase_time, date_setup, execution_start_time_utc, execution_end_time_utc, mo_cutoff_time_utc, mo_recovery, mo_blackout, actor) "
-		    		+ "VALUES ('" + t_id + "', 190, 'ACTIVE', 0, '" + event_ee_start + "', 0, "
+		    		+ "VALUES ('" + t_id + "', 190, 0, 0, '" + event_ee_start + "', 0, "
 		    		+ "'" + next_phase_time_start + "', '" + date_setup_start + "', '" + execution_start_time_utc_start + "', '" + execution_end_time_utc_start + "', '" + mo_cutoff_time_utc_start + "', "
 		    		+ "'2.0', 2, 'SPO')"; 
 		    statment.executeUpdate(sql);
@@ -61,9 +61,9 @@ public class SPO_DAO_Impl {
 			Connection connection = DriverManager.getConnection(ef_11_db_url,ef_11_db_user,ef_11_db_pass);
 		    Statement statment = connection.createStatement();
 
-		    String sql = "INSERT INTO ef_thermostat_algo_control (thermostat_id, algorithm_id, thermostat_algorithm_status, algorithm_phase, "
+		    String sql = "INSERT INTO ef_thermostat_algo_control_short (thermostat_id, algorithm_id, thermostat_algorithm_status, algorithm_phase, "
 		    		+ "setting_phase_0, setting_prev_phase, next_phase_time, date_setup, execution_start_time_utc, mo_cutoff_time_utc, mo_recovery, mo_blackout, actor) "
-		    		+ "VALUES ('" + t_id + "', 190, 'ACTIVE', 0, 0, 0, "
+		    		+ "VALUES ('" + t_id + "', 190, 0, 0, 0, 0, "
 		    		+ "'" + next_phase_time_end + "', '" + date_setup_end + "', '" + execution_start_time_utc_end + "', '" + mo_cutoff_time_utc_end + "', '2.0', 2, 'SPO')"; 
 		    statment.executeUpdate(sql);
 		    System.out.println(sql);
@@ -101,7 +101,7 @@ public class SPO_DAO_Impl {
 			Connection connection = DriverManager.getConnection(ef_11_db_url,ef_11_db_user,ef_11_db_pass);
 		    Statement statment = connection.createStatement();
 
-	        String sql = "SELECT * FROM ef_thermostat_algo_control where thermostat_id= '" + t_id + "' and algorithm_id=190 and setting_phase_0= '" + setting_phase_0_start + "' and thermostat_algorithm_status='PROCESSED' and next_phase_time between timestamp (DATE_sub(now(), interval 600 SECOND)) and timestamp(now()) order by next_phase_time DESC limit 1;";	        
+	        String sql = "SELECT * FROM ef_thermostat_algo_control_short where thermostat_id= '" + t_id + "' and algorithm_id=190 and setting_phase_0= '" + setting_phase_0_start + "' and thermostat_algorithm_status=9 and next_phase_time between timestamp (DATE_sub(now(), interval 600 SECOND)) and timestamp(now()) order by next_phase_time DESC limit 1;";	        
 	        ResultSet result = statment.executeQuery(sql);
 	        while (result.next()) {
 	        	start_spo_thermostat_id_thermostat_algoritm = result.getInt("thermostat_id");
@@ -139,7 +139,7 @@ public class SPO_DAO_Impl {
 			Connection connection = DriverManager.getConnection(ef_11_db_url,ef_11_db_user,ef_11_db_pass);
 		    Statement statment = connection.createStatement();
 
-	        String sql = "SELECT * FROM ef_thermostat_algo_control where thermostat_id= '" + t_id + "' and algorithm_id=190 and setting_phase_0= '" + setting_phase_0_end + "' and thermostat_algorithm_status='PROCESSED' and next_phase_time between timestamp (DATE_sub(now(), interval 720 SECOND)) and timestamp(now()) order by next_phase_time DESC limit 1;";	        
+	        String sql = "SELECT * FROM ef_thermostat_algo_control_short where thermostat_id= '" + t_id + "' and algorithm_id=190 and setting_phase_0= '" + setting_phase_0_end + "' and thermostat_algorithm_status=9 and next_phase_time between timestamp (DATE_sub(now(), interval 720 SECOND)) and timestamp(now()) order by next_phase_time DESC limit 1;";	        
 	        ResultSet result = statment.executeQuery(sql);
 	        while (result.next()) {
 	        	end_spo_thermostat_id_thermostat_algoritm = result.getInt("thermostat_id");
@@ -178,9 +178,9 @@ public class SPO_DAO_Impl {
 			Connection connection = DriverManager.getConnection(ef_11_db_url,ef_11_db_user,ef_11_db_pass);
 		    Statement statment = connection.createStatement();
 
-		    String sql = "INSERT INTO ef_thermostat_algo_control (thermostat_id, algorithm_id, thermostat_algorithm_status, algorithm_phase, "
+		    String sql = "INSERT INTO ef_thermostat_algo_control_short (thermostat_id, algorithm_id, thermostat_algorithm_status, algorithm_phase, "
 		    		+ "setting_phase_0, setting_prev_phase, next_phase_time, date_setup, execution_start_time_utc, execution_end_time_utc, mo_cutoff_time_utc, mo_recovery, mo_blackout, actor) "
-		    		+ "VALUES ('" + t_id + "', 191, 'ACTIVE', 0, '" + event_ee_start + "', 0, "
+		    		+ "VALUES ('" + t_id + "', 191, 0, 0, '" + event_ee_start + "', 0, "
 		    		+ "'" + next_phase_time_start + "', '" + date_setup_start + "', '" + execution_start_time_utc_start + "', '" + execution_end_time_utc_start + "', '" + mo_cutoff_time_utc_start + "', "
 		    		+ "'2.0', 2, 'SPO')"; 
 		    statment.executeUpdate(sql);
@@ -200,9 +200,9 @@ public class SPO_DAO_Impl {
 			Connection connection = DriverManager.getConnection(ef_11_db_url,ef_11_db_user,ef_11_db_pass);
 		    Statement statment = connection.createStatement();
 
-		    String sql = "INSERT INTO ef_thermostat_algo_control (thermostat_id, algorithm_id, thermostat_algorithm_status, algorithm_phase, "
+		    String sql = "INSERT INTO ef_thermostat_algo_control_short (thermostat_id, algorithm_id, thermostat_algorithm_status, algorithm_phase, "
 		    		+ "setting_phase_0, setting_prev_phase, next_phase_time, date_setup, execution_start_time_utc, mo_cutoff_time_utc, mo_recovery, mo_blackout, actor) "
-		    		+ "VALUES ('" + t_id + "', 191, 'ACTIVE', 0, 0, 0, "
+		    		+ "VALUES ('" + t_id + "', 191, 0, 0, 0, 0, "
 		    		+ "'" + next_phase_time_end + "', '" + date_setup_end + "', '" + execution_start_time_utc_end + "', '" + mo_cutoff_time_utc_end + "', '2.0', 2, 'SPO')"; 
 		    statment.executeUpdate(sql);
 		    System.out.println(sql);
@@ -240,7 +240,7 @@ public class SPO_DAO_Impl {
 			Connection connection = DriverManager.getConnection(ef_11_db_url,ef_11_db_user,ef_11_db_pass);
 		    Statement statment = connection.createStatement();
 
-	        String sql = "SELECT * FROM ef_thermostat_algo_control where thermostat_id= '" + t_id + "' and algorithm_id=191 and setting_phase_0= '" + setting_phase_0_start + "' and thermostat_algorithm_status='PROCESSED' and next_phase_time between timestamp (DATE_sub(now(), interval 600 SECOND)) and timestamp(now()) order by next_phase_time DESC limit 1;";	        
+	        String sql = "SELECT * FROM ef_thermostat_algo_control_short where thermostat_id= '" + t_id + "' and algorithm_id=191 and setting_phase_0= '" + setting_phase_0_start + "' and thermostat_algorithm_status=9 and next_phase_time between timestamp (DATE_sub(now(), interval 600 SECOND)) and timestamp(now()) order by next_phase_time DESC limit 1;";	        
 	        ResultSet result = statment.executeQuery(sql);
 	        while (result.next()) {
 	        	start_spo_thermostat_id_thermostat_algoritm_heat = result.getInt("thermostat_id");
@@ -278,7 +278,7 @@ public class SPO_DAO_Impl {
 			Connection connection = DriverManager.getConnection(ef_11_db_url,ef_11_db_user,ef_11_db_pass);
 		    Statement statment = connection.createStatement();
 
-	        String sql = "SELECT * FROM ef_thermostat_algo_control where thermostat_id= '" + t_id + "' and algorithm_id=191 and setting_phase_0= '" + setting_phase_0_end + "' and thermostat_algorithm_status='PROCESSED' and next_phase_time between timestamp (DATE_sub(now(), interval 720 SECOND)) and timestamp(now()) order by next_phase_time DESC limit 1;";	        
+	        String sql = "SELECT * FROM ef_thermostat_algo_control_short where thermostat_id= '" + t_id + "' and algorithm_id=191 and setting_phase_0= '" + setting_phase_0_end + "' and thermostat_algorithm_status=9 and next_phase_time between timestamp (DATE_sub(now(), interval 720 SECOND)) and timestamp(now()) order by next_phase_time DESC limit 1;";	        
 	        ResultSet result = statment.executeQuery(sql);
 	        while (result.next()) {
 	        	end_spo_thermostat_id_thermostat_algoritm_heat = result.getInt("thermostat_id");
@@ -297,7 +297,7 @@ public class SPO_DAO_Impl {
 			Connection connection = DriverManager.getConnection(ef_11_db_url,ef_11_db_user,ef_11_db_pass);
 		    Statement statment = connection.createStatement();
 
-	        String sql = "SELECT * FROM ef_thermostat_algo_control where thermostat_id= '" + t_id + "' and algorithm_id=190 and setting_phase_0= '" + setting_phase_0_start + "' and thermostat_algorithm_status='ACTIVE' and next_phase_time between  timestamp(now()) and timestamp (DATE_ADD(now(), interval 600 SECOND)) order by next_phase_time DESC limit 1;";	        
+	        String sql = "SELECT * FROM ef_thermostat_algo_control_short where thermostat_id= '" + t_id + "' and algorithm_id=190 and setting_phase_0= '" + setting_phase_0_start + "' and thermostat_algorithm_status=0 and next_phase_time between  timestamp(now()) and timestamp (DATE_ADD(now(), interval 600 SECOND)) order by next_phase_time DESC limit 1;";	        
 	        ResultSet result = statment.executeQuery(sql);
 	        while (result.next()) {
 	        	update_spo_thermostat_id_thermostat_algoritm = result.getInt("thermostat_id");

@@ -2,19 +2,19 @@
 <testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="660046" started-at="2015-10-07T01:27:53Z" finished-at="2015-10-07T01:38:53Z">
+  <suite name="Default suite" duration-ms="1741935" started-at="2015-10-13T19:01:47Z" finished-at="2015-10-13T19:30:49Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="660046" started-at="2015-10-07T01:27:53Z" finished-at="2015-10-07T01:38:53Z">
+    <test name="Default test" duration-ms="1741935" started-at="2015-10-13T19:01:47Z" finished-at="2015-10-13T19:30:49Z">
       <class name="com.ecofactor.spo.SPO">
-        <test-method status="PASS" signature="init()[pri:0, instance:com.ecofactor.spo.SPO@38a09316]" name="init" is-config="true" duration-ms="132" started-at="2015-10-06T18:27:53Z" finished-at="2015-10-06T18:27:53Z">
+        <test-method status="PASS" signature="init()[pri:0, instance:com.ecofactor.spo.SPO@6ea1ade8]" name="init" is-config="true" duration-ms="102" started-at="2015-10-13T12:01:47Z" finished-at="2015-10-13T12:01:47Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- init -->
-        <test-method status="PASS" signature="createSpoMobeforeMOcutoffTime()[pri:0, instance:com.ecofactor.spo.SPO@38a09316]" name="createSpoMobeforeMOcutoffTime" duration-ms="659891" started-at="2015-10-06T18:27:53Z" finished-at="2015-10-06T18:38:53Z">
+        <test-method status="PASS" signature="createSPOAwayEndedDuringShedPhase()[pri:0, instance:com.ecofactor.spo.SPO@6ea1ade8]" name="createSPOAwayEndedDuringShedPhase" duration-ms="1741808" started-at="2015-10-13T12:01:47Z" finished-at="2015-10-13T12:30:49Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- createSpoMobeforeMOcutoffTime -->
+        </test-method> <!-- createSPOAwayEndedDuringShedPhase -->
       </class> <!-- com.ecofactor.spo.SPO -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
