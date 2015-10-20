@@ -31,9 +31,9 @@ public class Real_Temp_DAO_Impl {
 			Connection connection = DriverManager.getConnection(ef_11_db_url,ef_11_db_user,ef_11_db_pass);
 		    Statement statment = connection.createStatement();
 
-		    String sql = "INSERT INTO ef_thermostat_algo_control (thermostat_id, algorithm_id, thermostat_algorithm_status, algorithm_phase, next_phase_time, date_setup, "
+		    String sql = "INSERT INTO ef_thermostat_algo_control_long (thermostat_id, algorithm_id, thermostat_algorithm_status, algorithm_phase, next_phase_time, date_setup, "
 		    		+ "execution_start_time_utc) "
-		    		+ "VALUES ('" + t_id + "', 130, 'ACTIVE', 0,'" + next_phase_time_start + "', '" + date_setup_start + "', '" + execution_start_time_utc_start + "')"; 
+		    		+ "VALUES ('" + t_id + "', 130, 0, 0,'" + next_phase_time_start + "', '" + date_setup_start + "', '" + execution_start_time_utc_start + "')"; 
 		    statment.executeUpdate(sql);
 		    System.out.println(sql);
 	        
@@ -70,7 +70,7 @@ public class Real_Temp_DAO_Impl {
 			Connection connection = DriverManager.getConnection(ef_11_db_url,ef_11_db_user,ef_11_db_pass);
 		    Statement statment = connection.createStatement();
 
-	        String sql = "SELECT * FROM ef_thermostat_algo_control where thermostat_id= '" + t_id + "' and algorithm_id=130 and thermostat_algorithm_status='ACTIVE' and next_phase_time between timestamp (DATE_add(now(), interval 23 HOUR)) and timestamp (DATE_add(now(), interval '23:59' HOUR_MINUTE)) order by next_phase_time DESC limit 1;";	        
+	        String sql = "SELECT * FROM ef_thermostat_algo_control_long where thermostat_id= '" + t_id + "' and algorithm_id=130 and thermostat_algorithm_status=0 and next_phase_time between timestamp (DATE_add(now(), interval 23 HOUR)) and timestamp (DATE_add(now(), interval '23:59' HOUR_MINUTE)) order by next_phase_time DESC limit 1;";	        
 	        ResultSet result = statment.executeQuery(sql);
 	        while (result.next()) {
 	        	reschedule_real_temp_thermostat_id_thermostat_algoritm = result.getInt("thermostat_id");
@@ -89,7 +89,7 @@ public class Real_Temp_DAO_Impl {
 			Connection connection = DriverManager.getConnection(ef_11_db_url,ef_11_db_user,ef_11_db_pass);
 		    Statement statment = connection.createStatement();
 
-	        String sql = "UPDATE ef_thermostat_algo_control SET thermostat_algorithm_status='INACTIVE' where thermostat_id= '" + t_id + "' and algorithm_id in(130,131);";	        
+	        String sql = "UPDATE ef_thermostat_algo_control_long SET thermostat_algorithm_status=1 where thermostat_id= '" + t_id + "' and algorithm_id in(130,131);";	        
 	        statment.executeUpdate(sql);
 	        System.out.println(sql);
         
@@ -107,9 +107,9 @@ public class Real_Temp_DAO_Impl {
 			Connection connection = DriverManager.getConnection(ef_11_db_url,ef_11_db_user,ef_11_db_pass);
 		    Statement statment = connection.createStatement();
 
-		    String sql = "INSERT INTO ef_thermostat_algo_control (thermostat_id, algorithm_id, thermostat_algorithm_status, algorithm_phase, next_phase_time, date_setup, "
+		    String sql = "INSERT INTO ef_thermostat_algo_control_long (thermostat_id, algorithm_id, thermostat_algorithm_status, algorithm_phase, next_phase_time, date_setup, "
 		    		+ "execution_start_time_utc) "
-		    		+ "VALUES ('" + t_id + "', 131, 'ACTIVE', 0,'" + next_phase_time_start + "', '" + date_setup_start + "', '" + execution_start_time_utc_start + "')"; 
+		    		+ "VALUES ('" + t_id + "', 131, 0, 0,'" + next_phase_time_start + "', '" + date_setup_start + "', '" + execution_start_time_utc_start + "')"; 
 		    statment.executeUpdate(sql);
 		    System.out.println(sql);
 	        
@@ -146,7 +146,7 @@ public class Real_Temp_DAO_Impl {
 			Connection connection = DriverManager.getConnection(ef_11_db_url,ef_11_db_user,ef_11_db_pass);
 		    Statement statment = connection.createStatement();
 
-	        String sql = "SELECT * FROM ef_thermostat_algo_control where thermostat_id= '" + t_id + "' and algorithm_id=131 and thermostat_algorithm_status='ACTIVE' and next_phase_time between timestamp (DATE_add(now(), interval 23 HOUR)) and timestamp (DATE_add(now(), interval '23:59' HOUR_MINUTE)) order by next_phase_time DESC limit 1;";	        
+	        String sql = "SELECT * FROM ef_thermostat_algo_control_long where thermostat_id= '" + t_id + "' and algorithm_id=131 and thermostat_algorithm_status=0 and next_phase_time between timestamp (DATE_add(now(), interval 23 HOUR)) and timestamp (DATE_add(now(), interval '23:59' HOUR_MINUTE)) order by next_phase_time DESC limit 1;";	        
 	        ResultSet result = statment.executeQuery(sql);
 	        while (result.next()) {
 	        	reschedule_real_temp_thermostat_id_thermostat_algoritm_heat = result.getInt("thermostat_id");
