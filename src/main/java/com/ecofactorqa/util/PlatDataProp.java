@@ -25,7 +25,7 @@ public class PlatDataProp {
 	//Comcast
 	//Comcast user
 	public static final String ComcastUIUserEmailSP = "xheco16@comcast.net";
-	public static final String ComcastUIUserPassSP = "CakeRamp1";
+	public static final String ComcastUIUserPassSP = "Passp1";
 	
 	//Comcast ENV03 SP URL
 	public static final String ComcastEnv03SPUrl = "https://sp03.qa.xfinityhome.com/sp";
